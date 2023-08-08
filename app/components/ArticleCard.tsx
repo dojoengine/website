@@ -1,11 +1,14 @@
 import Link from "next/link";
 
 export const ArticleCard = ({ article }: { article: any }) => {
-    return (
+  return (
+    <Link
+      className="flex flex-col w-full space-y-3 bg-white text-black border-dojo-red p-6 border-4"
+      href={"articles/" + article.id}
+    >
+      <h2 className="uppercase text-xl font-bold">{article.title}</h2>
 
-        <Link className="flex flex-col w-full space-y-3 border-dojo-blue-light rounded p-3 border" href={"articles/" + article.id}>
-            {article.title}
-        </Link>
-
-    );
-}
+      <p>{article.subtitle}</p>
+    </Link>
+  );
+};
