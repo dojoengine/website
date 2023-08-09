@@ -10,7 +10,8 @@ module.exports = {
       colors:{
         'dojo-blue': '#071E3F',
         'dojo-blue-light': '#84ADE5',
-        'dojo-red': '#FF2F42'
+        'dojo-blue-med' : "#3C5D8A" ,
+        'dojo-red': '#FF2F42',
       }
     },
   },
