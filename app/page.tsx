@@ -4,7 +4,7 @@ import DojoIcon from "@/public/dojo-mark-full-dark.svg";
 import { ArticleCard } from "./components/ArticleCard";
 import { CopyBlock } from "./components/CopyBlock";
 
-export async function getData() {
+async function getData() {
   return {
     articles: getSortedArticlesData(),
   };

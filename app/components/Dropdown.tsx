@@ -1,20 +1,20 @@
-import React, { useCallback, useState } from "react";
+import React, { ReactNode, useCallback, useState } from "react";
 
-export const Dropdown = ({ items, icon, ...props }) => {
+export const Dropdown = ({ items, icon, ...props } : { items: any[], icon: ReactNode}) => {
   const [selected, setSelected] = useState({
     label: "EN",
     value: "en-US",
   });
   const [isOpen, setIsOpen] = useState(false);
 
-  const onToggleOpen = useCallback(() => {
+  const onToggleOpen = () => {
     setIsOpen(!isOpen);
-  });
+  };
 
-  const selectItem = useCallback((item) => {
+  const selectItem = (item: any) => {
     setSelected(item);
     setIsOpen(false);
-  });
+  };
 
   return (
     <div className="relative inline-block text-left">
@@ -44,7 +44,7 @@ export const Dropdown = ({ items, icon, ...props }) => {
         role="menu"
         aria-orientation="vertical"
         aria-labelledby="menu-button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <div className="py-0" role="none">
           {items.map((item, idx) => {
@@ -53,7 +53,7 @@ export const Dropdown = ({ items, icon, ...props }) => {
                 href="#"
                 className="flex items-center text-dojo-blue font-bold text-right px-4 py-2 text-sm hover:bg-dojo-red"
                 role="menuitem"
-                tabIndex="-1"
+                tabIndex={-1}
                 id={`menu-item-${idx}`}
                 key={`menu-item-${idx}`}
                 onClick={() => selectItem(item)}

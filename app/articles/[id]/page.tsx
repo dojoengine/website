@@ -1,7 +1,7 @@
 import { getAllArticleIds, getArticleData } from "@/app/hooks/articles";
 import Link from "next/link";
 
-export async function getData({ id }: any) {
+async function getData({ id }: any) {
   return {
     article: await getArticleData(id),
   };

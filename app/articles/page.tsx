@@ -1,7 +1,7 @@
 import { getSortedArticlesData } from '@/app/hooks/articles';
 import { ArticleCard } from '../components/ArticleCard';
 
-export async function getData() {
+async function getData() {
   return {
     articles: getSortedArticlesData()
   };
