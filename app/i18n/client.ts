@@ -9,31 +9,13 @@ import { getOptions, languages } from './settings'
 
 const runsOnServerSide = typeof window === 'undefined'
 
-import en_common from "@/app/i18n/locales/en/common.json"
-import fr_common from "@/app/i18n/locales/fr/common.json"
-import es_common from "@/app/i18n/locales/es/common.json"
-import zh_common from "@/app/i18n/locales/zh/common.json"
-
 i18next
     .use(initReactI18next)
     .use(LanguageDetector)
     .use(resourcesToBackend(async (language: string, namespace: string) => {
         return await import(`./locales/${language}/${namespace}.json`)
     }))
-    // .use(resourcesToBackend({
-    //     en: {
-    //         common: en_common,
-    //     },
-    //     fr: {
-    //         common: fr_common,
-    //     },
-    //     es: {
-    //         common: es_common,
-    //     },
-    //     zh: {
-    //         common: zh_common,
-    //     }
-    // }))
+
     .init({
         ...getOptions(),
         lng: undefined, // let detect the language on client side
