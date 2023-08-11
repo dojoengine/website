@@ -22,7 +22,7 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
 
   return (
     <main className="container mx-auto flex flex-col items-center px-3 pt-9 md:px-12 md:pt-24 mt-3 md:mt-24">
-      <div className="flex flex-wrap container">
+      <div className="flex flex-wrap container justify-center">
         <div className="w-full md:w-1/3 flex justify-center mr-0 md:mr-9 mb-9 md:mb-0  bg-dojo-blue">
           <Image width={250} height={150} priority alt="" src={DojoIcon} className="" />
         </div>
