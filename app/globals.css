@@ -2,31 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-.article-container {
-  h1,
-  h2,
-  h3 {
-    margin-bottom: 1.5rem;
-    font-weight: bold;
-  }
+.article-container h1,
+h2,
+h3 {
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
 
-  h1 {
-    font-size: 2.5rem;
-  }
+.article-container h1 {
+  font-size: 2.5rem;
+}
 
-  h2 {
-    font-size: 2rem;
-  }
+.article-container h2 {
+  font-size: 2rem;
+}
 
-  h3 {
-    font-size: 1.5rem;
-  }
+.article-container h3 {
+  font-size: 1.5rem;
+}
 
-  p {
-    margin-bottom: 1.5rem;
-  }
+.article-container p {
+  margin-bottom: 1.5rem;
+}
 
-  a {
-    text-decoration: underline;
-  }
+.article-container a {
+  text-decoration: underline;
 }

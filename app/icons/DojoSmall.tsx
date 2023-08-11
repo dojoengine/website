@@ -4,7 +4,7 @@ export const DojoSmall = () => {
       width="60"
       height="60"
       viewBox="0 0 40 40"
-      className="fill-dojo-blue-med hover:fill-dojo-red"
+      className="fill-dojo-blue-400 hover:fill-dojo-red"
       xmlns="http://www.w3.org/2000/svg"
     >
       <rect width="40" height="40" className="fill-dojo-blue" />

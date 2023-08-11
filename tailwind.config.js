@@ -7,10 +7,12 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors:{
+      colors: {
+        'dojo-blue-300': '#93bbf3',
+        'dojo-blue-400': '#84ADE5',
+        'dojo-blue-500': "#4C75AE",
+        'dojo-blue-600': "#3C5D8A",
         'dojo-blue': '#071E3F',
-        'dojo-blue-light': '#84ADE5',
-        'dojo-blue-med' : "#3C5D8A" ,
         'dojo-red': '#FF2F42',
       }
     },
