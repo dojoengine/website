@@ -1,11 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useClientTranslation } from "../i18n/client";
 
-export const CopyBlock = () => {
+export const CopyBlock = ({ lng }: { lng: string }) => {
   const command = "curl -L https://install.dojoengine.org | bash";
 
   const [copyToClipboard, copyResult] = useCopyToClipboard();
+
+  const { t } = useClientTranslation(lng);
 
   return (
     <code
@@ -13,7 +16,7 @@ export const CopyBlock = () => {
       className="relative flex flex-row w-full items-center bg-dojo-blue-light rounded p-3 pr-12 text-dojo-blue text-xs md:text-sm font-bold"
     >
       {copyResult === null && command}
-      {copyResult?.state === "success" && <div className="w-full text-center">Copied to Clipboard !</div>}
+      {copyResult?.state === "success" && <div className="w-full text-center">{t("copied_to_clipboard")}</div>}
       {copyResult?.state === "error" && <div className="w-full text-center">Error !</div>}
       <button
         className="absolute right-3 self-center p-1 hover:bg-white/10 rounded ml-4"

@@ -7,7 +7,7 @@ async function getData({ id }: any) {
   };
 }
 
-export default async function Article({ params }: { params: { id: string } }) {
+export default async function Article({ params }: { params: { id: string; lng: string } }) {
   const { article } = await getData({ id: params.id });
 
   return (

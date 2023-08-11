@@ -1,10 +1,28 @@
-import React, { ReactNode, useCallback, useState } from "react";
+"use client";
 
-export const Dropdown = ({ items, icon, ...props } : { items: any[], icon: ReactNode}) => {
-  const [selected, setSelected] = useState({
+import React, { ReactNode, Suspense, useCallback, useState } from "react";
+import Link from "next/link";
+
+const LangageSelector = ({
+  items,
+  icon,
+  t,
+  lng,
+  i18n,
+  ...props
+}: {
+  items: any[];
+  icon: ReactNode;
+  t: any;
+  lng: string;
+  i18n: any;
+}) => {
+  const defaultItem = items.find((i) => i.value === i18n?.language) || {
     label: "EN",
-    value: "en-US",
-  });
+    value: "en",
+  };
+
+  const [selected, setSelected] = useState(defaultItem);
   const [isOpen, setIsOpen] = useState(false);
 
   const onToggleOpen = () => {
@@ -12,6 +30,7 @@ export const Dropdown = ({ items, icon, ...props } : { items: any[], icon: React
   };
 
   const selectItem = (item: any) => {
+    i18n.changeLanguage(item.value);
     setSelected(item);
     setIsOpen(false);
   };
@@ -27,9 +46,7 @@ export const Dropdown = ({ items, icon, ...props } : { items: any[], icon: React
           aria-haspopup="true"
           onClick={onToggleOpen}
         >
-          <div className="px-2">
-            {icon}
-          </div>
+          <div className="px-2">{icon}</div>
           <div className="pr-2">{selected.label}</div>
         </button>
       </div>
@@ -49,8 +66,8 @@ export const Dropdown = ({ items, icon, ...props } : { items: any[], icon: React
         <div className="py-0" role="none">
           {items.map((item, idx) => {
             return (
-              <a
-                href="#"
+              <Link
+                href={`/${item.value}`}
                 className="flex items-center text-dojo-blue font-bold text-right px-4 py-2 text-sm hover:bg-dojo-red"
                 role="menuitem"
                 tabIndex={-1}
@@ -60,7 +77,7 @@ export const Dropdown = ({ items, icon, ...props } : { items: any[], icon: React
               >
                 <div className="mr-2">{item.icon}</div>
                 {item.label}
-              </a>
+              </Link>
             );
           })}
         </div>
@@ -68,3 +85,5 @@ export const Dropdown = ({ items, icon, ...props } : { items: any[], icon: React
     </div>
   );
 };
+
+export default LangageSelector;
