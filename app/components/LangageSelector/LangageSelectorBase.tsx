@@ -30,14 +30,16 @@ const LangageSelector = ({
   };
 
   const selectItem = (item: any) => {
-    // setSelected(item);
+    setSelected(item);
     setIsOpen(false);
     i18n.changeLanguage(item.value);
   };
 
   return (
+
     <div className="relative inline-block text-left">
       <div>
+    
         <button
           type="button"
           className="inline-flex w-full justify-center text-dojo-blue shadow-sm bg-dojo-blue-400 hover:bg-dojo-red rounded-full p-2 font-bold"
@@ -47,7 +49,10 @@ const LangageSelector = ({
           onClick={onToggleOpen}
         >
           <div className="px-1">{icon}</div>
-          <div className="px-0 hidden md:block md:pr-2">{selected.label}</div>
+          <div className="px-0 hidden md:block md:pr-2">
+            {/* {selected.label} */}
+            {lng.toUpperCase()}
+            </div>
         </button>
       </div>
 
