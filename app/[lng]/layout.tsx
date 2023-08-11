@@ -8,7 +8,7 @@ import { TopNav } from "../components/TopNav";
 import { Background } from "../components/Background";
 import { useTranslation } from "../i18n";
 
-import dojoFull from "@/public/dojo-mark-full-dark.svg";
+import dojoSocial from "@/public/dojo-social.png";
 
 import favIcon from "@/app/favicon.ico";
 import fav16Icon from "@/public/favicon-16x16.png";
@@ -34,9 +34,9 @@ export async function generateMetadata(
       title: t("head_home_title"),
       images: [
         {
-          url: dojoFull.src,
-          width: 225,
-          height: 120,
+          url: dojoSocial.src,
+          width: 660,
+          height: 380,
           alt: "Dojo",
         },
       ],
@@ -66,7 +66,7 @@ export default async function RootLayout({
 }) {
   return (
     <html lang={lng} dir={dir(lng)}>
-      <body className={`${ibm_plex_mono.className} bg-dojo-blue text-dojo-blue-light`}>
+      <body className={`${ibm_plex_mono.className} bg-dojo-blue text-dojo-blue-400`}>
         <TopNav lng={lng} />
         {children}
         <Background />

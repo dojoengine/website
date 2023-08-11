@@ -25,12 +25,12 @@ export const TopNav = ({ lng }: { lng: string }) => {
           <DojoSmall />
         </Link>
       </div>
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center ">
         <LangageSelector items={dropdownItems} icon={<LanguageIcon />} lng={lng} />
         <Link
           href={docUrl}
           target="_blank"
-          className="block text-dojo-blue bg-dojo-blue-med hover:bg-dojo-red rounded-full p-2 px-4 ml-8 font-bold"
+          className="block text-dojo-blue bg-dojo-blue-400 hover:bg-dojo-red rounded-full p-2 px-4 ml-4 font-bold"
         >
           DOCS
         </Link>

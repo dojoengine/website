@@ -40,14 +40,14 @@ const LangageSelector = ({
       <div>
         <button
           type="button"
-          className="inline-flex w-full justify-center text-dojo-blue shadow-sm bg-dojo-blue-med hover:bg-dojo-red rounded-full p-2 font-bold"
+          className="inline-flex w-full justify-center text-dojo-blue shadow-sm bg-dojo-blue-400 hover:bg-dojo-red rounded-full p-2 font-bold"
           id="menu-button"
           aria-expanded="true"
           aria-haspopup="true"
           onClick={onToggleOpen}
         >
-          <div className="px-2">{icon}</div>
-          <div className="pr-2">{selected.label}</div>
+          <div className="px-1">{icon}</div>
+          <div className="px-0 hidden md:block md:pr-2">{selected.label}</div>
         </button>
       </div>
 
@@ -57,7 +57,7 @@ const LangageSelector = ({
         }}
         className={`${
           !isOpen && "hidden"
-        } absolute right-0 z-10 mt-2 origin-top-right rounded-xl bg-dojo-blue-med shadow-lg focus:outline-none overflow-hidden `}
+        } absolute right-0 z-10 mt-2 origin-top-right rounded-xl bg-dojo-blue-400 shadow-lg focus:outline-none overflow-hidden `}
         role="menu"
         aria-orientation="vertical"
         aria-labelledby="menu-button"
@@ -65,17 +65,17 @@ const LangageSelector = ({
       >
         <div className="py-0" role="none">
           {items.map((item, idx) => {
+            if (item.value === lng) return;
             return (
               <Link
                 href={`/${item.value}`}
-                className="flex items-center text-dojo-blue font-bold text-right px-4 py-2 text-sm hover:bg-dojo-red"
+                className="flex justify-center text-dojo-blue font-bold  px-4 py-2 text-sm hover:bg-dojo-red"
                 role="menuitem"
                 tabIndex={-1}
                 id={`menu-item-${idx}`}
                 key={`menu-item-${idx}`}
                 onClick={() => selectItem(item)}
               >
-                <div className="mr-2">{item.icon}</div>
                 {item.label}
               </Link>
             );
