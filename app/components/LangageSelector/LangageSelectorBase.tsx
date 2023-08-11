@@ -30,7 +30,7 @@ const LangageSelector = ({
   };
 
   const selectItem = (item: any) => {
-    setSelected(item);
+    // setSelected(item);
     setIsOpen(false);
     i18n.changeLanguage(item.value);
   };
