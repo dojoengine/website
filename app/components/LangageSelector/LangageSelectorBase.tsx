@@ -36,13 +36,11 @@ const LangageSelector = ({
   };
 
   return (
-
     <div className="relative inline-block text-left">
       <div>
-    
         <button
           type="button"
-          className="inline-flex w-full justify-center text-dojo-blue shadow-sm bg-dojo-blue-400 hover:bg-dojo-red rounded-full p-2 font-bold"
+          className="inline-flex w-full justify-center text-dojo-blue shadow-sm bg-dojo-blue-400 hover:bg-dojo-red rounded-full p-1 sm:p-2 font-bold"
           id="menu-button"
           aria-expanded="true"
           aria-haspopup="true"
@@ -52,7 +50,7 @@ const LangageSelector = ({
           <div className="px-0 hidden md:block md:pr-2">
             {/* {selected.label} */}
             {lng.toUpperCase()}
-            </div>
+          </div>
         </button>
       </div>
 
@@ -70,11 +68,12 @@ const LangageSelector = ({
       >
         <div className="py-0" role="none">
           {items.map((item, idx) => {
-          
             return (
               <Link
                 href={`/${item.value}`}
-                className={`flex justify-center text-dojo-blue font-bold  px-4 py-2 text-sm hover:bg-dojo-red ${item.value === lng && "hidden"}`}
+                className={`flex justify-center text-dojo-blue font-bold  px-4 py-2 text-sm hover:bg-dojo-red ${
+                  item.value === lng && "hidden"
+                }`}
                 role="menuitem"
                 tabIndex={-1}
                 id={`menu-item-${idx}`}

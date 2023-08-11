@@ -22,7 +22,7 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
 
   return (
     <main className="container mx-auto flex flex-col items-center px-3 pt-9 md:px-12 md:pt-24 mt-3 md:mt-24">
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap container">
         <div className="w-full md:w-1/3 flex justify-center pr-0 md:pr-9 mb-9 md:mb-0">
           <Image width={250} height={150} priority alt="" src={DojoIcon} className=" bg-dojo-blue" />
         </div>
@@ -30,7 +30,7 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
           <div className="text-center md:text-left">
             <b>Dojo</b> {t("intro")}
           </div>
-          <div className="flex my-8">
+          <div className="flex my-8 justify-center md:justify-start w-full xs:w-auto">
             <CopyBlock lng={lng} />
           </div>
         </div>

@@ -30,7 +30,7 @@ export const TopNav = ({ lng }: { lng: string }) => {
         <Link
           href={docUrl}
           target="_blank"
-          className="block text-dojo-blue bg-dojo-blue-400 hover:bg-dojo-red rounded-full p-2 px-4 ml-4 font-bold"
+          className="block text-dojo-blue bg-dojo-blue-400 hover:bg-dojo-red rounded-full p-1 sm:p-2 px-2 sm:px-4 ml-4 font-bold"
         >
           DOCS
         </Link>

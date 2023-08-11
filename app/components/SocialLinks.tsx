@@ -29,7 +29,7 @@ export const SocialLinks = () => {
             <Link
               href={link.url}
               target="_blank"
-              className="block bg-dojo-blue-400 hover:bg-dojo-red rounded-full p-2 ml-4"
+              className="block bg-dojo-blue-400 hover:bg-dojo-red rounded-full p-1 sm:p-2 ml-4"
             >
               {link.icon}
             </Link>

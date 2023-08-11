@@ -13,12 +13,20 @@ export const CopyBlock = ({ lng }: { lng: string }) => {
   return (
     <code
       style={{ maxWidth: "420px" }}
-      className="relative flex flex-row w-full items-center bg-dojo-blue-400 hover:bg-dojo-blue-300 rounded p-3 pr-12 text-dojo-blue text-xs lg:text-sm font-bold cursor-pointer"
+      className="relative flex flex-row w-full items-center bg-dojo-blue-400 hover:bg-dojo-blue-300 rounded p-3  pr-12 text-dojo-blue text-xs lg:text-sm overflow-hidden font-bold cursor-pointer xs:w-full"
       onClick={() => copyToClipboard(command)}
     >
       <div className="w-full">
-        <div className={`w-full  text-center ${copyResult !== null && "invisible"}`}>{command}</div>
-        {copyResult?.state === "success" && <div className="absolute top-3 w-full text-center">{t("copied_to_clipboard")}</div>}
+        <div
+          className={`w-full text-center text-ellipsis whitespace-nowrap overflow-hidden ${
+            copyResult !== null && "invisible"
+          }`}
+        >
+          {command}
+        </div>
+        {copyResult?.state === "success" && (
+          <div className="absolute top-3 w-full text-center">{t("copied_to_clipboard")}</div>
+        )}
         {copyResult?.state === "error" && <div className="absolute top-3 w-full text-center">Error !</div>}
       </div>
       <div className="absolute right-3 self-center p-1  rounded ml-4">
