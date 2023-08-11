@@ -23,8 +23,8 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
   return (
     <main className="container mx-auto flex flex-col items-center px-3 pt-9 md:px-12 md:pt-24 mt-3 md:mt-24">
       <div className="flex flex-wrap container">
-        <div className="w-full md:w-1/3 flex justify-center pr-0 md:pr-9 mb-9 md:mb-0">
-          <Image width={250} height={150} priority alt="" src={DojoIcon} className=" bg-dojo-blue" />
+        <div className="w-full md:w-1/3 flex justify-center mr-0 md:mr-9 mb-9 md:mb-0  bg-dojo-blue">
+          <Image width={250} height={150} priority alt="" src={DojoIcon} className="" />
         </div>
         <div className="w-full flex flex-col items-center md:items-start md:w-2/3 max-w-xl self-center text-sm p-2 md:p-9 bg-dojo-blue">
           <div className="text-center md:text-left">

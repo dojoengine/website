@@ -12,7 +12,7 @@ export const CopyBlock = ({ lng }: { lng: string }) => {
 
   return (
     <code
-      style={{ maxWidth: "420px" }}
+      style={{ maxWidth: "469px" }}
       className="relative flex flex-row w-full items-center bg-dojo-blue-400 hover:bg-dojo-blue-300 rounded p-3  pr-12 text-dojo-blue text-xs lg:text-sm overflow-hidden font-bold cursor-pointer xs:w-full"
       onClick={() => copyToClipboard(command)}
     >
