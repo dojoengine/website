@@ -65,11 +65,11 @@ const LangageSelector = ({
       >
         <div className="py-0" role="none">
           {items.map((item, idx) => {
-            if (item.value === lng) return;
+          
             return (
               <Link
                 href={`/${item.value}`}
-                className="flex justify-center text-dojo-blue font-bold  px-4 py-2 text-sm hover:bg-dojo-red"
+                className={`flex justify-center text-dojo-blue font-bold  px-4 py-2 text-sm hover:bg-dojo-red ${item.value === lng && "hidden"}`}
                 role="menuitem"
                 tabIndex={-1}
                 id={`menu-item-${idx}`}
