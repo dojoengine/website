@@ -1,6 +1,5 @@
 import "../globals.css";
 import type { Metadata, ResolvingMetadata } from "next";
-import Head from "next/head";
 import { IBM_Plex_Mono } from "next/font/google";
 import { dir } from "i18next";
 import { languages } from "../i18n/settings";

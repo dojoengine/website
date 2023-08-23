@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ReactNode, Suspense, useCallback, useState } from "react";
+import React, { ReactNode, useState } from "react";
 import Link from "next/link";
 
 const LangageSelector = ({

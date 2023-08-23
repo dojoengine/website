@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useClientTranslation } from "../i18n/client";
 
 export const CopyBlock = ({ lng }: { lng: string }) => {

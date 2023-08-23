@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import { GithubIcon } from "../icons/Github";
@@ -22,20 +21,19 @@ const links = [
 
 export const SocialLinks = () => {
   return (
-    <ul className="flex flex-row">
+    <>
       {links.map((link, idx) => {
         return (
-          <li key={`social-${idx}`}>
-            <Link
-              href={link.url}
-              target="_blank"
-              className="block bg-dojo-blue-400 hover:bg-dojo-red rounded-full p-1 sm:p-2 ml-4"
-            >
-              {link.icon}
-            </Link>
-          </li>
+          <Link
+            key={`social-${idx}`}
+            href={link.url}
+            target="_blank"
+            className="block bg-dojo-blue-400 hover:bg-dojo-red rounded-full p-1 sm:p-2"
+          >
+            {link.icon}
+          </Link>
         );
       })}
-    </ul>
+    </>
   );
 };

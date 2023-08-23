@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export const Background = () => {
   return (
     <div style={{ zIndex: "-1" }} className="absolute top-0 left-0 right-0 h-full pointer-events-none">
