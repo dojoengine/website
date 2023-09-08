@@ -7,4 +7,10 @@ export interface Article {
     contentHtml: string;
     id: string;
     category: string;
+    cover: string;
+}
+
+export enum Categories {
+    gaming = 'gaming',
+
 }
