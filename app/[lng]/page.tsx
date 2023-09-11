@@ -45,20 +45,20 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
         </div>
       </div>
 
-      <div id="code" className="landing-container flex container">
-        <div className="w-1/2  self-center p-20">
+      <div id="code" className="sm:landing-container flex container flex-wrap">
+        <div className="sm:w-1/2  self-center p-20">
           <h2>Architect Your World</h2>
           <p>Start by editing example Rust or C# module. Click “Go Luck” to publish your SpacetimeDB module instantly.</p>
         </div>
-        <div className=" w-1/2 self-center bg-dojo-blue-700 px-1 py-3 rounded-2xl shadow-2xl shadow-dojo-blue-200">
+        <div className="sm:w-1/2 self-center bg-dojo-blue-700 px-1 py-3 rounded-2xl shadow-2xl shadow-dojo-blue-200">
           <Code />
         </div>
-
       </div>
+
       <div className="w-full landing-container ">
-        <div className=" px-6 py:-10 md:py-20 mx-auto w-full">
-          <h3 className="mb-8 text-center">{t("articles")}</h3>
-          <div className="flex flex-col w-2/3 space-y-3 mx-auto">
+        <div className="py-10 px-6 sm:py:-10 md:py-20 mx-auto sm:w-2/3 mx-auto">
+          <h2 className="mb-8 text-left">{t("articles")}</h2>
+          <div className="flex flex-col space-y-3 mx-auto">
             {articles.map((a: any, index: any) => {
               return <ArticleCard key={index} article={a} lng={lng} />;
             })}

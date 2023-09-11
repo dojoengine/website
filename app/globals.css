@@ -39,7 +39,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply tracking-wide;
+  @apply font-title tracking-wide;
 }
 
 h1 {
