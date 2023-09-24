@@ -3,6 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
+import { Article } from "../types";
 
 export default async function markdownToHtml(markdown: any) {
   const result = await remark().use(html, { sanitize: false }).process(markdown);

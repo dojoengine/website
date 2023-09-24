@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Article } from "../types";
+import { Article } from "@/app/types";
 
 import { ArticleTags } from "./ArticleTags";
 
-export const ArticleInfos = ({ article, lng }: { article: Article; lng: string }) => {
+export const ArticleInfos = ({ article, lng }: { article: Article; lng?: string }) => {
   return (
     <>
       <aside className="max-w-xl mx-auto w-auto lg:w-[240px] lg:mx-0">
@@ -12,7 +12,7 @@ export const ArticleInfos = ({ article, lng }: { article: Article; lng: string }
           {article.author_img && <img src={article.author_img} width="75px" height="75px" className="rounded-full" />}
           <div>
             {article.author && <div className="text-white text-lg font-bold">{article.author}</div>}
-            {article.date && <date>{article.date}</date>}
+            {article.date && <time>{article.date}</time>}
             <div className="mt-3">
               <ArticleTags article={article} />
             </div>

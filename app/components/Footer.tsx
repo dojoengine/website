@@ -51,7 +51,7 @@ export const Footer = () => {
           <h6 className="uppercase mb-4 font-bold opacity-50">Dojo</h6>
           <div className="flex flex-col items-start space-y-2">
             {footer_links.dojo.map((link, index) => (
-              <FooterLink link={link} index={index} />
+              <FooterLink link={link} key={index} />
             ))}
           </div>
         </div>
@@ -59,7 +59,7 @@ export const Footer = () => {
           <h6 className="uppercase mb-4 font-bold opacity-50">Technology</h6>
           <div className="flex flex-col  items-start  space-y-2">
             {footer_links.tech.map((link, index) => (
-              <FooterLink link={link} index={index} />
+              <FooterLink link={link} key={index} />
             ))}
           </div>
         </div>
@@ -78,9 +78,9 @@ export const Footer = () => {
   );
 };
 
-const FooterLink = ({ link, index }) => {
+const FooterLink = ({ link }: { link: { name: string; url: string; external?: boolean } }) => {
   return (
-    <Link href={link.url} key={index} target={link.external ? "_blank" : ""}>
+    <Link href={link.url} target={link.external ? "_blank" : ""}>
       {link.name}
     </Link>
   );

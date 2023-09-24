@@ -6,10 +6,11 @@ import { ArticleInfos } from "@/app/components/articles/ArticleInfos";
 import { ArticleContent } from "@/app/components/articles/ArticleContent";
 import { ArticleNav } from "@/app/components/articles/ArticleNav";
 import { ArticleFooter} from "@/app/components/articles/ArticleFooter";
+import { Article } from "@/app/types";
 
 async function getData({ id }: any) {
   return {
-    article: await getArticleData(id),
+    article: await getArticleData(id) as Article,
   };
 }
 

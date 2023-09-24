@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Article } from "../types";
+import { Article } from "@/app/types";
 
-export const ArticleFooter = ({ article, lng }: { article: Article; lng: string }) => {
+export const ArticleFooter = ({ article, lng }: { article: Article; lng?: string }) => {
   return (
     <footer className="max-w-5xl mx-auto  text-white">
       <hr className="border-dojo-blue-dark my-6 lg:my-12 opacity-10" />
