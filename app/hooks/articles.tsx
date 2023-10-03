@@ -6,8 +6,45 @@ import html from "remark-html";
 import { Article } from "../types";
 
 export default async function markdownToHtml(markdown: any) {
-  const result = await remark().use(html, { sanitize: false }).process(markdown);
-  return result.toString();
+  let totalH2 = 0;
+  const summary: string[] = [];
+
+  const result = await remark()
+    // @ts-ignore
+    .use(html, {
+      sanitize: false,
+      handlers: {
+        heading(state, node) {
+          // console.log(state);
+          // console.log(node);
+
+          if (node.depth === 2) {
+            summary.push(node.children[0].value);
+            totalH2++;
+          }
+
+          const result = {
+            type: "element",
+            tagName: "h" + node.depth,
+            properties: {
+              id: node.depth === 2 ? `summary-${totalH2 - 1}` : "",
+              // class: `summary-${totalH2}`
+            },
+            children: state.all(node),
+          };
+          // @ts-ignore
+          state.patch(node, result);
+          // @ts-ignore
+          return state.applyData(node, result);
+        },
+      },
+    })
+    .process(markdown);
+
+  return {
+    processedContent: result.toString(),
+    summary,
+  };
 }
 
 const articlesDirectory = path.join(process.cwd(), "app/content");
@@ -53,13 +90,15 @@ export async function getArticleData(id: any) {
   const fileContents = fs.readFileSync(fullPath, "utf8");
 
   const { data, content } = matter(fileContents);
+  const { processedContent, summary } = await markdownToHtml(content);
 
-  const processedContent = await markdownToHtml(content);
-  // console.log(processedContent)
+  // console.log(processedContent);
+  // console.log(summary);
 
   return {
     id,
     contentHtml: processedContent,
+    summary: summary,
     ...data,
   };
 }

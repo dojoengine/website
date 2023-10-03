@@ -10,6 +10,7 @@ export interface Article {
     id: string;
     category: string;
     cover: string;
+    summary: string[];
 }
 
 export enum Categories {
