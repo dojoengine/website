@@ -19,25 +19,28 @@ const footer_links = {
 
     {
       name: "Careers",
-      url: "/contact",
+      url: "/",
     },
   ],
   tech: [
     {
+      name: "Katana",
+      url: "https://book.dojoengine.org/toolchain/katana/overview.html",
+      external: true,
+    },
+    {
       name: "Sozo",
-      url: "/",
+      url: "https://book.dojoengine.org/toolchain/sozo/overview.html",
+      external: true,
     },
     {
       name: "Torii",
-      url: "/",
+      url: "https://book.dojoengine.org/toolchain/torii/overview.html",
+      external: true,
     },
     {
       name: "World Explorer",
-      url: "/",
-    },
-    {
-      name: "Cartridge",
-      url: "https://cartridge.gg",
+      url: "https://www.worlds.dev/",
       external: true,
     },
   ],
@@ -45,10 +48,10 @@ const footer_links = {
 
 export const Footer = () => {
   return (
-    <footer className="footer bg-dojo-blue-600 ">
+    <footer className="footer bg-dojo-blue-900 shadow-2xl shadow-dojo-blue-400 ">
       <div className="container py-12 px-6 grid-cols-4 grid max-w-5xl mx-auto ">
         <div>
-          <h6 className="uppercase mb-4 font-bold opacity-50">Dojo</h6>
+          <h6 className="uppercase mb-4 font-bold opacity-50 text-dojo-blue-500">Dojo</h6>
           <div className="flex flex-col items-start space-y-2">
             {footer_links.dojo.map((link, index) => (
               <FooterLink link={link} key={index} />
@@ -56,8 +59,8 @@ export const Footer = () => {
           </div>
         </div>
         <div>
-          <h6 className="uppercase mb-4 font-bold opacity-50">Technology</h6>
-          <div className="flex flex-col  items-start  space-y-2">
+          <h6 className="uppercase mb-4 font-bold opacity-50 text-dojo-blue-500">Technology</h6>
+          <div className="flex flex-col items-start space-y-2">
             {footer_links.tech.map((link, index) => (
               <FooterLink link={link} key={index} />
             ))}
@@ -80,7 +83,7 @@ export const Footer = () => {
 
 const FooterLink = ({ link }: { link: { name: string; url: string; external?: boolean } }) => {
   return (
-    <Link href={link.url} target={link.external ? "_blank" : ""}>
+    <Link href={link.url} target={link.external ? "_blank" : ""} className="hover:text-dojo-red-400">
       {link.name}
     </Link>
   );

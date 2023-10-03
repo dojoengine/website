@@ -7,7 +7,7 @@ import { ArticleTags } from "./articles/ArticleTags";
 export const ArticleCard = ({ article, lng }: { article: Article; lng: string }) => {
   return (
     <Link
-      className="flex space-y-3 p-3 sm:p-6 bg-dojo-blue-600 rounded-2xl w-full"
+      className="flex space-y-3 p-3 sm:p-6 bg-dojo-blue-700 rounded-2xl w-full"
       href={`/${lng}/articles/${article.id}`}
     >
       <Image
@@ -24,7 +24,7 @@ export const ArticleCard = ({ article, lng }: { article: Article; lng: string })
         <p className="line-clamp-2">{article.subtitle}</p>
       </div>
       {/* <div className=" self-center sm:block hidden">
-        <button className="rounded-full bg-dojo-blue-300/30 p-2 hover:bg-dojo-red"><ArrowRight /></button>
+        <button className="rounded-full bg-dojo-blue-300/30 p-2 hover:bg-dojo-red-400"><ArrowRight /></button>
       </div> */}
     </Link>
   );

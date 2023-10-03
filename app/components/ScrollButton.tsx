@@ -9,5 +9,5 @@ const scrollTo = (id: string) => {
     }
 }
 export const ScrollButton = () => {
-    return <button onClick={() => scrollTo('code')} className="rounded-full border p-2 border-dojo-blue-300 hover:bg-dojo-red hover:border-dojo-blue-500 bg-dojo-blue z-10"><ChevronDown /></button>
+    return <button onClick={() => scrollTo('code')} className="rounded-full border p-2 border-dojo-blue-300 hover:bg-dojo-red-400 hover:border-dojo-blue-500 bg-dojo-blue-800 z-10"><ChevronDown /></button>
 }

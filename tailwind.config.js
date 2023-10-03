@@ -13,31 +13,33 @@ module.exports = {
 
       },
       colors: {
+        'dojo-vibrant-blue-400':"#468CFE", // dojo logo 
+
         'dojo-blue-200': '#2E486D',
-        'dojo-blue-300': '#93bbf3',
-        'dojo-blue-400': '#84ADE5',
-        'dojo-blue-500': "#4C75AE",
-        'dojo-blue-600': "#0C2449",
-        'dojo-blue-700': "#031125",
-        'dojo-blue': '#071E3F',
-        'dojo-blue-light': '#79BFFF',
-        'dojo-blue-dark': '#8FBAFF',
-        'dojo-red': '#FF2F42',
-        'dojo-green': "#77F5B2",
-        'dojo-green-light': "#29DEBF",
-        'dojo-blue-icon': "#468CFE",
+
+        'dojo-blue-300': '#A7C9F8', // headers ?
+        'dojo-blue-400': '#84ADE5', // text 
+        'dojo-blue-500': '#4C75AE',
+        'dojo-blue-600': '#3C5D8A',
+        'dojo-blue-700': '#0C274F', 
+        'dojo-blue-800': '#071E3F', // bg 
+        'dojo-blue-900': '#031125', // footer 
+
+        'dojo-red-400': '#FF2F42', // hover
+
+        'dojo-green': "#77F5B2", // article
+        'dojo-green-light': "#29DEBF", // article
 
         'tag-science': "#69CBC1",
         'tag-gaming': "#FBCB4A",
         'tag-developer': "#CC6FC3",
         'tag-zk': "#FE2C2E",
 
-
         'cartridge': "#FBCB4A",
-        'starknet': "#ec796b",
-        'game7': "#FE2C2E",
-        'mask': "#1C68F3",
-        'starkware': "#ffffff",
+        'starknet': "#468CFE",
+        'game7': "#CC6FC3",
+        'mask': "#EB8A8A",
+        'starkware': "#6FCCBB",
 
       }
     },

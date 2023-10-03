@@ -101,7 +101,7 @@ export default async function RootLayout({
 }) {
   return (
     <html lang={lng} dir={dir(lng)}>
-      <body className={` ${agrandir.variable} ${inter.variable} bg-dojo-blue text-dojo-blue-400`}>
+      <body className={` ${agrandir.variable} ${inter.variable} bg-dojo-blue-800 text-dojo-blue-400`}>
         <TopNav lng={lng} />
         {children}
         <Background />

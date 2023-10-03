@@ -40,7 +40,7 @@ const LangageSelector = ({
       <div>
         <button
           type="button"
-          className="inline-flex w-full justify-center text-dojo-blue shadow-sm bg-dojo-blue-400 hover:bg-dojo-red rounded-full p-1 sm:p-2 font-bold"
+          className="inline-flex w-full justify-center text-dojo-blue-800 shadow-sm bg-dojo-blue-400 hover:bg-dojo-red-400 rounded-full p-1 sm:p-2 font-bold"
           id="menu-button"
           aria-expanded="true"
           aria-haspopup="true"
@@ -71,7 +71,7 @@ const LangageSelector = ({
             return (
               <Link
                 href={`/${item.value}`}
-                className={`flex justify-center text-dojo-blue font-bold  px-4 py-2 text-sm hover:bg-dojo-red ${
+                className={`flex justify-center text-dojo-blue-800 font-bold  px-4 py-2 text-sm hover:bg-dojo-red-400 ${
                   item.value === lng && "hidden"
                 }`}
                 role="menuitem"

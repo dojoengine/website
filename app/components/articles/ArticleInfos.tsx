@@ -19,7 +19,7 @@ export const ArticleInfos = ({ article, lng }: { article: Article; lng?: string 
           </div>
         </div>
       </aside>
-      <hr className="max-w-xl w-full border-dojo-blue-dark mx-auto block lg:hidden  opacity-10" />
+      <hr className="max-w-xl w-full border-dojo-blue-400 mx-auto block lg:hidden  opacity-10" />
     </>
   );
 };
