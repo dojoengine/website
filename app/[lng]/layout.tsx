@@ -105,7 +105,7 @@ export default async function RootLayout({
         <TopNav lng={lng} />
         {children}
         <Background />
-        <Footer />
+        <Footer lng={lng}/>
       </body>
     </html>
   );

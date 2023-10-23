@@ -60,7 +60,7 @@ const LangageSelector = ({
         }}
         className={`${
           !isOpen && "hidden"
-        } absolute right-0 z-10 mt-2 origin-top-right rounded-xl bg-dojo-blue-400 shadow-lg focus:outline-none overflow-hidden `}
+        } absolute right-0 bottom-12 z-10 mt-2 origin-top-right rounded-xl bg-dojo-blue-400 shadow-lg focus:outline-none overflow-hidden `}
         role="menu"
         aria-orientation="vertical"
         aria-labelledby="menu-button"

@@ -8,13 +8,11 @@ import { LanguageIcon } from "../icons/Language";
 import { languages } from "../i18n/settings";
 import { Book } from "../icons/Book";
 
-
-
-const dropdownItems = languages.map((i) => ({
-  label: i.toUpperCase(),
-  value: i,
-  icon: <LanguageIcon />,
-}));
+// const dropdownItems = languages.map((i) => ({
+//   label: i.toUpperCase(),
+//   value: i,
+//   icon: <LanguageIcon />,
+// }));
 
 export const TopNav = ({ lng }: { lng: string }) => {
   return (
@@ -26,7 +24,16 @@ export const TopNav = ({ lng }: { lng: string }) => {
           </Link>
         </div>
         <div className="flex items-center space-x-2">
-          <LangageSelector items={dropdownItems} icon={<LanguageIcon />} lng={lng} />
+          {/* <LangageSelector items={dropdownItems} icon={<LanguageIcon />} lng={lng} /> */}
+
+          <Link
+            href="https://book.dojoengine.org/"
+            target="_blank"
+            className="block bg-dojo-blue-400 hover:bg-dojo-red-400 fill-dojo-blue-800 text-dojo-blue-800 font-bold rounded-full p-1 sm:p-2"
+          >
+            DOCS
+          </Link>
+
           <SocialLinks />
         </div>
       </nav>
