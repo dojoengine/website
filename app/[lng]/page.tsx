@@ -45,13 +45,10 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
             </div>
           </div>
         </div>
-        <div className="mb-8 w-full flex justify-center relative">
-          {/* <div className="w-full border-t h-1 absolute top-5 border-dojo-blue-300/20"></div> */}
-          <ScrollButton />
-        </div>
+        <div className="w-full flex justify-center relative">{/*   <ScrollButton /> */}</div>
       </div>
 
-      <div id="code" className="sm:landing-container flex container flex-wrap">
+      {/* <div id="code" className="sm:landing-container flex container flex-wrap">
         <div className="sm:w-1/2  self-center p-20">
           <h2>Architect Your World</h2>
           <p>
@@ -61,9 +58,9 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
         <div className="sm:w-1/2 self-center bg-dojo-blue-900 px-1 py-3 rounded-2xl shadow-2xl shadow-dojo-blue-700">
           <Code />
         </div>
-      </div>
+      </div> */}
 
-      <div className="w-full landing-container ">
+      {/* <div className="w-full landing-container ">
         <div className="py-10 px-6 sm:py:-10 md:py-20 w-full max-w-4xl mx-auto">
           <h2 className="mb-8 text-left">{t("articles")}</h2>
           <div className="flex flex-col space-y-3 mx-auto">
@@ -72,7 +69,7 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
             })}
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="my-24">
         <h2 className="text-bold text-center font-agrandir text-4xl">Partners</h2>
@@ -83,17 +80,20 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
           <Link href="https://cartridge.gg" className="hover:text-cartridge" target="_blank">
             <Cartridge />
           </Link>
-          <Link href="https://game7.io" className="hover:text-game7" target="_blank">
+          {/* <Link href="https://game7.io" className="hover:text-game7" target="_blank">
             <Game7 />
           </Link>
           <Link href="https://mask.io" className="hover:text-mask" target="_blank">
             <Mask />
-          </Link>
+          </Link> */}
           <Link href="https://starkware.co" className="hover:text-starkware" target="_blank">
             <Starkware />
           </Link>
         </div>
       </div>
+
+
+      
     </main>
   );
 }
