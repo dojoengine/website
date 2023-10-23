@@ -6,11 +6,11 @@ import { SocialLinks } from "./SocialLinks";
 
 const footer_links = {
   dojo: [
-    {
-      name: "Code",
-      url: "https://github.com/dojoengine/dojo",
-      external: true,
-    },
+    // {
+    //   name: "Code",
+    //   url: "https://github.com/dojoengine/dojo",
+    //   external: true,
+    // },
     {
       name: "Documentation",
       url: "https://book.dojoengine.org/",
@@ -50,12 +50,12 @@ export const Footer = () => {
     <footer className="footer bg-dojo-blue-900 shadow-2xl shadow-dojo-blue-400 ">
       <div className="container py-12 px-6 grid-cols-4 grid max-w-5xl mx-auto ">
         <div>
-          {/* <h6 className="uppercase mb-4 font-bold opacity-50 text-dojo-blue-500">Dojo</h6>
+          <h6 className="uppercase mb-4 font-bold opacity-50 text-dojo-blue-500">Dojo</h6>
           <div className="flex flex-col items-start space-y-2">
             {footer_links.dojo.map((link, index) => (
               <FooterLink link={link} key={index} />
             ))}
-          </div> */}
+          </div>
         </div>
         <div>
           {/* <h6 className="uppercase mb-4 font-bold opacity-50 text-dojo-blue-500">Technology</h6>
