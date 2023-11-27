@@ -2,14 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
-.article-container h1,
+/* .article-container h1,
 h2,
 h3 {
   margin-bottom: 1.5rem;
   font-weight: bold;
+} */
+
+.article-container h2 {
+  @apply text-xl lg:text-4xl py-6;
 }
 
-.article-container h1 {
+.article-container .article-content img {
+  @apply py-6;
+}
+
+.article-container p {
+  @apply mb-6;
+}
+
+.article-container date {
+  color: #4e81c9;
+}
+
+.article-container a {
+  color: #77f5b2;
+  text-decoration: underline;
+}
+
+.article-container blockquote {
+  @apply relative text-4xl font-bold my-6;
+}
+
+.article-container blockquote p {
+  @apply relative max-w-[90vw] w-[700px] py-12;
+
+  left: 50%;
+  transform: translateX(-50%);
+  color: #79bfff;
+}
+
+.article-container blockquote p::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 100px;
+  height: 100%;
+  background-color: #2A4B7A;
+  border-radius: 0.5rem;
+  transform: skewX(10deg) translateY(-50%);
+  top: 50%;
+}
+
+/* .article-container h1 {
   font-size: 2.5rem;
 }
 
@@ -27,10 +72,10 @@ h3 {
 
 .article-container a {
   text-decoration: underline;
-}
+} */
 
 .landing-container {
-  height: calc(100vh - 107px);
+  min-height: calc(100vh - 107px);
 }
 
 h1,
