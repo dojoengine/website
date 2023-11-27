@@ -1,9 +1,11 @@
 ---
-title: "Dojo - The Provable Engine"
-subtitle: "It's all lead to this."
+title: "MVP: Minimum Viable Physics"
+subtitle: "Earth's biospheres didn't instantly achieve ecological balance or species diversity, this delicate dance of species evolved over millions of years to create complexity and harmony. "
 date: "2023-03-01"
-tags: ["zk", "autonomous worlds", "starks"]
+tags: ["developer"]
 author: 🍞
+category: "autonomous worlds"
+cover: "https://loaf.coffee/images/hyperstructure.png"
 ---
 
 # The Provable engine
@@ -22,7 +24,7 @@ author: 🍞
 <img src="https://img.shields.io/github/stars/dojoengine/dojo?style=social"/>
 </a>
 
-[![discord](https://img.shields.io/badge/join-dojo-green?logo=discord&logoColor=white)](https://discord.gg/PwDa2mKhR4)
+[![discord](https://img.shields.io/badge/join-dojo-vibrant-blue-400?logo=discord&logoColor=white)](https://discord.gg/PwDa2mKhR4)
 ![Github Actions][gha-badge] [![Telegram Chat][tg-badge]][tg-url]
 
 [gha-badge]: https://img.shields.io/github/actions/workflow/status/dojoengine/dojo/ci.yml?branch=main

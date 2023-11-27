@@ -1,14 +1,31 @@
+import Image from "next/image";
 import Link from "next/link";
+import { Article } from "../types";
+import { ArrowRight } from "../icons/ArrowRight";
+import { ArticleTags } from "./articles/ArticleTags";
 
-export const ArticleCard = ({ article, lng }: { article: any; lng: string }) => {
+export const ArticleCard = ({ article, lng }: { article: Article; lng: string }) => {
   return (
     <Link
-      className="flex flex-col w-full space-y-3 bg-white text-black border-dojo-red p-6 border-4"
+      className="flex space-y-3 p-3 sm:p-6 bg-dojo-blue-700 rounded-2xl w-full shadow-2xl shadow-dojo-blue-800 hover:shadow-dojo-blue-900"
       href={`/${lng}/articles/${article.id}`}
     >
-      <h2 className="uppercase text-xl font-bold">{article.title}</h2>
-
-      <p>{article.subtitle}</p>
+      <Image
+        className="rounded-xl object-cover sm:block hidden"
+        alt="art"
+        width={"150"}
+        height={"150"}
+        src={article.cover}
+      />
+      <div className="sm:px-6 p-3">
+        <ArticleTags article={article} />
+        {/* <span className="px-4 py-1 rounded bg-dojo-blue-700 text-xs uppercase">{article.category}</span> */}
+        <h2 className="text-xl font-bold text-white">{article.title}</h2>
+        <p className="line-clamp-2">{article.subtitle}</p>
+      </div>
+      {/* <div className=" self-center sm:block hidden">
+        <button className="rounded-full bg-dojo-blue-300/30 p-2 hover:bg-dojo-red-400"><ArrowRight /></button>
+      </div> */}
     </Link>
   );
 };

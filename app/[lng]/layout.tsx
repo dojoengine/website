@@ -15,8 +15,44 @@ import fav32Icon from "@/public/favicon-16x16.png";
 import appleIcon from "@/public/apple-touch-icon.png";
 import android192Icon from "@/public/android-chrome-192x192.png";
 import android512Icon from "@/public/android-chrome-512x512.png";
+import localFont from "next/font/local";
+import { Footer } from "../components/Footer";
 
-const ibm_plex_mono = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400"] });
+// const ibm_plex_mono = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400"] });
+// ${ibm_plex_mono.className}
+
+
+const agrandir = localFont({
+  src: [
+    {
+      path: "../../public/fonts/Agrandir-Regular.otf",
+      weight: "400",
+    },
+    {
+      path: "../../public/fonts/Agrandir-TextBold.otf",
+      weight: "700",
+    },
+  ],
+  variable: "--font-agrandir",
+});
+
+const inter = localFont({
+  src: [
+    {
+      path: "../../public/fonts/Inter-Light.ttf",
+      weight: "300",
+    },
+    {
+      path: "../../public/fonts/Inter-Regular.ttf",
+      weight: "400",
+    },
+    {
+      path: "../../public/fonts/Inter-Bold.ttf",
+      weight: "700",
+    },
+  ],
+  variable: "--font-inter",
+});
 
 export async function generateMetadata(
   { params: { lng } }: { params: { lng: string } },
@@ -65,10 +101,11 @@ export default async function RootLayout({
 }) {
   return (
     <html lang={lng} dir={dir(lng)}>
-      <body className={`${ibm_plex_mono.className} bg-dojo-blue text-dojo-blue-400`}>
+      <body className={` ${agrandir.variable} ${inter.variable} bg-dojo-blue-800 text-dojo-blue-400`}>
         <TopNav lng={lng} />
         {children}
         <Background />
+        <Footer lng={lng}/>
       </body>
     </html>
   );
