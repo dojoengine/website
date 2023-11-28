@@ -55,7 +55,7 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
           <h2 className="text-white">{t("home_code_title")}</h2>
           <p className="mb-6">{t("home_code_desc")}</p>
           <Link
-            href="https://book.dojoengine.org/"
+            href="https://book.dojoengine.org/cairo/overview.html"
             target="_blank"
             className="inline-block bg-dojo-blue-400 hover:bg-dojo-blue-300 fill-dojo-blue-800 text-dojo-blue-800 font-bold rounded p-2 px-6"
           >
