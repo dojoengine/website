@@ -56,7 +56,7 @@ const inter = localFont({
 export async function generateMetadata(
   { params: { lng } }: { params: { lng: string } },
   parent?: ResolvingMetadata
-): Promise<Metadata> {
+): Promise<Metadata | undefined> {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t, i18n } = await useTranslation(lng, "common");
 
