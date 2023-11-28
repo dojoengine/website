@@ -28,7 +28,6 @@ export default async function markdownToHtml(markdown: any) {
             tagName: "h" + node.depth,
             properties: {
               id: node.depth === 2 ? `summary-${totalH2 - 1}` : "",
-              // class: `summary-${totalH2}`
             },
             children: state.all(node),
           };
@@ -64,13 +63,7 @@ export function getSortedArticlesData() {
     };
   });
 
-  return allArticlesData.sort((a: any, b: any) => {
-    if (a.date < b.date) {
-      return 1;
-    } else {
-      return -1;
-    }
-  });
+  return allArticlesData.sort((a: any, b: any) => (a.date < b.date ? 1 : -1));
 }
 
 export function getAllArticleIds() {

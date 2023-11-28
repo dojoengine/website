@@ -24,7 +24,7 @@ cover: "https://loaf.coffee/images/hyperstructure.png"
 <img src="https://img.shields.io/github/stars/dojoengine/dojo?style=social"/>
 </a>
 
-[![discord](https://img.shields.io/badge/join-dojo-vibrant-blue-400?logo=discord&logoColor=white)](https://discord.gg/PwDa2mKhR4)
+[![discord](https://img.shields.io/badge/join-dojo-vibrant-blue?logo=discord&logoColor=white)](https://discord.gg/PwDa2mKhR4)
 ![Github Actions][gha-badge] [![Telegram Chat][tg-badge]][tg-url]
 
 [gha-badge]: https://img.shields.io/github/actions/workflow/status/dojoengine/dojo/ci.yml?branch=main

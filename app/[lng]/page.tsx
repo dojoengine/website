@@ -31,8 +31,8 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
 
   return (
     <main className="container mx-auto">
-      <div className="landing-container items-center justify-around flex flex-col">
-        <div className="flex flex-wrap container justify-around">
+      <div className="landing-container items-center justify-around flex flex-col px-6 ">
+        <div className="flex flex-wrap container justify-around mt-16 md:mt-40">
           <div className="w-full md:w-1/3 flex justify-center mr-0 md:mr-9 mb-9 md:mb-0  bg-dojo-blue-800">
             <Image width={250} height={150} priority alt="" src={DojoIcon} className="" />
           </div>
@@ -45,35 +45,50 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
             </div>
           </div>
         </div>
-        <div className="w-full flex justify-center relative">{/*   <ScrollButton /> */}</div>
+          <div className="w-full flex justify-center relative">
+            <ScrollButton />
+          </div>
       </div>
 
-      {/* <div id="code" className="sm:landing-container flex container flex-wrap">
-        <div className="sm:w-1/2  self-center p-20">
-          <h2>Architect Your World</h2>
-          <p>
-            Start by editing example Rust or C# module. Click “Go Luck” to publish your SpacetimeDB module instantly.
-          </p>
+      <div id="code" className="container grid-cols-1 md:grid-cols-2 grid gap-6 px-6 my-24 md:my-40">
+        <div className="w-full self-center text-center md:text-left">
+          <h2 className="text-white">{t("home_code_title")}</h2>
+          <p className="mb-6">{t("home_code_desc")}</p>
+          <Link
+            href="https://book.dojoengine.org/"
+            target="_blank"
+            className="inline-block bg-dojo-blue-400 hover:bg-dojo-blue-300 fill-dojo-blue-800 text-dojo-blue-800 font-bold rounded p-2 px-6"
+          >
+            Docs
+          </Link>
         </div>
-        <div className="sm:w-1/2 self-center bg-dojo-blue-900 px-1 py-3 rounded-2xl shadow-2xl shadow-dojo-blue-700">
+        <div className="w-full self-center bg-dojo-blue-900 px-1 py-3 rounded-2xl shadow-2xl shadow-dojo-blue-200">
           <Code />
         </div>
-      </div> */}
+      </div>
 
-      {/* <div className="w-full landing-container ">
-        <div className="py-10 px-6 sm:py:-10 md:py-20 w-full max-w-4xl mx-auto">
-          <h2 className="mb-8 text-left">{t("articles")}</h2>
-          <div className="flex flex-col space-y-3 mx-auto">
-            {articles.map((a: any, index: any) => {
+      <div className="w-full px-6 my-24 md:my-40">
+        <div className="w-full mx-auto">
+          <h2 className="mb-8 text-center md:text-left text-white">{t("blog_posts")}</h2>
+          <div className="flex flex-col space-y-6 mx-auto">
+            {articles.slice(0, 3).map((a: any, index: any) => {
               return <ArticleCard key={index} article={a} lng={lng} />;
             })}
           </div>
+          {articles.length > 3 && (
+            <Link
+              className="block mt-6 text-center font-bold p-3 bg-dojo-blue-700 rounded-xl w-full shadow-lg shadow-dojo-blue-800  hover:shadow-dojo-blue-900"
+              href={`/${lng}/articles`}
+            >
+              SEE ALL
+            </Link>
+          )}
         </div>
-      </div> */}
+      </div>
 
-      <div className="my-24">
-        <h2 className="text-bold text-center font-agrandir text-4xl">Partners</h2>
-        <div className="flex flex-wrap items-center justify-center gap-12 my-6">
+      <div className="my-24 md:my-40">
+        <h2 className="text-bold text-center  font-agrandir mb-6 text-white">Partners</h2>
+        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 my-6 px-6">
           <Link href="https://starknet.io" className="hover:text-starknet" target="_blank">
             <Starknet />
           </Link>
@@ -91,9 +106,6 @@ export default async function Home({ params: { lng } }: { params: { lng: string 
           </Link>
         </div>
       </div>
-
-
-      
     </main>
   );
 }

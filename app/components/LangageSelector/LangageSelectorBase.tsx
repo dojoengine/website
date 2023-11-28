@@ -40,16 +40,16 @@ const LangageSelector = ({
       <div>
         <button
           type="button"
-          className="inline-flex w-full justify-center text-dojo-blue-800 shadow-sm bg-dojo-blue-400 hover:bg-dojo-red-400 rounded-full p-1 sm:p-2 font-bold"
+          className="inline-flex w-full justify-center text-dojo-blue-800 shadow-sm bg-dojo-vibrant-blue hover:bg-dojo-red-400 rounded-full p-1 sm:p-2 font-bold"
           id="menu-button"
           aria-expanded="true"
           aria-haspopup="true"
           onClick={onToggleOpen}
         >
           <div className="px-1">{icon}</div>
-          <div className="px-0 hidden md:block md:pr-2">
-            {/* {selected.label} */}
-            {lng.toUpperCase()}
+          <div className="block pr-2">
+            {selected.label}
+            {/* {lng.toUpperCase()} */}
           </div>
         </button>
       </div>
@@ -60,7 +60,7 @@ const LangageSelector = ({
         }}
         className={`${
           !isOpen && "hidden"
-        } absolute right-0 bottom-12 z-10 mt-2 origin-top-right rounded-xl bg-dojo-blue-400 shadow-lg focus:outline-none overflow-hidden `}
+        } absolute right-0 bottom-12 z-10 mt-2 origin-top-right rounded-xl bg-dojo-vibrant-blue shadow-lg focus:outline-none overflow-hidden `}
         role="menu"
         aria-orientation="vertical"
         aria-labelledby="menu-button"

@@ -35,7 +35,7 @@ h3 {
 }
 
 .article-container blockquote p {
-  @apply relative max-w-[90vw] w-[700px] py-12;
+  @apply relative max-w-[90vw] w-[660px] py-16;
 
   left: 50%;
   transform: translateX(-50%);
@@ -47,11 +47,21 @@ h3 {
   position: absolute;
   z-index: -1;
   width: 100px;
-  height: 100%;
-  background-color: #2A4B7A;
+  height: 90%;
+  background-color: #2a4b7a;
   border-radius: 0.5rem;
-  transform: skewX(10deg) translateY(-50%);
   top: 50%;
+  transform: skewX(-10deg) translateY(-50%);
+}
+
+@screen md {
+  .article-container blockquote p::before {
+    transform: skewX(10deg) translateY(-50%);
+  }
+}
+
+pre{
+  white-space: initial;
 }
 
 /* .article-container h1 {
@@ -76,6 +86,9 @@ h3 {
 
 .landing-container {
   min-height: calc(100vh - 107px);
+  @screen md {
+    min-height: calc(100vh - 260px);
+  }
 }
 
 h1,

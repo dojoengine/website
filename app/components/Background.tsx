@@ -1,11 +1,11 @@
 export const Background = () => {
   return (
-    <div style={{ zIndex: "-1" }} className="fixed top-0 left-0 right-0 h-full pointer-events-none">
-      <svg width="100%" height="100%">
+    <div style={{ zIndex: "-1" }} className="absolute top-0 left-0 right-0 bottom-0 h-full pointer-events-none">
+      <svg className="relative" width="100%" height="100%">
         <defs>
           <pattern id="dotted_bg" patternUnits="userSpaceOnUse" width="36" height="36">
             <svg width="2" height="2" viewBox="0 0 2 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g opacity="0.35">
+              <g opacity="0.5">
                 <circle cx="1" cy="1" r="1" className="fill-dojo-blue-500"></circle>
               </g>
             </svg>
@@ -34,16 +34,16 @@ export const Background = () => {
           <mask id="gradients_mask">
             <rect width="100%" height="100%" fill="#fff" x="0" y="0"></rect>
 
-            <rect width="80%" height="10%" fill="url(#grad_top)" x="10%" y="0"></rect>
-            <rect width="80%" height="10%" fill="url(#grad_bot)" x="10%" y="90%"></rect>
+            <rect width="calc(100% - 200px)" height="100px" fill="url(#grad_top)" x="100px" y="0"></rect>
+            <rect width="calc(100% - 200px)" height="100px" fill="url(#grad_bot)" x="100px" y="calc(100% - 100px)"></rect>
 
-            <rect width="10%" height="80%" fill="url(#grad_left)" x="0" y="10%"></rect>
-            <rect width="10%" height="80%" fill="url(#grad_right)" x="90%" y="10%"></rect>
-
-            <rect width="10%" height="10%" fill="#333" x="0" y="0"></rect>
-            <rect width="10%" height="10%" fill="#333" x="90%" y="0"></rect>
-            <rect width="10%" height="10%" fill="#333" x="0" y="90%"></rect>
-            <rect width="10%" height="10%" fill="#333" x="90%" y="90%"></rect>
+            <rect width="100px" height="calc(100% - 200px)" fill="url(#grad_left)" x="0" y="100px"></rect>
+            <rect width="100px" height="calc(100% - 200px)" fill="url(#grad_right)" x="calc(100% - 100px)" y="100px"></rect>
+*
+            <rect width="100px" height="100px" fill="#333" x="0" y="0"></rect>
+            <rect width="100px" height="100px" fill="#333" x="calc(100% - 100px)" y="0"></rect>
+            <rect width="100px" height="100px" fill="#333" x="0" y="calc(100% - 100px)"></rect>
+            <rect width="100px" height="100px" fill="#333" x="calc(100% - 100px)" y="calc(100% - 100px)"></rect> 
           </mask>
         </defs>
         <rect width="100%" height="100%" fill="url(#dotted_bg)" mask="url(#gradients_mask)"></rect>

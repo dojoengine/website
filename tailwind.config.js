@@ -10,10 +10,9 @@ module.exports = {
       fontFamily: {
         title: ['var(--font-agrandir)'],
         text: ['var(--font-inter)']
-
       },
       colors: {
-        'dojo-vibrant-blue-400':"#468CFE", // dojo logo 
+        'dojo-vibrant-blue':"#468CFE", // dojo logo 
 
         'dojo-blue-200': '#2E486D',
 
@@ -40,7 +39,16 @@ module.exports = {
         'game7': "#CC6FC3",
         'mask': "#EB8A8A",
         'starkware': "#6FCCBB",
-
+      },
+      container:{
+        screens:{
+          "default": '100%',
+          "sm": '640px',
+          "md": '768px',
+          "lg": '1024px',
+          "xl": '1024px',
+          "2xl": '1024px',
+        }
       }
     },
   },

@@ -21,7 +21,6 @@ import { Footer } from "../components/Footer";
 // const ibm_plex_mono = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400"] });
 // ${ibm_plex_mono.className}
 
-
 const agrandir = localFont({
   src: [
     {
@@ -102,10 +101,12 @@ export default async function RootLayout({
   return (
     <html lang={lng} dir={dir(lng)}>
       <body className={` ${agrandir.variable} ${inter.variable} bg-dojo-blue-800 text-dojo-blue-400`}>
-        <TopNav lng={lng} />
-        {children}
-        <Background />
-        <Footer lng={lng}/>
+        <div className="flex flex-col relative box-content">
+          <TopNav lng={lng} />
+          {children}
+          <Background />
+        </div>
+        <Footer lng={lng} />
       </body>
     </html>
   );
