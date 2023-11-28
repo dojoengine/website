@@ -10,6 +10,7 @@ export const useIsMobile = () => {
   };
 
   useEffect(() => {
+    handleWindowSizeChange();
     window.addEventListener("resize", handleWindowSizeChange);
 
     return () => {
