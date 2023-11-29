@@ -4,7 +4,6 @@ import { IBM_Plex_Mono } from "next/font/google";
 import { dir } from "i18next";
 import { languages } from "../i18n/settings";
 import { TopNav } from "../components/TopNav";
-import { Background } from "../components/Background";
 import { useTranslation } from "../i18n";
 
 import dojoSocial from "@/public/dojo-social.png";
@@ -101,11 +100,8 @@ export default async function RootLayout({
   return (
     <html lang={lng} dir={dir(lng)}>
       <body className={` ${agrandir.variable} ${inter.variable} bg-dojo-blue-800 text-dojo-blue-400`}>
-        <div className="flex flex-col relative box-content">
-          <TopNav lng={lng} />
-          {children}
-          <Background />
-        </div>
+        <TopNav lng={lng} />
+        {children}
         <Footer lng={lng} />
       </body>
     </html>

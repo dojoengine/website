@@ -20,7 +20,9 @@ module.exports = {
         'dojo-blue-400': '#84ADE5', // text 
         'dojo-blue-500': '#4C75AE',
         'dojo-blue-600': '#3C5D8A',
+        'dojo-blue-650': '#12305C',
         'dojo-blue-700': '#0C274F', 
+        'dojo-blue-750': '#0C2449',
         'dojo-blue-800': '#071E3F', // bg 
         'dojo-blue-900': '#031125', // footer 
 

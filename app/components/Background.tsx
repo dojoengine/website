@@ -1,6 +1,6 @@
 export const Background = () => {
   return (
-    <div style={{ zIndex: "-1" }} className="absolute top-0 left-0 right-0 bottom-0 h-full pointer-events-none">
+    <div style={{ zIndex: "-1" }} className="absolute top-0 left-0 right-0 h-[100vh] pointer-events-none">
       <svg className="relative" width="100%" height="100%">
         <defs>
           <pattern id="dotted_bg" patternUnits="userSpaceOnUse" width="36" height="36">

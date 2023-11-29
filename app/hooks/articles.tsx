@@ -79,7 +79,7 @@ export function getAllArticleIds() {
 }
 
 export async function getArticleData(id: any) {
-  const fullPath = path.join(articlesDirectory, `${id}.md`);
+  const fullPath = path.join(articlesDirectory, `${decodeURI(id)}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
 
   const { data, content } = matter(fileContents);

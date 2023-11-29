@@ -1,7 +1,7 @@
-"use client"
+"use client";
 import { CodeBlock, dracula } from "react-code-blocks";
 
-const lang = `#[dojo::contract]
+export const homeCodeExample = `#[dojo::contract]
 mod player_actions {
     use starknet::{ContractAddress, get_caller_address};
     use super::{Position, Vec2};
@@ -24,16 +24,18 @@ mod player_actions {
         }
     }
 }
-`
-export const Code = () => {
-    return <CodeBlock
-        language={'rust'}
-        text={lang}
-        theme={dracula}
-        customStyle={{
-            //height: '550px',
-            fontSize: '0.75rem',
-            backgroundColor: '#031125',
-        }}
+`;
+
+export const Code = ({ text, language = "rust" }: { text: string; language?: string }) => {
+  return (
+    <CodeBlock
+      language={language}
+      text={text}
+      theme={dracula}
+      customStyle={{
+        fontSize: "0.75rem",
+        backgroundColor: "#031125",
+      }}
     />
-}
+  );
+};

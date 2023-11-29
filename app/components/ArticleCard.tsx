@@ -7,7 +7,7 @@ import { ArticleTags } from "./articles/ArticleTags";
 export const ArticleCard = ({ article, lng }: { article: Article; lng: string }) => {
   return (
     <Link
-    className="flex p-3 sm:p-6 bg-dojo-blue-700 rounded-2xl w-full shadow-2xl shadow-dojo-blue-800 hover:shadow-dojo-blue-900"
+    className="flex p-3 sm:p-6 bg-dojo-blue-750 hover:bg-dojo-blue-650 rounded-2xl w-full "
     href={`/${lng}/articles/${article.id}`}
     >
       <Image
