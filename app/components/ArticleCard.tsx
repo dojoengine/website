@@ -13,8 +13,8 @@ export const ArticleCard = ({ article, lng }: { article: Article; lng: string })
       <Image
         className="rounded-md object-cover sm:block hidden h-[120px] w-[120px] my-auto"
         alt="art"
-        width={1200}
-        height={240}
+        width={"1200"}
+        height={"240"}
         src={article.cover}
       />
       <div className="px-3 md:px-6">
