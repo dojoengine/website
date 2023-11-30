@@ -7,6 +7,16 @@ import { ArticleContent } from "@/app/components/articles/ArticleContent";
 import { ArticleNav } from "@/app/components/articles/ArticleNav";
 import { ArticleFooter } from "@/app/components/articles/ArticleFooter";
 import { Article } from "@/app/types";
+import { useTranslation } from "@/app/i18n";
+import { Metadata, ResolvingMetadata } from "next";
+
+import dojoSocial from "@/public/dojo-social.png";
+import favIcon from "@/app/favicon.ico";
+import fav16Icon from "@/public/favicon-16x16.png";
+import fav32Icon from "@/public/favicon-16x16.png";
+import appleIcon from "@/public/apple-touch-icon.png";
+import android192Icon from "@/public/android-chrome-192x192.png";
+import android512Icon from "@/public/android-chrome-512x512.png";
 
 async function getData({ id }: any) {
   return {
@@ -14,14 +24,45 @@ async function getData({ id }: any) {
   };
 }
 
-export default async function Article({ params }: { params: { id: string; lng: string } }) {
-  const { article } = await getData({ id: params.id });
-
-  // this is not a react hook despite the name
+export async function generateMetadata({
+  params: { id, lng },
+}: {
+  params: { id: string; lng: string };
+}): Promise<Metadata> {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t, i18n } = await useTranslation(lng, "common");
 
-  // console.log(article);
+  const { article } = await getData({ id });
+
+  return {
+    title: `${t("head_blog_title")}-${article.title}`,
+    description: article.subtitle,
+    keywords: article.tags.join(","),
+    openGraph: {
+      title: article.title,
+      images: [
+        {
+          url: article.cover,
+          // width: 660,
+          // height: 380,
+          alt: "Dojo",
+        },
+      ],
+
+      locale: `${lng}`,
+      type: "website",
+    },
+
+    icons: {
+      icon: [{ url: favIcon.src }, { url: fav16Icon.src }, { url: fav32Icon.src }],
+      apple: { url: appleIcon.src },
+      other: [{ url: android192Icon.src }, { url: android512Icon.src }],
+    },
+  };
+}
+
+export default async function Article({ params }: { params: { id: string; lng: string } }) {
+  const { article } = await getData({ id: params.id });
 
   return (
     <div>
