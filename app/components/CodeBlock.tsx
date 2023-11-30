@@ -1,5 +1,5 @@
 "use client";
-import { CodeBlock, dracula } from "react-code-blocks";
+import { CodeBlock, CopyBlock, dracula } from "react-code-blocks";
 
 export const homeCodeExample = `#[dojo::contract]
 mod player_actions {
@@ -28,14 +28,18 @@ mod player_actions {
 
 export const Code = ({ text, language = "rust" }: { text: string; language?: string }) => {
   return (
-    <CodeBlock
-      language={language}
-      text={text}
-      theme={dracula}
-      customStyle={{
-        fontSize: "0.75rem",
-        backgroundColor: "#031125",
-      }}
-    />
+    <>
+      <CopyBlock
+        /* @ts-expect-error */
+        language={language}
+        text={text}
+        theme={{ ...dracula, backgroundColor: "#031125" }}
+        codeBlock={true}
+        wrapLines
+        customStyle={{
+          fontSize: "0.75rem",
+        }}
+      />
+    </>
   );
 };

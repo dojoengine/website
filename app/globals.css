@@ -11,7 +11,7 @@ h3 {
 
 body {
   min-height: 100vh;
-  min-height: fill-available;
+  min-height: stretch;
   min-height: -webkit-fill-available;
 }
 
@@ -43,11 +43,7 @@ body {
 }
 
 .article-container .article-content img {
-  @apply py-6;
-}
-
-.article-container p {
-  @apply mb-6;
+  @apply rounded-lg;
 }
 
 .article-container date {
@@ -59,11 +55,19 @@ body {
   text-decoration: underline;
 }
 
-.article-container blockquote {
+.article-content > * {
+  @apply mb-6;
+}
+
+.article-content hr {
+  @apply border-dojo-blue-600;
+}
+
+.article-content blockquote {
   @apply relative text-4xl font-bold my-6;
 }
 
-.article-container blockquote p {
+.article-content blockquote p {
   @apply relative max-w-[90vw] w-[660px] py-16;
 
   left: 50%;
@@ -71,7 +75,7 @@ body {
   color: #79bfff;
 }
 
-.article-container blockquote p::before {
+.article-content blockquote p::before {
   content: "";
   position: absolute;
   z-index: -1;
@@ -84,13 +88,39 @@ body {
 }
 
 @screen md {
-  .article-container blockquote p::before {
+  .article-content blockquote p::before {
     transform: skewX(10deg) translateY(-50%);
   }
 }
 
+.article-content ul li {
+  list-style: disc;
+  margin-left: 1.5rem;
+}
+
+.article-content ol li {
+  list-style: decimal;
+  margin-left: 1.5rem;
+}
+
+.article-content .task-list-item {
+  list-style: none;
+}
+
+.article-content table {
+  border: solid 1px;
+  padding: 1rem;
+}
+
+.article-content table td,
+.article-content table th {
+  border: solid 1px;
+  padding: 0.5rem 1rem;
+  @apply border-dojo-blue-600;
+}
+
 pre {
-  white-space: initial;
+  white-space: pre;
 }
 
 /* .article-container h1 {

@@ -6,7 +6,8 @@ export interface Article {
     author_desc: string;
     author_img: string;
     tags: string[];
-    contentHtml: string;
+    contentHtml?: string;
+    contentReact?: JSX.Element;
     id: string;
     category: string;
     cover: string;

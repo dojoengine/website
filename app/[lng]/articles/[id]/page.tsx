@@ -40,3 +40,5 @@ export default async function Article({ params }: { params: { id: string; lng: s
     </div>
   );
 }
+
+

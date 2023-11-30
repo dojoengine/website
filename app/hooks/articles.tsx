@@ -5,7 +5,25 @@ import { remark } from "remark";
 import html from "remark-html";
 import { Article } from "../types";
 
-export default async function markdownToHtml(markdown: any) {
+import { Code } from "../components/CodeBlock";
+
+import React from "react";
+
+import * as prod from "react/jsx-runtime";
+import { unified } from "unified";
+
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import remarkGfm from "remark-gfm";
+import remarkImages from "remark-images";
+
+import rehypeRaw from "rehype-raw";
+import rehypeReact from "rehype-react";
+
+// @ts-expect-error: the react types are missing.
+const production = { Fragment: prod.Fragment, jsx: prod.jsx, jsxs: prod.jsxs };
+
+export async function markdownToHtml(markdown: any) {
   let totalH2 = 0;
   const summary: string[] = ["Intro"];
 
@@ -18,7 +36,7 @@ export default async function markdownToHtml(markdown: any) {
           // console.log(state);
           // console.log(node);
 
-          //h2 
+          //h2
           if (node.depth === 2) {
             summary.push(node.children[0].value);
             totalH2++;
@@ -44,6 +62,39 @@ export default async function markdownToHtml(markdown: any) {
   return {
     processedContent: result.toString(),
     summary,
+  };
+}
+
+export async function markdownToReact(markdown: any) {
+  const result = await unified()
+    .use(remarkParse, { allowDangerousHTML: true, escapeHtml: false })
+    .use(remarkImages)
+    .use(remarkGfm)
+    .use(remarkRehype)
+    .use(rehypeRaw)
+    .use(rehypeReact, {
+      ...production,
+      elementAttributeNameCase: "react",
+      stylePropertyNameCase: "dom",
+      components: {
+        code: ({ children }) => {
+          return <Code text={children?.toString() || ""} />;
+        },
+        a: ({ children, ...props }) => {
+          return (
+            <a {...props} target={props.href?.startsWith("#") ? undefined : "_blank"}>
+              {children}
+            </a>
+          );
+        },
+      
+      },
+    })
+    .process(markdown);
+  // console.log(result);
+
+  return {
+    processedReact: result.result,
   };
 }
 
@@ -85,12 +136,14 @@ export async function getArticleData(id: any) {
 
   const { data, content } = matter(fileContents);
   const { processedContent, summary } = await markdownToHtml(content);
+  const { processedReact } = await markdownToReact(content);
 
   // console.log(processedContent);
   // console.log(summary);
 
   return {
     id,
+    contentReact: processedReact,
     contentHtml: processedContent,
     summary: summary,
     ...data,
