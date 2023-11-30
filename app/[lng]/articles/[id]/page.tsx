@@ -66,7 +66,7 @@ export default async function Article({ params }: { params: { id: string; lng: s
 
   return (
     <div>
-      <article className="article-container mx-auto px-6 pb-6 prose prose-lg">
+      <article className="article-container container-min-h mx-auto px-6 pb-6 prose prose-lg">
         <ArticleBanner article={article} />
         <ArticleTitle article={article} />
 

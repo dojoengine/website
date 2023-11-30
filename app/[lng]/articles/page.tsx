@@ -16,7 +16,7 @@ export default async function Articles({ params: { lng } }: { params: { lng: str
   const { t, i18n } = await useTranslation(lng, "common");
 
   return (
-    <div className="container px-6 mx-auto mt-10 md:mt-20  mb-20 md:mb-40">
+    <div className="container container-min-h px-6 mx-auto mt-10 md:mt-20  mb-20 md:mb-40">
       <h2 className="mb-8 text-white">{t("blog_posts")}</h2>
       <div className="flex flex-col w-full space-y-3">
         {articles?.map((a: any, index: any) => {
