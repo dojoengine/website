@@ -58,8 +58,8 @@ export const ArticleNav = ({ article, lng }: { article: Article; lng?: string })
         <ul className="article-nav text-dojo-blue-600">
           {article.summary &&
             article.summary.map((subtitle, key) => (
-              <li className={activeLink === key ? "active" : ""} key={key}>
-                <a className="no-underline cursor-pointer" onClick={() => onClick(key)}>
+              <li className={activeLink === key ? "active" : ""} key={key} onClick={() => onClick(key)}>
+                <a className="no-underline cursor-pointer">
                   {subtitle}
                 </a>
               </li>

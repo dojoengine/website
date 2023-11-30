@@ -20,7 +20,7 @@ export const ArticleCard = ({ article, lng }: { article: Article; lng: string })
       <div className="px-3 md:px-6">
         <ArticleTags article={article} />
         {/* <span className="px-4 py-1 rounded bg-dojo-blue-700 text-xs uppercase">{article.category}</span> */}
-        <h2 className="text-xl font-bold text-white">{article.title}</h2>
+        <h2 className="text-xl font-bold text-white mb-1">{article.title}</h2>
         <p className="line-clamp-4 md:line-clamp-2">{article.subtitle}</p>
       </div>
       {/* <div className=" self-center sm:block hidden">
