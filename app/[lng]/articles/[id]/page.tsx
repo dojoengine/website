@@ -5,17 +5,21 @@ import { ArticleTitle } from "@/app/components/articles/ArticleTitle";
 import { ArticleInfos } from "@/app/components/articles/ArticleInfos";
 import { ArticleContent } from "@/app/components/articles/ArticleContent";
 import { ArticleNav } from "@/app/components/articles/ArticleNav";
-import { ArticleFooter} from "@/app/components/articles/ArticleFooter";
+import { ArticleFooter } from "@/app/components/articles/ArticleFooter";
 import { Article } from "@/app/types";
 
 async function getData({ id }: any) {
   return {
-    article: await getArticleData(id) as Article,
+    article: (await getArticleData(id)) as Article,
   };
 }
 
 export default async function Article({ params }: { params: { id: string; lng: string } }) {
   const { article } = await getData({ id: params.id });
+
+  // this is not a react hook despite the name
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { t, i18n } = await useTranslation(lng, "common");
 
   // console.log(article);
 
@@ -40,5 +44,3 @@ export default async function Article({ params }: { params: { id: string; lng: s
     </div>
   );
 }
-
-
