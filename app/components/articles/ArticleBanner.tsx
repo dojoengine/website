@@ -8,7 +8,7 @@ export const ArticleBanner = ({ article, lng }: { article: Article; lng?: string
   }
   return (
     <div className="article-banner-container relative h-[300px] mx-auto">
-        <Image src={article.cover} className="rounded-lg" width={1500} height={300} alt="banner" />
+        <Image src={article.cover} className="2xl:rounded-lg" width={1536} height={300} alt="banner" />
     </div>
   );
 };
