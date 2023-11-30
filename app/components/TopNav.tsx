@@ -16,7 +16,7 @@ import { Book } from "../icons/Book";
 
 export const TopNav = ({ lng }: { lng: string }) => {
   return (
-    <div className="w-full mx-auto">
+    <div className="w-full max-w-[1500px] mx-auto">
       <nav className="flex justify-between p-2 px-4 md:p-6 md:px-9">
         <div>
           <Link href={`/${lng}`}>

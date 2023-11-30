@@ -15,6 +15,24 @@ body{
   min-height: -webkit-fill-available;
 }
 
+.article-container .article-banner-container {
+  width: calc(100% + 3rem);
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+}
+
+.article-container .article-banner-container img {
+  width: 1500px;
+  height: 300px;
+  object-fit: cover;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+
+
 .article-container h2 {
   @apply text-xl lg:text-4xl py-6;
 }

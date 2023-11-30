@@ -7,8 +7,8 @@ export const ArticleBanner = ({ article, lng }: { article: Article; lng?: string
     return null;
   }
   return (
-    <div className="relative h-[300px] max-w-7xl mx-auto">
-      <Image src={article.cover} objectFit="cover" layout="fill" alt="banner"/>
+    <div className="article-banner-container relative h-[300px] mx-auto">
+        <Image src={article.cover} className="rounded-lg" width={1500} height={300} alt="banner" />
     </div>
   );
 };
