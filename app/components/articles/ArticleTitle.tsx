@@ -8,8 +8,8 @@ export const ArticleTitle = ({ article, lng }: { article: Article; lng?: string 
   }
   return (
     <h1
-      id="article-title"
-      className="max-w-5xl mx-auto my-10 lg:my-20 text-white text-4xl lg:text-6xl text-center lg:text-left"
+      id="summary-0"
+      className="max-w-5xl mx-auto py-10 lg:py-20 text-white text-4xl lg:text-6xl text-center lg:text-left"
     >
       {article.title}
     </h1>

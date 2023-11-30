@@ -7,7 +7,7 @@ import { Article } from "../types";
 
 export default async function markdownToHtml(markdown: any) {
   let totalH2 = 0;
-  const summary: string[] = [];
+  const summary: string[] = ["Intro"];
 
   const result = await remark()
     // @ts-ignore
@@ -18,6 +18,7 @@ export default async function markdownToHtml(markdown: any) {
           // console.log(state);
           // console.log(node);
 
+          //h2 
           if (node.depth === 2) {
             summary.push(node.children[0].value);
             totalH2++;
@@ -27,7 +28,7 @@ export default async function markdownToHtml(markdown: any) {
             type: "element",
             tagName: "h" + node.depth,
             properties: {
-              id: node.depth === 2 ? `summary-${totalH2 - 1}` : "",
+              id: node.depth === 2 ? `summary-${totalH2}` : "",
             },
             children: state.all(node),
           };
