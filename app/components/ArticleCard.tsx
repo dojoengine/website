@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Article } from "../types";
-import { ArrowRight } from "../icons/ArrowRight";
+// import { ArrowRight } from "../icons/ArrowRight";
 import { ArticleTags } from "./articles/ArticleTags";
 
 export const ArticleCard = ({ article, lng }: { article: Article; lng: string }) => {
