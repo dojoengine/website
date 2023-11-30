@@ -40,7 +40,7 @@ const LangageSelector = ({
       <div>
         <button
           type="button"
-          className="inline-flex w-full justify-center text-dojo-blue-800 shadow-sm bg-dojo-vibrant-blue hover:bg-dojo-red-400 rounded-full p-1 sm:p-2 font-bold"
+          className="inline-flex w-full justify-center text-dojo-blue-400 fill-dojo-blue-400 shadow-sm bg-dojo-blue-700 hover:bg-dojo-blue-650 rounded-full p-1 sm:p-2 font-bold"
           id="menu-button"
           aria-expanded="true"
           aria-haspopup="true"
@@ -60,7 +60,7 @@ const LangageSelector = ({
         }}
         className={`${
           !isOpen && "hidden"
-        } absolute right-0 bottom-12 z-10 mt-2 origin-top-right rounded-xl bg-dojo-vibrant-blue shadow-lg focus:outline-none overflow-hidden `}
+        } absolute right-0 bottom-12 z-10 mt-2 origin-top-right rounded-xl bg-dojo-blue-700 shadow-lg focus:outline-none overflow-hidden `}
         role="menu"
         aria-orientation="vertical"
         aria-labelledby="menu-button"
@@ -71,7 +71,7 @@ const LangageSelector = ({
             return (
               <Link
                 href={`/${item.value}`}
-                className={`flex justify-center text-dojo-blue-800 font-bold  px-4 py-2 text-sm hover:bg-dojo-red-400 ${
+                className={`flex justify-center text-dojo-blue-400 font-bold  px-4 py-2 text-sm hover:bg-dojo-blue-650 ${
                   item.value === lng && "hidden"
                 }`}
                 role="menuitem"
