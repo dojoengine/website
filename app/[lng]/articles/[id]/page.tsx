@@ -35,9 +35,9 @@ export async function generateMetadata({
   const { article } = await getData({ id });
 
   return {
-    title: `${t("head_blog_title")}-${article.title}`,
+    title: `${t("head_blog_title")} - ${article.title}`,
     description: article.subtitle,
-    keywords: article.tags.join(","),
+    keywords: article.tags.join(", "),
     openGraph: {
       title: article.title,
       images: [
