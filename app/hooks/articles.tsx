@@ -7,15 +7,13 @@ import { Article } from "../types";
 
 import { Code } from "../components/CodeBlock";
 
-import React from "react";
-
 import * as prod from "react/jsx-runtime";
 import { unified } from "unified";
 
 import remarkParse from "remark-parse";
-import remarkRehype from "remark-rehype";
 import remarkGfm from "remark-gfm";
 import remarkImages from "remark-images";
+import remarkRehype from "remark-rehype";
 
 import rehypeRaw from "rehype-raw";
 import rehypeReact from "rehype-react";
