@@ -128,7 +128,7 @@ export function getAllArticleIds() {
   });
 }
 
-export async function getArticleData(id: any) {
+export async function getArticleData(id: string) {
   const fullPath = path.join(articlesDirectory, `${decodeURI(id)}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
 
@@ -136,11 +136,9 @@ export async function getArticleData(id: any) {
   const { processedContent, summary } = await markdownToHtml(content);
   const { processedReact } = await markdownToReact(content);
 
-  // console.log(processedContent);
-  // console.log(summary);
-
   return {
     id,
+    content,
     contentReact: processedReact,
     contentHtml: processedContent,
     summary: summary,

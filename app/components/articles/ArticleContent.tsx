@@ -17,7 +17,7 @@ export const ArticleContent = ({ article, lng }: { article: Article; lng?: strin
     return null;
   }
   return (
-    <div className="article-content container max-w-xl text-white mx-auto lg:mx-0 font-light">
+    <div className="article-content container text-white mx-auto lg:mx-0 font-light">
       {article.contentReact}
     </div>
   );

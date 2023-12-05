@@ -34,6 +34,14 @@ body {
   transform: translateX(-50%);
 }
 
+.article-container strong {
+  font-weight: 800;
+}
+
+.article-container li {
+  padding-bottom: 20px;
+}
+
 .article-nav-container li {
   @apply pl-3 border-l-4 no-underline cursor-pointer border-dojo-blue-600 hover:text-dojo-green-light hover:border-dojo-green-light;
 }

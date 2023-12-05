@@ -31,7 +31,7 @@ module.exports = {
         'dojo-green': "#77F5B2", // article
         'dojo-green-light': "#29DEBF", // article
 
-        'tag-science': "#69CBC1",
+        'tag-technology': "#69CBC1",
         'tag-gaming': "#FBCB4A",
         'tag-developer': "#CC6FC3",
         'tag-zk': "#FE2C2E",

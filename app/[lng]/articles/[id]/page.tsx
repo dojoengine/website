@@ -54,14 +54,22 @@ export async function generateMetadata({
     },
 
     icons: {
-      icon: [{ url: favIcon.src }, { url: fav16Icon.src }, { url: fav32Icon.src }],
+      icon: [
+        { url: favIcon.src },
+        { url: fav16Icon.src },
+        { url: fav32Icon.src },
+      ],
       apple: { url: appleIcon.src },
       other: [{ url: android192Icon.src }, { url: android512Icon.src }],
     },
   };
 }
 
-export default async function Article({ params }: { params: { id: string; lng: string } }) {
+export default async function Article({
+  params,
+}: {
+  params: { id: string; lng: string };
+}) {
   const { article } = await getData({ id: params.id });
 
   return (
@@ -70,13 +78,13 @@ export default async function Article({ params }: { params: { id: string; lng: s
         <ArticleBanner article={article} />
         <ArticleTitle article={article} />
 
-        <div className="flex flex-col align-center max-w-5xl mx-auto lg:flex-row gap-12">
-          <ArticleInfos article={article} />
+        <div className="flex flex-col align-center max-w-3xl mx-auto ">
+          {/* <ArticleInfos article={article} /> */}
           <ArticleContent article={article} />
-          <ArticleNav article={article} />
+          {/* <ArticleNav article={article} /> */}
         </div>
 
-        <ArticleFooter article={article} />
+        {/* <ArticleFooter article={article} /> */}
 
         {/* <div className="mt-6">
           <Link href={"/articles"}>back</Link>
