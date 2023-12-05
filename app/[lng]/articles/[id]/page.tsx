@@ -35,17 +35,17 @@ export async function generateMetadata({
   const { article } = await getData({ id });
 
   return {
-    title: `${t("head_blog_title")} - ${article.title}`,
+    title: `${t("head_blog_title")}: ${article.title}`,
     description: article.subtitle,
     keywords: article.tags.join(", "),
     openGraph: {
-      title: article.title,
+      title: `${t("head_blog_title")}: ${article.title}`,
       images: [
         {
-          url: article.cover,
-          // width: 660,
-          // height: 380,
-          alt: "Dojo",
+          url: article.cover_small ? article.cover_small : article.cover,
+          // width: 520,
+          // height: 520,
+          alt: `${article.title}`,
         },
       ],
 

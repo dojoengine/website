@@ -12,6 +12,7 @@ export interface Article {
     id: string;
     category: string;
     cover: string;
+    cover_small: string;
     summary: string[];
 }
 

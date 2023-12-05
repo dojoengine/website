@@ -8,6 +8,7 @@ author_desc: "Tarrence is core contributor to Dojo and co-founder of Cartridge"
 author_img: "/article-images/authors/tarrence.jpg"
 category: "autonomous worlds"
 cover: "/article-images/provable-games/cover.jpeg"
+cover_small: "/article-images/provable-games/cover_small.jpeg"
 ---
 
 Autonomous Worlds (AWs) are [digitally native worlds](https://aw.network/posts/the-case-for-autonomous-worlds), defined and governed by their smart contracts, existing entirely onchain and inheriting the unique affordances of the blockchain: composable, extensible, permissionless and persistent. Unencumbered by platform risks, AWs promise a new medium for our collective expression, a natural extension of our digital culture, with a credible commitment to neutrality. They represent [a new paradigm in game design](https://aw.network/posts/composable-engineering): where core mechanics can be openly defined, where primitives can be permissionlessly extended, and where a world’s substrate can be continually reinterpreted into new experiences.
