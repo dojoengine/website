@@ -30,11 +30,11 @@ export const Code = ({ text, language = "rust" }: { text: string; language?: str
   return (
     <>
       <CopyBlock
-        /* @ts-expect-error */
         language={language}
         text={text}
         theme={{ ...dracula, backgroundColor: "#031125" }}
         codeBlock={true}
+        /* @ts-expect-error */
         wrapLines
         customStyle={{
           fontSize: "0.75rem",
