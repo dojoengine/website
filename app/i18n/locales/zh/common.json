@@ -3,6 +3,7 @@
     "head_home_desc": "Dojo 是一个经过验证的游戏引擎和工具链，用于与 Cairo 一起构建链上游戏和自治世界",
     "head_home_keywords": "DOJO, ECS, Starknet, framework, open source",
     "intro" : "是一个经过验证的游戏引擎和工具链，用于与 Cairo 一起构建链上游戏和自治世界",
-    "articles" : "文章",
-    "copied_to_clipboard" : "已复制到剪贴板!"
+    "blog_posts" : "文章",
+    "copied_to_clipboard" : "已复制到剪贴板!",
+    "head_blog_title": "Dojo Blog"
 }

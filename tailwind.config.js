@@ -10,10 +10,9 @@ module.exports = {
       fontFamily: {
         title: ['var(--font-agrandir)'],
         text: ['var(--font-inter)']
-
       },
       colors: {
-        'dojo-vibrant-blue-400':"#468CFE", // dojo logo 
+        'dojo-vibrant-blue':"#468CFE", // dojo logo 
 
         'dojo-blue-200': '#2E486D',
 
@@ -21,7 +20,9 @@ module.exports = {
         'dojo-blue-400': '#84ADE5', // text 
         'dojo-blue-500': '#4C75AE',
         'dojo-blue-600': '#3C5D8A',
+        'dojo-blue-650': '#12305C',
         'dojo-blue-700': '#0C274F', 
+        'dojo-blue-750': '#0C2449',
         'dojo-blue-800': '#071E3F', // bg 
         'dojo-blue-900': '#031125', // footer 
 
@@ -30,7 +31,7 @@ module.exports = {
         'dojo-green': "#77F5B2", // article
         'dojo-green-light': "#29DEBF", // article
 
-        'tag-science': "#69CBC1",
+        'tag-technology': "#69CBC1",
         'tag-gaming': "#FBCB4A",
         'tag-developer': "#CC6FC3",
         'tag-zk': "#FE2C2E",
@@ -40,7 +41,16 @@ module.exports = {
         'game7': "#CC6FC3",
         'mask': "#EB8A8A",
         'starkware': "#6FCCBB",
-
+      },
+      container:{
+        screens:{
+          "default": '100%',
+          "sm": '640px',
+          "md": '768px',
+          "lg": '1024px',
+          "xl": '1024px',
+          "2xl": '1024px',
+        }
       }
     },
   },

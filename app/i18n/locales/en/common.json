@@ -1,8 +1,11 @@
 {
     "head_home_title": "Provable game engine for onchain games and autonomous worlds",
     "head_home_desc": "Dojo is a provable game engine and toolchain for building onchain games and autonomous worlds.",
-    "head_home_keywords": "DOJO, ECS, Starknet, framework, open source",
+    "head_home_keywords": "Dojo, ECS, Starknet, framework, open source",
     "intro": "is a provable game engine and toolchain for building onchain games and autonomous worlds.",
-    "articles": "Articles",
-    "copied_to_clipboard": "Copied to Clipboard!"
+    "blog_posts": "Blog Posts",
+    "copied_to_clipboard": "Copied to Clipboard!",
+    "home_code_title": "Architect Your World",
+    "home_code_desc": "Rapidly build and deploy onchain games and Autonomous Worlds with the Dojo toolchain.\n\nGames that are defined and governed by their smart contracts, existing entirely onchain and inheriting the unique affordances of the blockchain: composable, extensible, permissionless and persistent.",
+    "head_blog_title": "Dojo Blog"
 }

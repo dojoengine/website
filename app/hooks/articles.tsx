@@ -5,9 +5,25 @@ import { remark } from "remark";
 import html from "remark-html";
 import { Article } from "../types";
 
-export default async function markdownToHtml(markdown: any) {
+import { Code } from "../components/CodeBlock";
+
+import * as prod from "react/jsx-runtime";
+import { unified } from "unified";
+
+import remarkParse from "remark-parse";
+import remarkGfm from "remark-gfm";
+import remarkImages from "remark-images";
+import remarkRehype from "remark-rehype";
+
+import rehypeRaw from "rehype-raw";
+import rehypeReact from "rehype-react";
+
+// @ts-expect-error: the react types are missing.
+const production = { Fragment: prod.Fragment, jsx: prod.jsx, jsxs: prod.jsxs };
+
+export async function markdownToHtml(markdown: any) {
   let totalH2 = 0;
-  const summary: string[] = [];
+  const summary: string[] = ["Intro"];
 
   const result = await remark()
     // @ts-ignore
@@ -18,6 +34,7 @@ export default async function markdownToHtml(markdown: any) {
           // console.log(state);
           // console.log(node);
 
+          //h2
           if (node.depth === 2) {
             summary.push(node.children[0].value);
             totalH2++;
@@ -27,8 +44,7 @@ export default async function markdownToHtml(markdown: any) {
             type: "element",
             tagName: "h" + node.depth,
             properties: {
-              id: node.depth === 2 ? `summary-${totalH2 - 1}` : "",
-              // class: `summary-${totalH2}`
+              id: node.depth === 2 ? `summary-${totalH2}` : "",
             },
             children: state.all(node),
           };
@@ -44,6 +60,39 @@ export default async function markdownToHtml(markdown: any) {
   return {
     processedContent: result.toString(),
     summary,
+  };
+}
+
+export async function markdownToReact(markdown: any) {
+  const result = await unified()
+    .use(remarkParse, { allowDangerousHTML: true, escapeHtml: false })
+    .use(remarkImages)
+    .use(remarkGfm)
+    .use(remarkRehype)
+    .use(rehypeRaw)
+    .use(rehypeReact, {
+      ...production,
+      elementAttributeNameCase: "react",
+      stylePropertyNameCase: "dom",
+      components: {
+        code: ({ children }) => {
+          return <Code text={children?.toString() || ""} />;
+        },
+        a: ({ children, ...props }) => {
+          return (
+            <a {...props} target={props.href?.startsWith("#") ? undefined : "_blank"}>
+              {children}
+            </a>
+          );
+        },
+      
+      },
+    })
+    .process(markdown);
+  // console.log(result);
+
+  return {
+    processedReact: result.result,
   };
 }
 
@@ -64,13 +113,7 @@ export function getSortedArticlesData() {
     };
   });
 
-  return allArticlesData.sort((a: any, b: any) => {
-    if (a.date < b.date) {
-      return 1;
-    } else {
-      return -1;
-    }
-  });
+  return allArticlesData.sort((a: any, b: any) => (a.date < b.date ? 1 : -1));
 }
 
 export function getAllArticleIds() {
@@ -85,18 +128,18 @@ export function getAllArticleIds() {
   });
 }
 
-export async function getArticleData(id: any) {
-  const fullPath = path.join(articlesDirectory, `${id}.md`);
+export async function getArticleData(id: string) {
+  const fullPath = path.join(articlesDirectory, `${decodeURI(id)}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
 
   const { data, content } = matter(fileContents);
   const { processedContent, summary } = await markdownToHtml(content);
-
-  // console.log(processedContent);
-  // console.log(summary);
+  const { processedReact } = await markdownToReact(content);
 
   return {
     id,
+    content,
+    contentReact: processedReact,
     contentHtml: processedContent,
     summary: summary,
     ...data,

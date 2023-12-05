@@ -4,23 +4,21 @@ import { IBM_Plex_Mono } from "next/font/google";
 import { dir } from "i18next";
 import { languages } from "../i18n/settings";
 import { TopNav } from "../components/TopNav";
-import { Background } from "../components/Background";
 import { useTranslation } from "../i18n";
 
-import dojoSocial from "@/public/dojo-social.png";
+import localFont from "next/font/local";
+import { Footer } from "../components/Footer";
 
+import dojoSocial from "@/public/dojo-social.png";
 import favIcon from "@/app/favicon.ico";
 import fav16Icon from "@/public/favicon-16x16.png";
 import fav32Icon from "@/public/favicon-16x16.png";
 import appleIcon from "@/public/apple-touch-icon.png";
 import android192Icon from "@/public/android-chrome-192x192.png";
 import android512Icon from "@/public/android-chrome-512x512.png";
-import localFont from "next/font/local";
-import { Footer } from "../components/Footer";
 
 // const ibm_plex_mono = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400"] });
 // ${ibm_plex_mono.className}
-
 
 const agrandir = localFont({
   src: [
@@ -57,7 +55,7 @@ const inter = localFont({
 export async function generateMetadata(
   { params: { lng } }: { params: { lng: string } },
   parent?: ResolvingMetadata
-): Promise<Metadata> {
+): Promise<Metadata | undefined> {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t, i18n } = await useTranslation(lng, "common");
 
@@ -104,8 +102,7 @@ export default async function RootLayout({
       <body className={` ${agrandir.variable} ${inter.variable} bg-dojo-blue-800 text-dojo-blue-400`}>
         <TopNav lng={lng} />
         {children}
-        <Background />
-        <Footer lng={lng}/>
+        <Footer lng={lng} />
       </body>
     </html>
   );

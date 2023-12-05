@@ -16,7 +16,7 @@ import { Book } from "../icons/Book";
 
 export const TopNav = ({ lng }: { lng: string }) => {
   return (
-    <div className="xl:container mx-auto">
+    <div className="w-full max-w-[1500px] mx-auto">
       <nav className="flex justify-between p-2 px-4 md:p-6 md:px-9">
         <div>
           <Link href={`/${lng}`}>
@@ -29,7 +29,7 @@ export const TopNav = ({ lng }: { lng: string }) => {
           <Link
             href="https://book.dojoengine.org/"
             target="_blank"
-            className="block bg-dojo-blue-400 hover:bg-dojo-red-400 fill-dojo-blue-800 text-dojo-blue-800 font-bold rounded-full p-1 sm:p-2"
+            className="block bg-dojo-vibrant-blue hover:bg-dojo-red-400 fill-dojo-blue-800 text-dojo-blue-800 font-bold rounded-full px-3 py-1 md:py-2"
           >
             DOCS
           </Link>

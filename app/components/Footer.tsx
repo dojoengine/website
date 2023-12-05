@@ -57,7 +57,7 @@ const footer_links = {
 export const Footer = ({ lng }: { lng: string }) => {
   return (
     <footer className="footer bg-dojo-blue-900 shadow-2xl shadow-dojo-blue-400 ">
-      <div className="container py-12 px-6 grid-cols-2  md:grid-cols-4 grid max-w-5xl mx-auto ">
+      <div className="container py-12 px-6 grid-cols-1  md:grid-cols-4 grid max-w-5xl mx-auto ">
         <div>
           <h6 className="uppercase mb-4 font-bold opacity-50 text-dojo-blue-500">Dojo Stack</h6>
           <div className="flex flex-col items-start space-y-2 mb-6">
@@ -81,13 +81,13 @@ export const Footer = ({ lng }: { lng: string }) => {
                         {footer_links.social.map((link, index) => <FooterLink link={link} index={index} />)}
                     </div>*/}
         </div>
-        <div className="flex items-end justify-end space-x-2">
-          <div className="flex items-end justify-end space-x-2">
+        <div className="flex items-end md:justify-end space-x-2">
+          {/* <div className="flex items-end justify-end space-x-2"> */}
             <LangageSelector items={dropdownItems} icon={<LanguageIcon />} lng={lng} />
-          </div>
-          <div className="flex items-end justify-end space-x-2 ">
+          {/* </div> */}
+          {/* <div className="flex items-end justify-end space-x-2 ">
             <SocialLinks />
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>
