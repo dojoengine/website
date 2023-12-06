@@ -35,6 +35,7 @@ export async function generateMetadata({
   const { article } = await getData({ id });
 
   return {
+    metadataBase: process.env.NEXT_PUBLIC_VERCEL_ENV === 'production' ? new URL("https://www.dojoengine.org") : undefined,
     title: `${t("head_blog_title")}: ${article.title}`,
     description: article.subtitle,
     keywords: article.tags.join(", "),
