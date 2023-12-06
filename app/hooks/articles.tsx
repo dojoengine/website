@@ -6,6 +6,7 @@ import html from "remark-html";
 import { Article } from "../types";
 
 import { Code } from "../components/CodeBlock";
+import { ImageModal } from "../components/ImageModal";
 
 import * as prod from "react/jsx-runtime";
 import { unified } from "unified";
@@ -85,7 +86,9 @@ export async function markdownToReact(markdown: any) {
             </a>
           );
         },
-      
+        img: ({ children, ...props }) => {
+          return <ImageModal small={props.src || ""} large={props.src || ""} alt={props.alt || "alt"} />;
+        },
       },
     })
     .process(markdown);
