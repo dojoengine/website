@@ -26,8 +26,8 @@ body {
 }
 
 .article-container .article-banner-container img {
-  width: 1500px;
-  height: 300px;
+  width: 1300px;
+  height: 400px;
   object-fit: cover;
   position: absolute;
   left: 50%;
@@ -69,6 +69,10 @@ body {
 
 .article-content > * {
   @apply mb-6;
+}
+
+.article-content {
+  margin-bottom: 60px;
 }
 
 .article-content hr {
