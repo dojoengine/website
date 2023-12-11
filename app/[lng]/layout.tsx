@@ -17,6 +17,8 @@ import appleIcon from "@/public/apple-touch-icon.png";
 import android192Icon from "@/public/android-chrome-192x192.png";
 import android512Icon from "@/public/android-chrome-512x512.png";
 
+import { Analytics } from '@vercel/analytics/react';
+
 // const ibm_plex_mono = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400"] });
 // ${ibm_plex_mono.className}
 
@@ -103,6 +105,7 @@ export default async function RootLayout({
         <TopNav lng={lng} />
         {children}
         <Footer lng={lng} />
+        <Analytics />
       </body>
     </html>
   );
