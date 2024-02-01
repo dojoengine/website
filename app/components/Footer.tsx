@@ -15,29 +15,29 @@ const dropdownItems = languages.map((i) => ({
 
 const footer_links = {
   dojo: [
-    // {
-    //   name: "Code",
-    //   url: "https://github.com/dojoengine/dojo",
-    //   external: true,
-    // },
-    // {
-    //   name: "Documentation",
-    //   url: "https://book.dojoengine.org/",
-    //   external: true,
-    // },
+    {
+      name: "Code",
+      url: "https://github.com/dojoengine/dojo",
+      external: true,
+    },
+    {
+      name: "Documentation",
+      url: "https://book.dojoengine.org/",
+      external: true,
+    },
     {
       name: "Katana",
-      url: "https://book.dojoengine.org/toolchain/katana/overview.html",
+      url: "https://book.dojoengine.org/toolchain/katana/overview",
       external: true,
     },
     {
       name: "Sozo",
-      url: "https://book.dojoengine.org/toolchain/sozo/overview.html",
+      url: "https://book.dojoengine.org/toolchain/sozo/overview",
       external: true,
     },
     {
       name: "Torii",
-      url: "https://book.dojoengine.org/toolchain/torii/overview.html",
+      url: "https://book.dojoengine.org/toolchain/torii/overview",
       external: true,
     },
     //   {
