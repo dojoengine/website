@@ -16,6 +16,11 @@ import { Mask } from "../icons/Mask";
 import { Starkware } from "../icons/Starkware";
 import Link from "next/link";
 import { Background } from "../components/Background";
+import { Katana } from "../components/LandingPage/Katana";
+import { Torii } from "../components/LandingPage/Torii";
+import { Sections } from "../components/LandingPage/Sections";
+import { Globe } from "../components/LandingPage/Globe";
+import { Ohayo } from "../components/LandingPage/Ohayo";
 
 async function getData() {
   return {
@@ -36,8 +41,66 @@ export default async function Home({
 
   return (
     <>
-      <Background />
+      <Sections />
 
+      <Globe />
+
+      <Background />
+      <Ohayo />
+
+      <div className="w-full flex justify-center">
+        <div className="w-1/2 px-6 my-24 md:my-40">
+          <div className="w-full mx-auto">
+            <h2 className="mb-8 text-center md:text-left text-white">
+              {t("Posts")}
+            </h2>
+            <div className="flex flex-col space-y-6 mx-auto">
+              {articles.slice(0, 3).map((a: any, index: any) => {
+                return <ArticleCard key={index} article={a} lng={lng} />;
+              })}
+            </div>
+            {articles.length > 3 && (
+              <Link
+                className="block mt-6 text-center font-bold p-3 bg-dojo-blue-750 hover:bg-dojo-blue-650 rounded-xl w-full"
+                href={`/${lng}/articles`}
+              >
+                SEE ALL
+              </Link>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <div className="my-24 md:my-40">
+        <h2 className="text-bold text-center  font-agrandir mb-6 text-white">
+          Partners
+        </h2>
+        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 my-6 px-6">
+          <Link
+            href="https://starknet.io"
+            className="hover:text-starknet"
+            target="_blank"
+          >
+            <Starknet />
+          </Link>
+          <Link
+            href="https://cartridge.gg"
+            className="hover:text-cartridge"
+            target="_blank"
+          >
+            <Cartridge />
+          </Link>
+          <Link
+            href="https://starkware.co"
+            className="hover:text-starkware"
+            target="_blank"
+          >
+            <Starkware />
+          </Link>
+        </div>
+      </div>
+
+      {/*
       <main className="container mx-auto">
         <div className="landing-container items-center justify-around flex flex-col px-6 ">
           <div className="flex flex-wrap container justify-around mt-16 md:mt-40">
@@ -87,67 +150,12 @@ export default async function Home({
               Read the Dojo Book
             </Link>
           </div>
-          <div className="w-full self-center bg-dojo-blue-900 px-1 py-3 rounded-2xl shadow-2xl shadow-dojo-blue-200">
-            <Code text={homeCodeExample} />
-          </div>
         </div>
 
-        <div className="w-full px-6 my-24 md:my-40">
-          <div className="w-full mx-auto">
-            <h2 className="mb-8 text-center md:text-left text-white">
-              {t("blog_posts")}
-            </h2>
-            <div className="flex flex-col space-y-6 mx-auto">
-              {articles.slice(0, 3).map((a: any, index: any) => {
-                return <ArticleCard key={index} article={a} lng={lng} />;
-              })}
-            </div>
-            {articles.length > 3 && (
-              <Link
-                className="block mt-6 text-center font-bold p-3 bg-dojo-blue-750 hover:bg-dojo-blue-650 rounded-xl w-full"
-                href={`/${lng}/articles`}
-              >
-                SEE ALL
-              </Link>
-            )}
-          </div>
-        </div>
 
-        <div className="my-24 md:my-40">
-          <h2 className="text-bold text-center  font-agrandir mb-6 text-white">
-            Partners
-          </h2>
-          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 my-6 px-6">
-            <Link
-              href="https://starknet.io"
-              className="hover:text-starknet"
-              target="_blank"
-            >
-              <Starknet />
-            </Link>
-            <Link
-              href="https://cartridge.gg"
-              className="hover:text-cartridge"
-              target="_blank"
-            >
-              <Cartridge />
-            </Link>
-            {/* <Link href="https://game7.io" className="hover:text-game7" target="_blank">
-            <Game7 />
-          </Link>
-          <Link href="https://mask.io" className="hover:text-mask" target="_blank">
-            <Mask />
-          </Link> */}
-            <Link
-              href="https://starkware.co"
-              className="hover:text-starkware"
-              target="_blank"
-            >
-              <Starkware />
-            </Link>
-          </div>
-        </div>
-      </main>
+
+
+      </main> */}
     </>
   );
 }
