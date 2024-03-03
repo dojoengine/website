@@ -21,6 +21,7 @@ import { Torii } from "../components/LandingPage/Torii";
 import { Sections } from "../components/LandingPage/Sections";
 import { Globe } from "../components/LandingPage/Globe";
 import { Ohayo } from "../components/LandingPage/Ohayo";
+import { LandingSection } from "../components/LandingPage/LandingSection";
 
 async function getData() {
   return {
@@ -41,6 +42,7 @@ export default async function Home({
 
   return (
     <>
+      <LandingSection />
       <Sections />
 
       <Globe />

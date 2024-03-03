@@ -138,7 +138,10 @@ export const Sections = () => {
     },
   ];
   return (
-    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 h-screen p-4">
+    <div
+      id="dojo"
+      className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-4 h-screen p-4"
+    >
       {sections.map((section, index) => (
         <div
           key={index}
