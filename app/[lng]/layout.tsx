@@ -17,7 +17,7 @@ import appleIcon from "@/public/apple-touch-icon.png";
 import android192Icon from "@/public/android-chrome-192x192.png";
 import android512Icon from "@/public/android-chrome-512x512.png";
 
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from "@vercel/analytics/react";
 
 // const ibm_plex_mono = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400"] });
 // ${ibm_plex_mono.className}
@@ -81,7 +81,11 @@ export async function generateMetadata(
     },
 
     icons: {
-      icon: [{ url: favIcon.src }, { url: fav16Icon.src }, { url: fav32Icon.src }],
+      icon: [
+        { url: favIcon.src },
+        { url: fav16Icon.src },
+        { url: fav32Icon.src },
+      ],
       apple: { url: appleIcon.src },
       other: [{ url: android192Icon.src }, { url: android512Icon.src }],
     },
@@ -101,10 +105,12 @@ export default async function RootLayout({
 }) {
   return (
     <html lang={lng} dir={dir(lng)}>
-      <body className={` ${agrandir.variable} ${inter.variable} bg-dojo-blue-800 text-dojo-blue-400`}>
-        <TopNav lng={lng} />
+      <body
+        className={` ${agrandir.variable} ${inter.variable} bg-dojo-blue-800 text-dojo-blue-400`}
+      >
+        {/* <TopNav lng={lng} /> */}
         {children}
-        <Footer lng={lng} />
+        {/* <Footer lng={lng} /> */}
         <Analytics />
       </body>
     </html>
