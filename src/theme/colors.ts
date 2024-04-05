@@ -11,4 +11,7 @@ export const colors = {
     red: "#FD4544",
     teal: "#6FCCBB",
   },
+  background: {
+    dark: "#021531",
+  },
 };

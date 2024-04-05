@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Providers } from "./providers";
+import Navigation from "./Navigation";
 
 export const metadata: Metadata = {
   title: "Provable game engine for onchain games and autonomous worlds",
@@ -14,8 +15,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <Providers>{children}</Providers>
+      <body style={{ backgroundColor: "#021531" }}>
+        <Providers>
+          <Navigation />
+          {children}
+        </Providers>
       </body>
     </html>
   );
