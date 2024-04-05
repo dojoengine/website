@@ -1,8 +1,10 @@
 export const textStyles = {
   headline1: {
+    fontFamily: "Agrandir Variable",
+    fontWeight: 469,
     fontSize: {
       base: "50px",
-      md: "54px",
+      md: "80px",
     },
     lineHeight: {
       base: "80px",
@@ -40,6 +42,8 @@ export const textStyles = {
     },
   },
   buttonText: {
+    fontFamily: "Circular LL",
+    fontWeight: 450,
     fontSize: {
       base: "16px",
       md: "17px",
