@@ -6,4 +6,10 @@ export const Button = {
     borderRadius: "full",
     textStyle: "buttonText",
   },
+  variants: {
+    withIcon: {
+      pl: 6,
+      pr: 4,
+    },
+  },
 };
