@@ -12,6 +12,8 @@ export const textStyles = {
     },
   },
   headline2: {
+    fontFamily: "Agrandir Variable",
+    fontWeight: 469,
     fontSize: {
       base: "42px",
       md: "58px",
@@ -32,6 +34,8 @@ export const textStyles = {
     },
   },
   bodyText: {
+    fontFamily: "Agrandir Variable",
+    fontWeight: 336,
     fontSize: {
       base: "16px",
       md: "21px",
@@ -54,6 +58,8 @@ export const textStyles = {
     },
   },
   badgeText: {
+    fontFamily: "IBM Plex Sans",
+    fontWeight: 600,
     fontSize: {
       base: "12px",
       md: "14px",
@@ -74,6 +80,8 @@ export const textStyles = {
     },
   },
   title3: {
+    fontFamily: "Agrandir Variable",
+    fontWeight: 469,
     fontSize: {
       base: "20px",
       md: "28px",

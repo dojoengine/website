@@ -1,14 +1,5 @@
-import {
-  Box,
-  Button,
-  Center,
-  Flex,
-  Image,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
+import { Box, Button, Center, Flex, Text, VStack } from "@chakra-ui/react";
 import { Globe } from "./Globe";
-import { Wave } from "./Wave";
 import { Lines } from "./Lines";
 
 export default function Hero() {
@@ -19,6 +10,7 @@ export default function Hero() {
       justifyContent="center"
       position="relative"
       id="#hero"
+      overflow="hidden"
     >
       <Center
         maxW="1400px"
@@ -40,7 +32,6 @@ export default function Hero() {
         </Box>
         <Lines />
       </Center>
-      <Wave />
     </Flex>
   );
 }

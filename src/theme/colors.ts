@@ -6,6 +6,8 @@ export const colors = {
   },
   button: {
     purple: "#321CC4",
+  },
+  badge: {
     yellow: "#FBCB4A",
     fuchsia: "#F568D6",
     red: "#FD4544",
@@ -13,5 +15,8 @@ export const colors = {
   },
   background: {
     dark: "#021531",
+  },
+  stroke: {
+    purple: "#4E38E1",
   },
 };

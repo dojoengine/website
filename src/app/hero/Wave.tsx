@@ -9,8 +9,11 @@ export function Wave() {
       viewBox="0 0 1506 1247"
       fill="none"
       position="absolute"
-      top="75%"
+      top="-25vh"
+      left={0}
+      right={0}
       id="wave"
+      zIndex={-1}
     >
       <path
         fill="url(#wave-gradient)"

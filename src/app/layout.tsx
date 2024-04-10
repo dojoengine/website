@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body style={{ backgroundColor: "#021531" }}>
+      <body style={{ backgroundColor: "#021531", overflowX: "hidden" }}>
         <Providers>
           <Navigation />
           {children}
