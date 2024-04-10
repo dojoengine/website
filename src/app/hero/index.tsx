@@ -8,16 +8,26 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { Globe } from "./Globe";
+import { Wave } from "./Wave";
+import { Lines } from "./Lines";
 
 export default function Hero() {
   return (
-    <Center h="100vh" alignItems="center">
-      <Flex
+    <Flex
+      h="100vh"
+      alignItems="flex-start"
+      justifyContent="center"
+      position="relative"
+      id="#hero"
+    >
+      <Center
         maxW="1400px"
         w="full"
         justifyContent="space-between"
         alignItems="center"
         gap={20}
+        id="inner-hero"
+        h="100vh"
       >
         <VStack spacing={10} alignItems="flex-start">
           <Text color="text.white" textStyle="headline1">
@@ -28,7 +38,9 @@ export default function Hero() {
         <Box flexShrink={0}>
           <Globe />
         </Box>
-      </Flex>
-    </Center>
+        <Lines />
+      </Center>
+      <Wave />
+    </Flex>
   );
 }
