@@ -20,6 +20,7 @@ export function GetStarted() {
       bg="linear-gradient(180deg, rgba(5, 22, 49, 0) 36.81%, #0D1444 97.7%)"
       p={40}
       gap={12}
+      boxShadow="rgba(3, 18, 42, 0.8) 0px 0px 124px 30px"
     >
       <Text textStyle="title1"> Get started with our CLI:</Text>
       <Popover trigger="hover">

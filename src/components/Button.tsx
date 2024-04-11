@@ -1,8 +1,9 @@
 import { ButtonProps, Button as ChakraButton, Flex } from "@chakra-ui/react";
+import { forwardRef } from "react";
 
-export function Button(props: ButtonProps) {
+export const Button = forwardRef(function Button(props: ButtonProps, ref) {
   return (
-    <ChakraButton {...props}>
+    <ChakraButton {...props} ref={ref}>
       {props.variant === "showArrow" ? (
         <Flex alignItems="center" gap={16}>
           {props.children}
@@ -33,4 +34,4 @@ export function Button(props: ButtonProps) {
       )}
     </ChakraButton>
   );
-}
+});
