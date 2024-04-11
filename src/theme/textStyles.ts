@@ -24,6 +24,8 @@ export const textStyles = {
     },
   },
   headline3: {
+    fontFamily: "Agrandir Variable",
+    fontWeight: 617,
     fontSize: {
       base: "52px",
       md: "84px",
