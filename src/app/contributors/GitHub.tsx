@@ -3,7 +3,10 @@ import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { Box, Center, Flex, Grid, Text } from "@chakra-ui/react";
 
-export function GitHub() {
+export function GitHub({ contributorImages }: { contributorImages: string[] }) {
+  const firstEight = contributorImages.slice(0, 8); // This will get the first 8 elements
+  const theRest = contributorImages.slice(8);
+
   return (
     <Container>
       <Flex gap={20} alignItems="center">
@@ -37,17 +40,17 @@ export function GitHub() {
           <Button variant="showArrow">Contribute</Button>
         </Flex>
         <Grid gridTemplateColumns="repeat(3, 200px)" gap={5}>
-          {Array.from({ length: 8 }).map((_, i) => (
+          {firstEight.map((profileImage) => (
             <Box
               aspectRatio="1 /1 "
               bg="linear-gradient(180deg, #321CC1 52.27%, #7519A1 130.69%)"
-              key={i}
+              key="profileImage"
               borderRadius={40}
               position="relative"
               p={3}
             >
               <Box
-                bg="url('https://picsum.photos/400')"
+                bg={`url('${profileImage}')`}
                 boxSize="100%"
                 bgSize="contain"
                 bgPos="center center"
@@ -86,7 +89,7 @@ export function GitHub() {
               fontWeight={469}
               fontSize="32px"
             >
-              +25
+              +{theRest.length}
             </Text>
           </Center>
         </Grid>
