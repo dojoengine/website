@@ -71,6 +71,18 @@ export const textStyles = {
       md: "22px",
     },
   },
+  title1: {
+    fontFamily: "Agrandir Variable",
+    fontWeight: 617,
+    fontSize: {
+      base: "20px",
+      md: "34px",
+    },
+    lineHeight: {
+      base: "30px",
+      md: "65px",
+    },
+  },
   title2: {
     fontSize: {
       base: "24px",

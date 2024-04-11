@@ -142,7 +142,7 @@ export function Toolchain() {
             <Text textStyle="bodyText" mb={10}>
               {selectedTool.description}
             </Text>
-            <Button showArrow>Documentation</Button>
+            <Button variant="showArrow">Documentation</Button>
           </Flex>
           <VStack>
             {tools.map((tool, i) => (

@@ -1,9 +1,9 @@
 import { ButtonProps, Button as ChakraButton, Flex } from "@chakra-ui/react";
 
-export function Button(props: ButtonProps & { showArrow?: boolean }) {
+export function Button(props: ButtonProps) {
   return (
-    <ChakraButton {...props} variant={props.showArrow ? "withIcon" : undefined}>
-      {props.showArrow ? (
+    <ChakraButton {...props}>
+      {props.variant === "showArrow" ? (
         <Flex alignItems="center" gap={16}>
           {props.children}
 

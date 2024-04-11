@@ -34,7 +34,7 @@ export function GitHub() {
             We have a worldwide team of contributors that help us with
             everything from backend, frontend, design, and ops.
           </Text>
-          <Button showArrow>Contribute</Button>
+          <Button variant="showArrow">Contribute</Button>
         </Flex>
         <Grid gridTemplateColumns="repeat(3, 200px)" gap={5}>
           {Array.from({ length: 8 }).map((_, i) => (

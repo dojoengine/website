@@ -5,6 +5,7 @@ import { GameJam } from "./hero/GameJam";
 import { Properties } from "./Properties";
 import { Toolchain } from "./Toolchain";
 import { Contributors } from "./contributors";
+import { Footer } from "@/footer";
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
       <Box mb={40}>
         <Contributors />
       </Box>
+      <Footer />
     </Box>
   );
 }

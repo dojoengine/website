@@ -15,6 +15,7 @@ export const colors = {
   },
   background: {
     dark: "#021531",
+    purple: "#1B1579",
   },
   stroke: {
     purple: "#4E38E1",

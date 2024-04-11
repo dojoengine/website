@@ -54,7 +54,7 @@ export function GameJam() {
             Here is a short paragraph about the details of this current event.
             Should mention location, date and time of event as well as theme.
           </Text>
-          <Button showArrow>Sign up</Button>
+          <Button variant="showArrow">Sign up</Button>
         </Box>
       </Flex>
     </Container>
