@@ -44,7 +44,7 @@ export function GitHub({ contributorImages }: { contributorImages: string[] }) {
             <Box
               aspectRatio="1 /1 "
               bg="linear-gradient(180deg, #321CC1 52.27%, #7519A1 130.69%)"
-              key="profileImage"
+              key={profileImage}
               borderRadius={40}
               position="relative"
               p={3}

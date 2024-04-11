@@ -1,6 +1,10 @@
+"use client";
+
 import { Badge } from "@/components/Badge";
 import { Button } from "@/components/Button";
 import { Box, Center, Flex, Text, VStack } from "@chakra-ui/react";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 const tools = [
   {
@@ -46,19 +50,14 @@ const tools = [
       "Here is a short paragraph about the details of this product or tool. It should be relatively short and concise, maybe 2 sentences and three lines long maximum.",
     documentation: "https://docs.katana.io",
     icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width={115}
-        height={116}
-        fill="none"
-      >
+      <svg viewBox="0 0 300 300" fill="none">
         <path
           fill="#fff"
-          d="m55.074 29.327 6.297 28.464.002-.003 31.178 5.877-5.61 5.077c-3.701 3.348-8.98 4.803-14.091 3.884L50.116 68.54l21.685 19.08H51.738L22.045 61.416l8.644-7.994c.604-.559 1.588-.57 2.207-.026L49.55 68.04 45.17 47.272c-.984-4.67.633-9.482 4.317-12.845l5.586-5.1Z"
+          d="m144.429 70 15.777 78.128.006-.007 78.121 16.13-14.059 13.936a39.347 39.347 0 0 1-35.306 10.662l-56.962-11.22L186.34 230h-50.269l-74.404-71.919 21.658-21.942a3.935 3.935 0 0 1 5.53-.07l41.731 40.193-10.971-57.005a39.349 39.349 0 0 1 10.816-35.259L144.429 70Z"
         />
         <path
           fill="#fff"
-          d="M73.828 53.435c-4.228 0-7.654-3.129-7.654-6.989s3.426-6.988 7.654-6.988c4.227 0 7.654 3.129 7.654 6.988 0 3.86-3.427 6.99-7.654 6.99Z"
+          d="M191.419 136.173c-10.592 0-19.179-8.589-19.179-19.183 0-10.595 8.587-19.183 19.179-19.183 10.592 0 19.178 8.588 19.178 19.183 0 10.594-8.586 19.183-19.178 19.183Z"
         />
       </svg>
     ),
@@ -95,8 +94,33 @@ const tools = [
   },
 ];
 
+type Direction = "up" | "down";
+
+const variants = {
+  initial: (direction: Direction) => {
+    return {
+      y: direction === "up" ? 300 : -300,
+      opacity: 0,
+    };
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+  },
+  exit: (direction: Direction) => {
+    return {
+      y: direction === "up" ? -300 : 300,
+      opacity: 0,
+    };
+  },
+};
+
 export function Toolchain() {
-  const selectedTool = tools[0];
+  const [selectionTop, setSelectionTop] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [direction, setDirection] = useState<Direction>("down");
+
+  const selectedTool = tools[selectedIndex];
 
   return (
     <Center position="relative" overflow="hidden" pb={40}>
@@ -116,38 +140,89 @@ export function Toolchain() {
         position="relative"
       >
         <Flex alignItems="center" gap={32}>
-          <Flex flexDir="column" alignItems="flex-start">
-            <Box mb={10}>
-              <Badge
-                text={selectedTool.badgeTitle}
-                color="badge.red"
-                icon={
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={25}
-                    height={25}
-                    fill="none"
-                  >
-                    <path
-                      fill="#03152E"
-                      d="M4.76 7.573c0-1.092.888-1.98 1.98-1.98h11.88c1.092 0 1.98.888 1.98 1.98v9.9c0 1.092-.888 1.98-1.98 1.98H6.74a1.982 1.982 0 0 1-1.98-1.98v-9.9Zm9.102 2.225a.74.74 0 0 0 .055 1.048l1.86 1.677-1.863 1.677a.74.74 0 0 0-.056 1.049.74.74 0 0 0 1.05.056l2.474-2.228a.743.743 0 0 0 0-1.101l-2.475-2.228a.74.74 0 0 0-1.049.056l.004-.006Zm-2.417 1.048a.74.74 0 0 0 .056-1.048.74.74 0 0 0-1.049-.056l-2.475 2.227a.743.743 0 0 0 0 1.101l2.475 2.228a.74.74 0 0 0 1.049-.055.74.74 0 0 0-.056-1.05l-1.862-1.67 1.862-1.677Z"
-                    />
-                  </svg>
-                }
-              />
-            </Box>
-            <Text textStyle="headline3" mb={10}>
-              {selectedTool.name}
-            </Text>
-            <Text textStyle="bodyText" mb={10}>
-              {selectedTool.description}
-            </Text>
-            <Button variant="showArrow">Documentation</Button>
-          </Flex>
-          <VStack>
+          <AnimatePresence mode="popLayout">
+            <motion.div
+              key={selectedTool.name}
+              variants={variants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+              }}
+              transition={{
+                y: { type: "spring", stiffness: 300, damping: 30 },
+                opacity: { duration: 0.2 },
+              }}
+              custom={direction}
+            >
+              <Box mb={10}>
+                <Badge
+                  text={selectedTool.badgeTitle}
+                  color="badge.red"
+                  icon={
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width={25}
+                      height={25}
+                      fill="none"
+                    >
+                      <path
+                        fill="#03152E"
+                        d="M4.76 7.573c0-1.092.888-1.98 1.98-1.98h11.88c1.092 0 1.98.888 1.98 1.98v9.9c0 1.092-.888 1.98-1.98 1.98H6.74a1.982 1.982 0 0 1-1.98-1.98v-9.9Zm9.102 2.225a.74.74 0 0 0 .055 1.048l1.86 1.677-1.863 1.677a.74.74 0 0 0-.056 1.049.74.74 0 0 0 1.05.056l2.474-2.228a.743.743 0 0 0 0-1.101l-2.475-2.228a.74.74 0 0 0-1.049.056l.004-.006Zm-2.417 1.048a.74.74 0 0 0 .056-1.048.74.74 0 0 0-1.049-.056l-2.475 2.227a.743.743 0 0 0 0 1.101l2.475 2.228a.74.74 0 0 0 1.049-.055.74.74 0 0 0-.056-1.05l-1.862-1.67 1.862-1.677Z"
+                      />
+                    </svg>
+                  }
+                />
+              </Box>
+              <Text textStyle="headline3" mb={10}>
+                {selectedTool.name}
+              </Text>
+              <Text textStyle="bodyText" mb={10}>
+                {selectedTool.description}
+              </Text>
+              <Button variant="showArrow">Documentation</Button>
+            </motion.div>
+          </AnimatePresence>
+          <VStack position="relative" flexShrink={0}>
             {tools.map((tool, i) => (
-              <>{tool.icon}</>
+              <Box
+                key={tool.name}
+                boxSize="115px"
+                zIndex={1}
+                onMouseEnter={(e) => {
+                  const top = e.currentTarget.offsetTop;
+
+                  setSelectionTop(top);
+                  setSelectedIndex(i);
+
+                  if (i > selectedIndex) {
+                    setDirection("down");
+                  } else {
+                    setDirection("up");
+                  }
+                }}
+                cursor="pointer"
+              >
+                {tool.icon}
+              </Box>
             ))}
+            <motion.div
+              style={{
+                position: "absolute",
+                left: 0,
+                right: 0,
+                top: 0,
+                aspectRatio: "1 / 1",
+                backgroundColor: "#321CC4",
+                zIndex: 0,
+                borderRadius: "22px",
+              }}
+              animate={{ y: selectionTop }}
+              transition={{ type: "spring" }}
+            ></motion.div>
           </VStack>
         </Flex>
         <Box
