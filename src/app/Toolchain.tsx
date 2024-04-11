@@ -99,7 +99,7 @@ export function Toolchain() {
   const selectedTool = tools[0];
 
   return (
-    <Center position="relative" overflow="hidden" pb={20}>
+    <Center position="relative" overflow="hidden" pb={40}>
       <Box
         maxW="1044px"
         width="full"

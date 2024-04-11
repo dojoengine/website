@@ -94,6 +94,8 @@ export const textStyles = {
     },
   },
   overline: {
+    fontFamily: "Agrandir Variable",
+    fontWeight: 617,
     fontSize: {
       base: "12px",
       md: "15px",

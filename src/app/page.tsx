@@ -4,6 +4,7 @@ import Games from "./Games";
 import { GameJam } from "./hero/GameJam";
 import { Properties } from "./Properties";
 import { Toolchain } from "./Toolchain";
+import { Contributors } from "./contributors";
 
 export default function Home() {
   return (
@@ -18,8 +19,9 @@ export default function Home() {
       <Box mb="200px">
         <Properties />
       </Box>
+      <Toolchain />
       <Box mb={40}>
-        <Toolchain />
+        <Contributors />
       </Box>
     </Box>
   );
