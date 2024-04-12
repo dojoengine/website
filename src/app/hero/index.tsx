@@ -6,6 +6,7 @@ import { Lines } from "./Lines";
 import { useRef } from "react";
 import { useMotionValueEvent, useScroll } from "framer-motion";
 import { useMenuStore } from "../Navigation";
+import { LineParticles } from "./Particles";
 
 export default function Hero() {
   const wrapper = useRef<HTMLDivElement>(null);
@@ -43,6 +44,7 @@ export default function Hero() {
         position="sticky"
         top={0}
       >
+        <LineParticles />
         <VStack spacing={10} alignItems="flex-start">
           <Text color="text.white" textStyle="headline1">
             Let&#8217;s build provable games.
