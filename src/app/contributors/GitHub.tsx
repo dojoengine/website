@@ -1,11 +1,38 @@
+"use client";
+
 import { Badge } from "@/components/Badge";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { Box, Center, Flex, Grid, Text } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 
 export function GitHub({ contributorImages }: { contributorImages: string[] }) {
-  const firstEight = contributorImages.slice(0, 8); // This will get the first 8 elements
+  const [shownContributorIndices, setShownContributorIndices] = useState<
+    number[]
+  >([0, 1, 2, 3, 4, 5, 6, 7]);
   const theRest = contributorImages.slice(8);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const randomIndex = Math.floor(Math.random() * 8);
+
+      setShownContributorIndices((prev) => {
+        const newFirstEight = [...prev];
+
+        let newIndex = Math.floor(Math.random() * contributorImages.length);
+
+        while (newFirstEight.includes(newIndex)) {
+          newIndex = Math.floor(Math.random() * contributorImages.length);
+        }
+
+        newFirstEight[randomIndex] = newIndex;
+
+        return newFirstEight;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <Container>
@@ -40,17 +67,17 @@ export function GitHub({ contributorImages }: { contributorImages: string[] }) {
           <Button variant="showArrow">Contribute</Button>
         </Flex>
         <Grid gridTemplateColumns="repeat(3, 200px)" gap={5}>
-          {firstEight.map((profileImage) => (
+          {shownContributorIndices.map((index) => (
             <Box
               aspectRatio="1 /1 "
               bg="linear-gradient(180deg, #321CC1 52.27%, #7519A1 130.69%)"
-              key={profileImage}
+              key={contributorImages[index]}
               borderRadius={40}
               position="relative"
               p={3}
             >
               <Box
-                bg={`url('${profileImage}')`}
+                bg={`url('${contributorImages[index]}')`}
                 boxSize="100%"
                 bgSize="contain"
                 bgPos="center center"
