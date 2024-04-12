@@ -18,4 +18,10 @@ export const Button = {
       px: 10,
     },
   },
+  sizes: {
+    sm: {
+      py: 2,
+      px: 4,
+    },
+  },
 };

@@ -4,13 +4,25 @@ import { Box, Button, Center, Flex, Text, VStack } from "@chakra-ui/react";
 import { Globe } from "./Globe";
 import { Lines } from "./Lines";
 import { useRef } from "react";
-import { useScroll } from "framer-motion";
+import { useMotionValueEvent, useScroll } from "framer-motion";
+import { useMenuStore } from "../Navigation";
 
 export default function Hero() {
   const wrapper = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: wrapper,
     offset: ["start start", "end end"],
+  });
+  const { decreasedPadding } = useMenuStore();
+
+  useMotionValueEvent(scrollYProgress, "change", (latest: number) => {
+    if (latest >= 1 && !decreasedPadding) {
+      return useMenuStore.setState({ decreasedPadding: true });
+    }
+
+    if (latest < 1 && decreasedPadding) {
+      return useMenuStore.setState({ decreasedPadding: false });
+    }
   });
 
   return (
