@@ -1,4 +1,5 @@
 import { Box } from "@chakra-ui/react";
+import { MotionValue, useTransform, motion } from "framer-motion";
 
 const lineProps = [
   {
@@ -19,7 +20,18 @@ const lineProps = [
   },
 ];
 
-export function Lines() {
+export function Lines({
+  scrollProgress,
+}: {
+  scrollProgress: MotionValue<number>;
+}) {
+  const line1Length = useTransform(scrollProgress, [0, 1], [0, 1]);
+  const line2Length = useTransform(scrollProgress, [0.1, 1], [0, 1]);
+  const line3Length = useTransform(scrollProgress, [0.2, 1], [0, 1]);
+  const line4Length = useTransform(scrollProgress, [0.3, 1], [0, 1]);
+
+  const lineLengths = [line1Length, line2Length, line3Length, line4Length];
+
   return (
     <>
       {lineProps.map((line, i) => (
@@ -36,10 +48,16 @@ export function Lines() {
           transform={`translateY(${line.translateY})`}
           key={i}
         >
-          <path
+          <motion.path
             stroke="url(#lineGradient)"
             d="M-.63 152.876c289.754 115.656 716.014 233.831 616.95 99.667C440.254 14.093 913.579 1.233 1163.67 1.233c101.38 0 229.81 37.43 347.99 83.752"
             opacity={line.opacity}
+            initial={{
+              pathLength: 0,
+            }}
+            style={{
+              pathLength: lineLengths[i],
+            }}
           />
           {i === 0 && (
             <defs>

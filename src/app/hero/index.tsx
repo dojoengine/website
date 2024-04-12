@@ -1,16 +1,25 @@
+"use client";
+
 import { Box, Button, Center, Flex, Text, VStack } from "@chakra-ui/react";
 import { Globe } from "./Globe";
 import { Lines } from "./Lines";
+import { useRef } from "react";
+import { useScroll } from "framer-motion";
 
 export default function Hero() {
+  const wrapper = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: wrapper,
+    offset: ["start start", "end end"],
+  });
+
   return (
     <Flex
-      h="100vh"
+      h="200vh"
       alignItems="flex-start"
       justifyContent="center"
       position="relative"
-      id="#hero"
-      overflow="hidden"
+      ref={wrapper}
     >
       <Center
         maxW="1400px"
@@ -18,8 +27,9 @@ export default function Hero() {
         justifyContent="space-between"
         alignItems="center"
         gap={20}
-        id="inner-hero"
         h="100vh"
+        position="sticky"
+        top={0}
       >
         <VStack spacing={10} alignItems="flex-start">
           <Text color="text.white" textStyle="headline1">
@@ -30,7 +40,7 @@ export default function Hero() {
         <Box flexShrink={0}>
           <Globe />
         </Box>
-        <Lines />
+        <Lines scrollProgress={scrollYProgress} />
       </Center>
     </Flex>
   );
