@@ -4,6 +4,7 @@ import { Badge } from "@/components/Badge";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
 import { Box, Center, Flex, Grid, Text } from "@chakra-ui/react";
+import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 export function GitHub({ contributorImages }: { contributorImages: string[] }) {
@@ -67,24 +68,33 @@ export function GitHub({ contributorImages }: { contributorImages: string[] }) {
           <Button variant="showArrow">Contribute</Button>
         </Flex>
         <Grid gridTemplateColumns="repeat(3, 200px)" gap={5}>
-          {shownContributorIndices.map((index) => (
-            <Box
-              aspectRatio="1 /1 "
-              bg="linear-gradient(180deg, #321CC1 52.27%, #7519A1 130.69%)"
-              key={contributorImages[index]}
-              borderRadius={40}
-              position="relative"
-              p={3}
-            >
-              <Box
-                bg={`url('${contributorImages[index]}')`}
-                boxSize="100%"
-                bgSize="contain"
-                bgPos="center center"
-                borderRadius={40}
-              />
-            </Box>
-          ))}
+          <AnimatePresence mode="popLayout">
+            {shownContributorIndices.map((index) => (
+              <motion.div
+                key={contributorImages[index]}
+                style={{
+                  aspectRatio: "1 / 1",
+                  background:
+                    "linear-gradient(180deg, #321CC1 52.27%, #7519A1 130.69%)",
+                  position: "relative",
+                  borderRadius: 40,
+                  padding: "12px",
+                }}
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.8, opacity: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <Box
+                  bg={`url('${contributorImages[index]}')`}
+                  boxSize="100%"
+                  bgSize="contain"
+                  bgPos="center center"
+                  borderRadius={40}
+                />
+              </motion.div>
+            ))}
+          </AnimatePresence>
           <Center gap={2}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
