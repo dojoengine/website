@@ -2,7 +2,7 @@ import Hero from "@/app/hero";
 import { Box } from "@chakra-ui/react";
 import Games from "./games";
 import { GameJam } from "./hero/GameJam";
-import { Properties } from "./Properties";
+import { Properties } from "./properties";
 import { Toolchain } from "./Toolchain";
 import { Contributors } from "./contributors";
 import { Footer } from "@/footer";
