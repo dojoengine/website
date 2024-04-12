@@ -1,5 +1,5 @@
 import { Box, Flex, Grid, Text } from "@chakra-ui/react";
-import { Wave } from "./hero/Wave";
+import { Wave } from "./Wave";
 import { Badge } from "@/components/Badge";
 import { Container } from "@/components/Container";
 

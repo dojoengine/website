@@ -1,6 +1,6 @@
 import Hero from "@/app/hero";
 import { Box } from "@chakra-ui/react";
-import Games from "./Games";
+import Games from "./games";
 import { GameJam } from "./hero/GameJam";
 import { Properties } from "./Properties";
 import { Toolchain } from "./Toolchain";
