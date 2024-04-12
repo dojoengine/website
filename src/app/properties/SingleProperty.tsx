@@ -1,5 +1,16 @@
+"use client";
+
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+
+export function round(num: number, fix = 2) {
+  return parseFloat(num.toFixed(fix));
+}
+
+export function distance(x1: number, y1: number, x2: number, y2: number) {
+  return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+}
 
 export function SingleProperty({
   property,
@@ -12,6 +23,14 @@ export function SingleProperty({
   };
   gridSize: string;
 }) {
+  const [mousePosition, setRotations] = useState<{
+    x: number;
+    y: number;
+    z: number;
+  }>();
+
+  useEffect(() => {}, []);
+
   return (
     <Flex
       borderRadius={16}
@@ -25,6 +44,42 @@ export function SingleProperty({
       bgPos={property.bgPos}
       position="relative"
       cursor="pointer"
+      onMouseMove={(e) => {
+        const rect = (e.target as HTMLElement).getBoundingClientRect();
+        const absolute = {
+          x: e.clientX - rect.left,
+          y: e.clientY - rect.top,
+        };
+
+        const percent = {
+          x: round((100 / rect.width) * absolute.x),
+          y: round((100 / rect.height) * absolute.y),
+        };
+
+        const center = {
+          x: percent.x - 50,
+          y: percent.y - 50,
+        };
+
+        setRotations({
+          x: round(((center.x > 50 ? 1 : -1) * center.x) / 3),
+          y: round(center.y / 3),
+          z: round(distance(percent.x, percent.y, 50, 50)),
+        });
+      }}
+      transform={`rotateX(${mousePosition?.x || 0}deg) rotateY(${
+        mousePosition?.y || 0
+      }deg)`}
+      onMouseLeave={() => {
+        setRotations({
+          x: 0,
+          y: 0,
+          z: 0,
+        });
+      }}
+      sx={{
+        transformStyle: "preserve-3d",
+      }}
     >
       <Box zIndex={5}>{property.icon}</Box>
       <Text textStyle="title3" alignSelf="flex-start">
