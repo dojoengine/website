@@ -1,7 +1,11 @@
+"use client";
+
 import { Box, Flex, Grid, Text } from "@chakra-ui/react";
 import { Wave } from "./Wave";
 import { Badge } from "@/components/Badge";
 import { Container } from "@/components/Container";
+import { SingleGame } from "./SingleGame";
+import { motion } from "framer-motion";
 
 const allGames = [
   {
@@ -133,25 +137,22 @@ export default function Games() {
             how they’re created or other relevant details in this section.
           </Text>
         </Box>
-        <Grid gridTemplate="repeat(2, 20vw) / repeat(3, 20vw)" gridGap={5}>
+        <motion.div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(3, 20vw)",
+            gridTemplateRows: "repeat(2, 20vw)",
+            gap: "20px",
+            cursor: "grab",
+          }}
+          drag="x"
+          dragConstraints={{ left: -500, right: 0 }}
+          dragElastic={0.1}
+        >
           {allGames.map((game, i) => (
-            <Flex
-              key={i}
-              border="1px solid"
-              borderColor="stroke.purple"
-              borderRadius={16}
-              p={6}
-              flexDir="column"
-              justifyContent="space-between"
-              alignItems="flex-end"
-            >
-              {game.logo}
-              <Text textStyle="title3" alignSelf="flex-start">
-                {game.name}
-              </Text>
-            </Flex>
+            <SingleGame key={i} game={game} />
           ))}
-        </Grid>
+        </motion.div>
       </Flex>
     </Container>
   );
