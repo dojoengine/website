@@ -1,11 +1,12 @@
 "use client";
 
-import { Box, Flex, Grid, Text } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import { Wave } from "./Wave";
 import { Badge } from "@/components/Badge";
 import { Container } from "@/components/Container";
 import { SingleGame } from "./SingleGame";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 const allGames = [
   {
@@ -107,53 +108,70 @@ const allGames = [
 ];
 
 export default function Games() {
+  const wrapper = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: wrapper,
+    offset: ["start center", "end end"],
+  });
+
+  const textOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const gamesTranslate = useTransform(scrollYProgress, [0, 1], ["100%", "50%"]);
+
   return (
     <Container>
       <Wave />
-      <Flex w="140%" gap={28} alignItems="center">
-        <Box flexBasis="30%">
-          <Box mb={7}>
-            <Badge
-              icon={
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width={25}
-                  height={24}
-                  fill="none"
-                >
-                  <path
-                    fill="#03152E"
-                    d="M16.145 7.526a3.468 3.468 0 0 1-2.475 3.323v3.112h-1.98V10.85a3.466 3.466 0 1 1 4.455-3.323Zm-4.207-.495a.74.74 0 0 0 .742-.742.74.74 0 0 0-.742-.743.74.74 0 0 0-.743.743.74.74 0 0 0 .742.742Zm-4.208 7.92a.989.989 0 1 1 1.98 0h7.92c1.092 0 1.98.888 1.98 1.98v.99c0 1.092-.888 1.98-1.98 1.98h-9.9a1.982 1.982 0 0 1-1.98-1.98v-.99c0-1.092.888-1.98 1.98-1.98Z"
-                  />
-                </svg>
-              }
-              text="On Dojo"
-              color="badge.yellow"
-            />
-          </Box>
-          <Text textStyle="headline2">Press start</Text>
-          <Text textStyle="bodyText">
-            Here is a medium length paragraph about our games. We can discuss
-            how they’re created or other relevant details in this section.
-          </Text>
-        </Box>
-        <motion.div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 20vw)",
-            gridTemplateRows: "repeat(2, 20vw)",
-            gap: "20px",
-            cursor: "grab",
-          }}
-          drag="x"
-          dragConstraints={{ left: -500, right: 0 }}
-          dragElastic={0.1}
+      <Box height="100vh" position="relative" ref={wrapper} pt="25vh" pb={32}>
+        <Flex
+          gap={28}
+          alignItems="center"
+          position="sticky"
+          top="50%"
+          transform="translateY(-50%)"
         >
-          {allGames.map((game, i) => (
-            <SingleGame key={i} game={game} />
-          ))}
-        </motion.div>
-      </Flex>
+          <motion.div style={{ flexBasis: "30%", opacity: textOpacity }}>
+            <Box mb={7}>
+              <Badge
+                icon={
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={25}
+                    height={24}
+                    fill="none"
+                  >
+                    <path
+                      fill="#03152E"
+                      d="M16.145 7.526a3.468 3.468 0 0 1-2.475 3.323v3.112h-1.98V10.85a3.466 3.466 0 1 1 4.455-3.323Zm-4.207-.495a.74.74 0 0 0 .742-.742.74.74 0 0 0-.742-.743.74.74 0 0 0-.743.743.74.74 0 0 0 .742.742Zm-4.208 7.92a.989.989 0 1 1 1.98 0h7.92c1.092 0 1.98.888 1.98 1.98v.99c0 1.092-.888 1.98-1.98 1.98h-9.9a1.982 1.982 0 0 1-1.98-1.98v-.99c0-1.092.888-1.98 1.98-1.98Z"
+                    />
+                  </svg>
+                }
+                text="On Dojo"
+                color="badge.yellow"
+              />
+            </Box>
+            <Text textStyle="headline2">Press start</Text>
+            <Text textStyle="bodyText">
+              Here is a medium length paragraph about our games. We can discuss
+              how they’re created or other relevant details in this section.
+            </Text>
+          </motion.div>
+          <motion.div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(3, 20vw)",
+              gridTemplateRows: "repeat(2, 20vw)",
+              gap: "20px",
+              x: "-50%",
+              position: "absolute",
+              left: gamesTranslate,
+            }}
+          >
+            {allGames.map((game, i) => (
+              <SingleGame key={i} game={game} />
+            ))}
+          </motion.div>
+        </Flex>
+      </Box>
     </Container>
   );
 }
