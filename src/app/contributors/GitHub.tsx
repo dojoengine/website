@@ -7,10 +7,25 @@ import { Box, Center, Flex, Grid, Text } from "@chakra-ui/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
+function getRandomIndices<T>(array: T[], numIndices: number): number[] {
+  if (numIndices > array.length) {
+    throw new Error("Number of indices requested exceeds array length.");
+  }
+
+  const indices = Array.from({ length: array.length }, (_, index) => index);
+
+  for (let i = indices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [indices[i], indices[j]] = [indices[j], indices[i]];
+  }
+
+  return indices.slice(0, numIndices);
+}
+
 export function GitHub({ contributorImages }: { contributorImages: string[] }) {
   const [shownContributorIndices, setShownContributorIndices] = useState<
     number[]
-  >([0, 1, 2, 3, 4, 5, 6, 7]);
+  >(getRandomIndices(contributorImages, 8));
   const theRest = contributorImages.slice(8);
 
   useEffect(() => {
@@ -30,7 +45,7 @@ export function GitHub({ contributorImages }: { contributorImages: string[] }) {
 
         return newFirstEight;
       });
-    }, 1000);
+    }, 2000);
 
     return () => clearInterval(interval);
   }, []);
@@ -90,7 +105,7 @@ export function GitHub({ contributorImages }: { contributorImages: string[] }) {
                   boxSize="100%"
                   bgSize="contain"
                   bgPos="center center"
-                  borderRadius={40}
+                  borderRadius={28}
                 />
               </motion.div>
             ))}
