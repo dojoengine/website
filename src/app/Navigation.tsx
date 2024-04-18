@@ -30,8 +30,9 @@ export default function Navigation() {
         px={8}
         alignItems="center"
         justifyContent="space-between"
-        bg="background.dark"
+        bg="rgba(2, 21, 49, 0.3)"
         borderRadius="full"
+        backdropFilter="blur(10px)"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
