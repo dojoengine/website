@@ -140,7 +140,7 @@ export function Toolchain() {
         position="relative"
       >
         <Flex alignItems="center" gap={32}>
-          <AnimatePresence mode="popLayout">
+          <AnimatePresence mode="popLayout" custom={direction}>
             <motion.div
               key={selectedTool.name}
               variants={variants}
