@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@/components/Button";
 import {
+  Box,
   Center,
   Popover,
   PopoverContent,
@@ -25,9 +25,27 @@ export function GetStarted() {
       <Text textStyle="title1"> Get started with our CLI:</Text>
       <Popover trigger="hover">
         <PopoverTrigger>
-          <Button variant="cta" onClick={onCopy}>
-            curl -L https://dojoengine.org | bash
-          </Button>
+          <Box as="button" p={0.5} position="relative" onClick={onCopy}>
+            <Box
+              position="absolute"
+              inset={0}
+              bgGradient="linear(to right, #6366f1 ,#a855f7)"
+              borderRadius="full"
+            ></Box>
+            <Box
+              px={8}
+              py={2}
+              bg="badge.red"
+              borderRadius="full"
+              transition="all 0.2s"
+              _hover={{ bg: "transparent", color: "text.white" }}
+              position="relative"
+              color="text.black"
+              fontFamily="IBM Plex Mono SemiBold"
+            >
+              curl -L https://dojoengine.org | bash
+            </Box>
+          </Box>
         </PopoverTrigger>
         <PopoverContent>
           <Text textStyle="overline">

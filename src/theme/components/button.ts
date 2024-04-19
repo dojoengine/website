@@ -49,7 +49,6 @@ export const Button = {
       pr: 4,
     },
     cta: {
-      bg: "badge.red",
       color: "text.black",
       py: 5,
       px: 10,

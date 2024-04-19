@@ -39,7 +39,7 @@ export function Links() {
           {linkGroups.map((group) => (
             <VStack key={group.header} alignItems="flex-start" gap={8}>
               <Text
-                textStyle="footerHeader"
+                fontFamily="IBM Plex Mono SemiBold"
                 color="text.purple"
                 fontWeight="600"
               >
@@ -49,9 +49,10 @@ export function Links() {
                 {group.links.map((link) => (
                   <Link
                     key={link.text}
-                    textStyle="footerLink"
+                    fontFamily="IBM Plex Mono Light"
                     href={link.href}
                     target="_blank"
+                    color="#A7C9F8"
                   >
                     {link.text}
                   </Link>

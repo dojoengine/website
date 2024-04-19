@@ -91,7 +91,9 @@ export default function Navigation() {
             />
           </svg>
         </HStack>
-        <Button size="sm">DOCS</Button>
+        <Button size="sm" fontFamily="Inter Bold" letterSpacing="4%">
+          DOCS
+        </Button>
       </Flex>
     </Flex>
   );

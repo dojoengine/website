@@ -19,6 +19,21 @@ export function Providers({ children }: { children: React.ReactNode }) {
             font-weight: 600;
           }
         @font-face {
+            font-family: 'IBM Plex Mono Light';
+            src: url('/fonts/IBMPlexMono-Light.otf');
+            font-weight: 300;
+          }
+        @font-face {
+            font-family: 'IBM Plex Mono SemiBold';
+            src: url('/fonts/IBMPlexMono-SemiBold.otf');
+            font-weight: 600;
+          }
+        @font-face {
+            font-family: 'Inter Bold';
+            src: url('/fonts/Inter-Bold.otf');
+            font-weight: 700;
+          }
+        @font-face {
             font-family: 'Circular LL';
             src: url('/fonts/CircularLL-Book.ttf');
             font-weight: 450;
