@@ -1,13 +1,49 @@
+"use client";
+
 import { Badge } from "@/components/Badge";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
-import { Box, Flex, HStack, Image, Text } from "@chakra-ui/react";
+import { Box, Flex, HStack, Text } from "@chakra-ui/react";
+import { useRef } from "react";
+import { useScroll, useTransform, motion } from "framer-motion";
 
 export function GameJam() {
+  const wrapper = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: wrapper,
+    offset: ["start end", "end start"],
+  });
+
+  const leftChibiY = useTransform(scrollYProgress, [0.1, 0.9], [0, -300]);
+  const rightChibiY = useTransform(scrollYProgress, [0.1, 0.9], [0, 200]);
+
   return (
     <Container>
-      <Flex alignItems="center">
-        <Image src="/images/chibi.png" w="50%" alt="Left Chibi" />
+      <Flex alignItems="center" ref={wrapper}>
+        <Box w="50%" aspectRatio="1 / 1" flexShrink={0} position="relative">
+          <motion.img
+            src="/images/chibi-left.png"
+            alt="Left Chibi"
+            style={{
+              y: leftChibiY,
+              width: "80%",
+              left: 0,
+              top: 0,
+              position: "absolute",
+            }}
+          />
+          <motion.img
+            src="/images/chibi-right.png"
+            alt="Right Chibi"
+            style={{
+              y: rightChibiY,
+              width: "80%",
+              right: 0,
+              bottom: 0,
+              position: "absolute",
+            }}
+          />
+        </Box>
         <Box>
           <HStack mb={4}>
             <Badge
