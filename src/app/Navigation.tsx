@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@/components/Button";
-import { Flex, HStack } from "@chakra-ui/react";
 import { create } from "zustand";
 
 export const useMenuStore = create<{ decreasedPadding: boolean }>()(() => ({
@@ -12,28 +11,12 @@ export default function Navigation() {
   const { decreasedPadding } = useMenuStore();
 
   return (
-    <Flex
-      as="nav"
-      justifyContent="center"
-      position="fixed"
-      top={0}
-      left={0}
-      right={0}
-      zIndex={10}
-      p={decreasedPadding ? 4 : 12}
-      transition="padding 0.3s"
+    <nav
+      className={`flex justify-center fixed top-0 left-0 right-0 z-10 transition-padding ${
+        decreasedPadding ? "p-4" : "p-12"
+      }`}
     >
-      <Flex
-        maxW="1400px"
-        w="full"
-        py={4}
-        px={8}
-        alignItems="center"
-        justifyContent="space-between"
-        bg="rgba(2, 21, 49, 0.3)"
-        borderRadius="full"
-        backdropFilter="blur(10px)"
-      >
+      <div className="max-w-[1400px] flex w-full py-4 px-8 items-center justify-between bg-[rgba(2,21,49,0.3)] rounded-full backdrop-blur-[10px]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width={81}
@@ -56,7 +39,7 @@ export default function Navigation() {
             </clipPath>
           </defs>
         </svg>
-        <HStack>
+        <div className="flex flex-row justify-between gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width={41}
@@ -90,11 +73,9 @@ export default function Navigation() {
               d="M18.591 22.762c0 .74-.386 1.951-1.3 1.951-.913 0-1.3-1.21-1.3-1.951 0-.74.387-1.951 1.3-1.951.914 0 1.3 1.21 1.3 1.951ZM29 20.974c0 1.13-.113 2.326-.62 3.364-1.342 2.713-5.032 2.65-7.675 2.65-2.684 0-6.594.095-7.99-2.65-.517-1.027-.715-2.235-.715-3.364 0-1.485.492-2.887 1.47-4.024a5.543 5.543 0 0 1-.273-1.728c0-.762.174-1.144.517-1.835 1.604 0 2.632.319 3.853 1.275a13.565 13.565 0 0 1 3.142-.354c.956 0 1.92.103 2.848.326 1.204-.946 2.23-1.247 3.817-1.247.348.69.518 1.073.518 1.835 0 .58-.093 1.158-.273 1.707.974 1.147 1.381 2.56 1.381 4.045Zm-2.277 1.788c0-1.555-.946-2.925-2.603-2.925-.67 0-1.31.12-1.984.212-.527.082-1.055.113-1.597.113-.538 0-1.066-.031-1.597-.113-.663-.092-1.31-.212-1.984-.212-1.657 0-2.603 1.37-2.603 2.925 0 3.11 2.848 3.588 5.327 3.588h1.707c2.49 0 5.334-.475 5.334-3.588Zm-2.926-1.951c-.913 0-1.3 1.21-1.3 1.951 0 .74.387 1.951 1.3 1.951.914 0 1.3-1.21 1.3-1.951 0-.74-.386-1.951-1.3-1.951Z"
             />
           </svg>
-        </HStack>
-        <Button size="sm" fontFamily="Inter Bold" letterSpacing="4%">
-          DOCS
-        </Button>
-      </Flex>
-    </Flex>
+        </div>
+        <Button>DOCS</Button>
+      </div>
+    </nav>
   );
 }
