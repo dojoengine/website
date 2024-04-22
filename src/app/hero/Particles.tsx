@@ -91,6 +91,7 @@ export function LineParticles() {
         top={0}
         bottom={0}
         opacity={0.2}
+        pointerEvents="none"
         sx={{
           "#tsparticles": {
             width: "100%",

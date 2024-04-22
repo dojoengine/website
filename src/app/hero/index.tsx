@@ -1,12 +1,13 @@
 "use client";
 
-import { Box, Button, Center, Flex, Text, VStack } from "@chakra-ui/react";
 import { Globe } from "./Globe";
 import { Lines } from "./Lines";
 import { useRef } from "react";
 import { useMotionValueEvent, useScroll } from "framer-motion";
 import { useMenuStore } from "../Navigation";
 import { LineParticles } from "./Particles";
+import { Text } from "../../components/Text";
+import { Button } from "@/components/Button";
 
 export default function Hero() {
   const wrapper = useRef<HTMLDivElement>(null);
@@ -27,35 +28,23 @@ export default function Hero() {
   });
 
   return (
-    <Flex
-      h="200vh"
-      alignItems="flex-start"
-      justifyContent="center"
-      position="relative"
+    <div
+      className="flex items-start justify-center relative h-[200vh]"
       ref={wrapper}
     >
-      <Center
-        maxW="1400px"
-        w="full"
-        justifyContent="space-between"
-        alignItems="center"
-        gap={20}
-        h="100vh"
-        position="sticky"
-        top={0}
-      >
+      <div className="flex max-w-[1400px] w-full justify-between items-center gap-20 h-screen sticky top-0">
         <LineParticles />
-        <VStack spacing={10} alignItems="flex-start">
-          <Text color="text.white" textStyle="headline1">
+        <div className="flex gap-10 items-start flex-col">
+          <Text textStyle="headline1" className="text-text-white">
             Let&#8217;s build provable games.
           </Text>
           <Button>Learn more</Button>
-        </VStack>
-        <Box flexShrink={0}>
+        </div>
+        <div className="shrink-0">
           <Globe />
-        </Box>
+        </div>
         <Lines scrollProgress={scrollYProgress} />
-      </Center>
-    </Flex>
+      </div>
+    </div>
   );
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Providers } from "./providers";
 import Navigation from "./Navigation";
+import "../global.css";
 
 export const metadata: Metadata = {
   title: "Provable game engine for onchain games and autonomous worlds",

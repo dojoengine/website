@@ -1,11 +1,21 @@
-import { ButtonProps, Button as ChakraButton, Flex } from "@chakra-ui/react";
 import { forwardRef } from "react";
+import { Text } from "./Text";
 
-export const Button = forwardRef(function Button(props: ButtonProps, ref) {
+export const Button = forwardRef<
+  HTMLButtonElement,
+  { variant?: "showArrow"; children: React.ReactNode }
+>(function Button(props, ref) {
   return (
-    <ChakraButton {...props} ref={ref}>
+    <button
+      ref={ref}
+      className={`${
+        props.variant ? "pl-6 pr-4" : "px-8"
+      } py-3 rounded-full relative overflow-hidden group text-text-white hover:text-text-black transition-all duration-[400ms]`}
+    >
+      <div className="absolute inset-0 bg-button-purple z-[-2]" />
+      <div className="absolute left-0 top-0 bottom-0 w-0 group-hover:w-full bg-badge-yellow z-[-1] transition-all duration-[400ms]" />
       {props.variant === "showArrow" ? (
-        <Flex alignItems="center" gap={16}>
+        <Text textStyle="buttonText" className="flex items-center gap-16">
           {props.children}
 
           <svg
@@ -20,6 +30,7 @@ export const Button = forwardRef(function Button(props: ButtonProps, ref) {
                 fillRule="evenodd"
                 d="M7.514 6.573 3.038 11.05l1.124 1.124 5.6-5.6-5.6-5.6-1.124 1.124 4.476 4.476Z"
                 clipRule="evenodd"
+                className="transition-all duration-[400ms] fill-text-white group-hover:fill-text-black"
               />
             </g>
             <defs>
@@ -28,10 +39,10 @@ export const Button = forwardRef(function Button(props: ButtonProps, ref) {
               </clipPath>
             </defs>
           </svg>
-        </Flex>
+        </Text>
       ) : (
-        props.children
+        <Text textStyle="buttonText">{props.children}</Text>
       )}
-    </ChakraButton>
+    </button>
   );
 });
