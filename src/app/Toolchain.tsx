@@ -2,9 +2,9 @@
 
 import { Badge } from "@/components/Badge";
 import { Button } from "@/components/Button";
-import { Box, Center, Flex, Text, VStack } from "@chakra-ui/react";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { Text } from "@/components/Text";
 
 const tools = [
   {
@@ -123,23 +123,15 @@ export function Toolchain() {
   const selectedTool = tools[selectedIndex];
 
   return (
-    <Center position="relative" overflow="hidden" pb={40}>
-      <Box
-        maxW="1044px"
-        width="full"
-        p={14}
-        pl={24}
-        background="linear-gradient(180deg, rgba(50, 28, 193, 0.03) -1.1%, rgba(43, 24, 164, 0.31) 97.7%)"
-        border="1px solid"
-        sx={{
+    <div className="flex items-center justify-center relative overflow-hidden pb-40">
+      <div
+        style={{
           borderImageSource:
             "linear-gradient(180deg, rgba(100, 82, 222, 0.28) 0%, #151768 100%)",
         }}
-        borderRadius={40}
-        boxShadow="0px 0px 114px 0px #03122ACC"
-        position="relative"
+        className="max-w-[1044px] w-full p-14 pl-24 shadow-[0_0_114px_0_#03122ACC] bg-gradient-to-b from-[rgba(50,28,193,0.03)] to-[rgba(43,24,164,0.31)] border-[1px] border-gradient relative rounded-[40px]"
       >
-        <Flex alignItems="center" gap={32}>
+        <div className="flex items-center gap-32">
           <AnimatePresence mode="popLayout" custom={direction}>
             <motion.div
               key={selectedTool.name}
@@ -147,21 +139,17 @@ export function Toolchain() {
               initial="initial"
               animate="animate"
               exit="exit"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-              }}
               transition={{
                 y: { type: "spring", stiffness: 300, damping: 30 },
                 opacity: { duration: 0.2 },
               }}
               custom={direction}
+              className="flex flex-col items-start z-[5]"
             >
-              <Box mb={10}>
+              <div className="mb-10">
                 <Badge
                   text={selectedTool.badgeTitle}
-                  color="badge.red"
+                  color="badge-red"
                   icon={
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -176,22 +164,20 @@ export function Toolchain() {
                     </svg>
                   }
                 />
-              </Box>
-              <Text textStyle="headline3" mb={10}>
+              </div>
+              <Text textStyle="headline3" className="mb-10">
                 {selectedTool.name}
               </Text>
-              <Text textStyle="bodyText" mb={10}>
+              <Text textStyle="bodyText" className="mb-10">
                 {selectedTool.description}
               </Text>
               <Button variant="showArrow">Documentation</Button>
             </motion.div>
           </AnimatePresence>
-          <VStack position="relative" flexShrink={0}>
+          <div className="flex flex-col relative gap-2 shrink-0">
             {tools.map((tool, i) => (
-              <Box
+              <div
                 key={tool.name}
-                boxSize="115px"
-                zIndex={1}
                 onMouseEnter={(e) => {
                   const top = e.currentTarget.offsetTop;
 
@@ -204,47 +190,21 @@ export function Toolchain() {
                     setDirection("up");
                   }
                 }}
-                cursor="pointer"
+                className="z-[1] cursor-pointer w-[115px] h-[115px]"
               >
                 {tool.icon}
-              </Box>
+              </div>
             ))}
             <motion.div
-              style={{
-                position: "absolute",
-                left: 0,
-                right: 0,
-                top: 0,
-                aspectRatio: "1 / 1",
-                backgroundColor: "#321CC4",
-                zIndex: 0,
-                borderRadius: "22px",
-              }}
+              className="absolute z-0 left-0 right-0 top-0 aspect-square bg-[#321CC4] rounded-[22px]"
               animate={{ y: selectionTop }}
               transition={{ type: "spring" }}
             ></motion.div>
-          </VStack>
-        </Flex>
-        <Box
-          position="absolute"
-          top={0}
-          bottom={0}
-          left={0}
-          right={0}
-          borderRadius={40}
-          backdropFilter="blur(50px)"
-          zIndex={-1}
-        />
-      </Box>
-      <Box
-        position="absolute"
-        boxSize="200vw"
-        bg="#1A1479"
-        zIndex={-2}
-        top="25%"
-        borderRadius="full"
-        boxShadow="0px 0px 64px 40px #1A1479"
-      />
-    </Center>
+          </div>
+        </div>
+        <div className="absolute inset-0 rounded-[40px] z-[-1] backdrop-blur-[50px]" />
+      </div>
+      <div className="absolute w-200vw h-200vw bg-[#1A1479] top-[25%] rounded-full shadow-[0_0_64px_40px_#1A1479] z-[-2]" />
+    </div>
   );
 }
