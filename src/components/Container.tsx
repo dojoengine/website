@@ -1,6 +1,5 @@
 "use client";
 
-import { Box, Flex } from "@chakra-ui/react";
 import { ForwardedRef, forwardRef } from "react";
 
 export const Container = forwardRef(function Container(
@@ -12,10 +11,8 @@ export const Container = forwardRef(function Container(
   ref: ForwardedRef<HTMLDivElement | null>
 ) {
   return (
-    <Flex justifyContent="center" position="relative" ref={ref}>
-      <Box maxW="1400px" w="100%">
-        {children}
-      </Box>
-    </Flex>
+    <div className="flex justify-center relative" ref={ref}>
+      <div className="max-w-[1400px] w-full">{children}</div>
+    </div>
   );
 });

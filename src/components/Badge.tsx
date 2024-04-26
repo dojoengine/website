@@ -1,4 +1,4 @@
-import { Flex, Text } from "@chakra-ui/react";
+import { Text } from "./Text";
 
 export function Badge({
   icon,
@@ -10,18 +10,10 @@ export function Badge({
   color: string;
 }) {
   return (
-    <Flex
-      bg={color}
-      py={1}
-      pr={5}
-      pl={3}
-      gap={2}
-      w="max-content"
-      borderRadius="full"
-      color="text.black"
-      alignItems="center"
+    <div
+      className={`flex items-center text-text-black w-max py-1 pr-5 pl-3 gap-2 bg-${color} rounded-full`}
     >
       {icon} <Text textStyle="badgeText">{text}</Text>
-    </Flex>
+    </div>
   );
 }

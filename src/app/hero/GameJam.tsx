@@ -62,7 +62,7 @@ export function GameJam() {
                 </svg>
               }
               text="10k STRK"
-              color="badge.fuchsia"
+              color="badge-fuchsia"
             />
             <Badge
               icon={
@@ -80,7 +80,7 @@ export function GameJam() {
                 </svg>
               }
               text="$10k USD"
-              color="badge.fuchsia"
+              color="badge-fuchsia"
             />
           </HStack>
           <Text textStyle="headline2" mb={5}>

@@ -1,12 +1,12 @@
 "use client";
 
-import { Box, Flex, Text } from "@chakra-ui/react";
 import { Wave } from "./Wave";
 import { Badge } from "@/components/Badge";
 import { Container } from "@/components/Container";
 import { SingleGame } from "./SingleGame";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { Text } from "@/components/Text";
 
 const allGames = [
   {
@@ -121,16 +121,10 @@ export default function Games() {
   return (
     <Container>
       <Wave />
-      <Box height="100vh" position="relative" ref={wrapper} pt="25vh" pb={32}>
-        <Flex
-          gap={28}
-          alignItems="center"
-          position="sticky"
-          top="50%"
-          transform="translateY(-50%)"
-        >
-          <motion.div style={{ flexBasis: "30%", opacity: textOpacity }}>
-            <Box mb={7}>
+      <div className="h-screen relative pt-[25vh] pb-32" ref={wrapper}>
+        <div className="sticky gap-[28] flex items-center top-[50%] translate-y-[-50%]">
+          <motion.div style={{ opacity: textOpacity }} className="basis-[30%]">
+            <div className="mb-7">
               <Badge
                 icon={
                   <svg
@@ -146,9 +140,9 @@ export default function Games() {
                   </svg>
                 }
                 text="On Dojo"
-                color="badge.yellow"
+                color="badge-yellow"
               />
-            </Box>
+            </div>
             <Text textStyle="headline2">Press start</Text>
             <Text textStyle="bodyText">
               Here is a medium length paragraph about our games. We can discuss
@@ -157,21 +151,17 @@ export default function Games() {
           </motion.div>
           <motion.div
             style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(3, 20vw)",
-              gridTemplateRows: "repeat(2, 20vw)",
-              gap: "20px",
               x: "-50%",
-              position: "absolute",
               left: gamesTranslate,
             }}
+            className="grid grid-cols-[repeat(3,20vw)] grid-rows-[repeat(2,20vw)] gap-5 absolute"
           >
             {allGames.map((game, i) => (
               <SingleGame key={i} game={game} />
             ))}
           </motion.div>
-        </Flex>
-      </Box>
+        </div>
+      </div>
     </Container>
   );
 }

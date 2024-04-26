@@ -1,19 +1,12 @@
-import { Box } from "@chakra-ui/react";
-
 export function Wave() {
   return (
-    <Box
-      as="svg"
+    <svg
       xmlns="http://www.w3.org/2000/svg"
       width="100%"
       viewBox="0 0 1506 1247"
       fill="none"
-      position="absolute"
-      top="-25vh"
-      left={0}
-      right={0}
       id="wave"
-      zIndex={-1}
+      className="w-full absolute top-[-25vh] left-0 right-0 z-[-1]"
     >
       <path
         fill="url(#wave-gradient)"
@@ -34,6 +27,6 @@ export function Wave() {
           <stop offset={1} stopColor="#021531" />
         </linearGradient>
       </defs>
-    </Box>
+    </svg>
   );
 }

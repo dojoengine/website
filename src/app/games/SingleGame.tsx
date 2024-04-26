@@ -1,7 +1,6 @@
 "use client";
 
-import { Text } from "@chakra-ui/react";
-import { motion } from "framer-motion";
+import { Text } from "@/components/Text";
 
 export function SingleGame({
   game,
@@ -12,25 +11,11 @@ export function SingleGame({
   };
 }) {
   return (
-    <motion.div
-      style={{
-        border: "1px solid",
-        borderColor: "#4E38E1",
-        borderRadius: "16px",
-        padding: "24px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        alignItems: "flex-end",
-      }}
-      whileHover={{
-        backgroundColor: "#4E38E1",
-      }}
-    >
+    <div className="border-[1px] border-[#4E38E1] rounded-[16px] p-[24px] flex flex-col justify-between items-end hover:bg-[#4E38E1]">
       {game.logo}
-      <Text textStyle="title3" alignSelf="flex-start">
+      <Text textStyle="title3" className="self-start">
         {game.name}
       </Text>
-    </motion.div>
+    </div>
   );
 }
