@@ -3,9 +3,9 @@
 import { Badge } from "@/components/Badge";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
-import { Box, Flex, HStack, Text } from "@chakra-ui/react";
 import { useRef } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
+import { Text } from "@/components/Text";
 
 export function GameJam() {
   const wrapper = useRef(null);
@@ -19,33 +19,27 @@ export function GameJam() {
 
   return (
     <Container>
-      <Flex alignItems="center" ref={wrapper}>
-        <Box w="50%" aspectRatio="1 / 1" flexShrink={0} position="relative">
+      <div ref={wrapper} className="flex items-center">
+        <div className="w-1/2 aspect-square shrink-0 relative">
           <motion.img
             src="/images/chibi-left.png"
             alt="Left Chibi"
             style={{
               y: leftChibiY,
-              width: "80%",
-              left: 0,
-              top: 0,
-              position: "absolute",
             }}
+            className="w-4/5 absolute top-0 left-0"
           />
           <motion.img
             src="/images/chibi-right.png"
             alt="Right Chibi"
             style={{
               y: rightChibiY,
-              width: "80%",
-              right: 0,
-              bottom: 0,
-              position: "absolute",
             }}
+            className="w-4/5 absolute bottom-0 right-0"
           />
-        </Box>
-        <Box>
-          <HStack mb={4}>
+        </div>
+        <div>
+          <div className="flex gap-2 mb-4">
             <Badge
               icon={
                 <svg
@@ -82,17 +76,17 @@ export function GameJam() {
               text="$10k USD"
               color="badge-fuchsia"
             />
-          </HStack>
-          <Text textStyle="headline2" mb={5}>
+          </div>
+          <Text textStyle="headline2" className="mb-5">
             Game Jam
           </Text>
-          <Text textStyle="bodyText" mb={10}>
+          <Text textStyle="bodyText" className="mb-10">
             Here is a short paragraph about the details of this current event.
             Should mention location, date and time of event as well as theme.
           </Text>
           <Button variant="showArrow">Sign up</Button>
-        </Box>
-      </Flex>
+        </div>
+      </div>
     </Container>
   );
 }
