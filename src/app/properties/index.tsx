@@ -1,7 +1,6 @@
 "use client";
 
 import { Container } from "@/components/Container";
-import { Box, Grid } from "@chakra-ui/react";
 import React, { useLayoutEffect, useRef, useState } from "react";
 import { SingleProperty } from "./SingleProperty";
 
@@ -43,7 +42,7 @@ const allProperties = [
         />
       </svg>
     ),
-    bgPos: "top center",
+    bgPos: "top",
   },
   {
     name: "Fast",
@@ -133,12 +132,7 @@ export function Properties() {
 
   return (
     <Container>
-      <Grid
-        gridTemplateColumns="repeat(3, 1fr)"
-        gap={5}
-        ref={container}
-        position="relative"
-      >
+      <div ref={container} className="grid grid-cols-3 gap-5 relative">
         {allProperties.map((property, index) => {
           return (
             <SingleProperty
@@ -148,18 +142,8 @@ export function Properties() {
             />
           );
         })}
-        <Box
-          position="absolute"
-          left={-50}
-          right={-50}
-          top={-50}
-          bottom={-50}
-          zIndex={-1}
-          bg="#361AAD"
-          opacity="0.5"
-          boxShadow="#021531 0px 0px 40px 40px inset"
-        />
-      </Grid>
+        <div className="absolute top-[-50px] bottom-[-50px] right-[-50px] left-[-50px]  bg-[#361AAD] opacity-50 z-[-1] shadow-[0_0_40px_40px_inset_#021531]" />
+      </div>
     </Container>
   );
 }

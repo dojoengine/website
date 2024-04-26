@@ -1,8 +1,8 @@
 "use client";
 
-import { Box, Flex, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { Tilt } from "@jdion/tilt-react";
+import { Text } from "@/components/Text";
 
 export function SingleProperty({
   property,
@@ -17,40 +17,27 @@ export function SingleProperty({
 }) {
   return (
     <Tilt>
-      <Flex
-        borderRadius={16}
-        p={6}
-        flexDir="column"
-        justifyContent="space-between"
-        alignItems="flex-end"
-        aspectRatio="409 / 279"
-        bg="url('/images/tile-bg.png')"
-        bgSize={gridSize}
-        bgPos={property.bgPos}
-        position="relative"
-        cursor="pointer"
+      <div
+        className={`rounded-[16px] p-6 flex flex-col justify-between items-end aspect-[409/279] relative cursor-pointer`}
+        style={{
+          backgroundImage: "url('/images/tile-bg.png')",
+          backgroundPosition: property.bgPos,
+          backgroundSize: gridSize,
+        }}
       >
-        <Box zIndex={5}>{property.icon}</Box>
-        <Text textStyle="title3" alignSelf="flex-start">
+        <div className="z-5">{property.icon}</div>
+        <Text textStyle="title3" className="self-start">
           {property.name}
         </Text>
         <motion.div
           style={{
-            position: "absolute",
-            left: 0,
-            right: 0,
-            top: 0,
-            bottom: 0,
-            borderRadius: "16px",
             background: "url('/images/tile-bg.png')",
             backgroundSize: gridSize,
             backgroundPosition: property.bgPos,
             maskImage:
               "radial-gradient(ellipse 0% 0% at 50% 50%, black 100%, transparent 50%)",
-            display: "flex",
-            alignItems: "flex-end",
-            padding: "24px",
           }}
+          className="absolute inset-0 rounded-[16px] flex items-end p-6"
           whileHover={{
             maskImage:
               "radial-gradient(ellipse 70% 70% at 50% 50%, black 100%, transparent 50%)",
@@ -61,7 +48,7 @@ export function SingleProperty({
             extra line.
           </Text>
         </motion.div>
-      </Flex>
+      </div>
     </Tilt>
   );
 }
