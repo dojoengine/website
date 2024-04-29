@@ -10,7 +10,7 @@ export const Button = forwardRef<
       ref={ref}
       className={`${
         props.variant ? "pl-6 pr-4" : "px-8"
-      } group relative overflow-hidden rounded-full py-3 text-text-white transition-all duration-[400ms] hover:text-text-black`}
+      } group relative z-0 overflow-hidden rounded-full py-3 text-text-white transition-all duration-[400ms] hover:text-text-black`}
     >
       <div className="absolute inset-0 z-[-2] bg-button-purple" />
       <div className="absolute bottom-0 left-0 top-0 z-[-1] w-0 bg-badge-yellow transition-all duration-[400ms] group-hover:w-full" />
