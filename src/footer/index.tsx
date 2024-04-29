@@ -4,9 +4,9 @@ import { Links } from "./Links";
 
 export function Footer() {
   return (
-    <Box bg="background.purple">
+    <div className="bg-background-purple">
       <GetStarted />
       <Links />
-    </Box>
+    </div>
   );
 }
