@@ -11,11 +11,11 @@ export function GameJam() {
   const wrapper = useRef(null);
   const { scrollYProgress } = useScroll({
     target: wrapper,
-    offset: ["start end", "end start"],
+    offset: ["start end", "center center"],
   });
 
-  const leftChibiY = useTransform(scrollYProgress, [0.1, 0.9], [0, -300]);
-  const rightChibiY = useTransform(scrollYProgress, [0.1, 0.9], [0, 200]);
+  const leftChibiY = useTransform(scrollYProgress, [0, 1], [-300, 0]);
+  const rightChibiY = useTransform(scrollYProgress, [0, 1], [200, 0]);
 
   return (
     <Container>
