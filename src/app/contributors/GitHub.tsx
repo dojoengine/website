@@ -90,7 +90,7 @@ export function GitHub({ contributorImages }: { contributorImages: string[] }) {
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.8, opacity: 0 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.25 }}
                 className="from-52% to-130% relative aspect-square rounded-[40px] bg-gradient-to-b from-[#321CC1] to-[#7519A1] p-4"
               >
                 <div
