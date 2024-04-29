@@ -132,7 +132,7 @@ export function Properties() {
 
   return (
     <Container>
-      <div ref={container} className="grid grid-cols-3 gap-5 relative">
+      <div ref={container} className="relative grid grid-cols-3 gap-5">
         {allProperties.map((property, index) => {
           return (
             <SingleProperty
@@ -142,7 +142,7 @@ export function Properties() {
             />
           );
         })}
-        <div className="absolute top-[-50px] bottom-[-50px] right-[-50px] left-[-50px]  bg-[#361AAD] opacity-50 z-[-1] shadow-[0_0_40px_40px_inset_#021531]" />
+        <div className="absolute bottom-[-50px] left-[-50px] right-[-50px] top-[-50px]  z-[-1] bg-[#361AAD] opacity-50 shadow-[0_0_40px_40px_inset_#021531]" />
       </div>
     </Container>
   );

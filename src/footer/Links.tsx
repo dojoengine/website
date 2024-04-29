@@ -33,11 +33,11 @@ const linkGroups = [
 export function Links() {
   return (
     <Container>
-      <div className="flex justify-between items-end py-[100px]">
-        <div className="flex gap-[100px] font-['Circular LL']">
+      <div className="flex items-end justify-between py-[100px]">
+        <div className="font-['Circular LL'] flex gap-[100px]">
           {linkGroups.map((group) => (
             <div key={group.header} className="flex flex-col items-start gap-8">
-              <p className="font-['IBM_Plex_Mono_SemiBold'] text-text-purple font-[600]">
+              <p className="font-['IBM_Plex_Mono_SemiBold'] font-[600] text-text-purple">
                 {group.header}
               </p>
               <div className="flex flex-col items-start gap-1">
@@ -46,7 +46,7 @@ export function Links() {
                     key={link.text}
                     href={link.href}
                     target="_blank"
-                    className="font-['IBM_Plex_Mono_Light'] text-[#A7C9F8] font-[300] hover:underline"
+                    className="font-['IBM_Plex_Mono_Light'] font-[300] text-[#A7C9F8] hover:underline"
                   >
                     {link.text}
                   </a>
@@ -57,7 +57,7 @@ export function Links() {
         </div>
         <div className="flex gap-2">
           <a href="https://telegram.com" target="_blank">
-            <div className="p-[6px] bg-[#24356C] rounded-full">
+            <div className="rounded-full bg-[#24356C] p-[6px]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width={23}
@@ -72,7 +72,7 @@ export function Links() {
             </div>
           </a>
           <a href="https://github.com" target="_blank">
-            <div className="p-[6px] bg-[#24356C] rounded-full">
+            <div className="rounded-full bg-[#24356C] p-[6px]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width={23}
@@ -87,7 +87,7 @@ export function Links() {
             </div>
           </a>
           <a href="https://discord.com" target="_blank">
-            <div className="p-[6px] bg-[#24356C] rounded-full">
+            <div className="rounded-full bg-[#24356C] p-[6px]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width={22}

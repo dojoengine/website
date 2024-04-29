@@ -8,11 +8,11 @@ export const Container = forwardRef(function Container(
   }: {
     children: React.ReactNode[] | React.ReactNode;
   },
-  ref: ForwardedRef<HTMLDivElement | null>
+  ref: ForwardedRef<HTMLDivElement | null>,
 ) {
   return (
-    <div className="flex justify-center relative" ref={ref}>
-      <div className="max-w-[1400px] w-full">{children}</div>
+    <div className="relative flex justify-center" ref={ref}>
+      <div className="w-full max-w-[1400px]">{children}</div>
     </div>
   );
 });

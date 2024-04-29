@@ -91,10 +91,10 @@ export function GitHub({ contributorImages }: { contributorImages: string[] }) {
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.8, opacity: 0 }}
                 transition={{ duration: 0.5 }}
-                className="aspect-square rounded-[40px] p-4 relative bg-gradient-to-b from-[#321CC1] from-52% to-[#7519A1] to-130%"
+                className="from-52% to-130% relative aspect-square rounded-[40px] bg-gradient-to-b from-[#321CC1] to-[#7519A1] p-4"
               >
                 <div
-                  className={`bg-cover bg-center rounded-[28px] w-full h-full`}
+                  className={`h-full w-full rounded-[28px] bg-cover bg-center`}
                   style={{
                     backgroundImage: `url('${contributorImages[index]}')`,
                   }}
@@ -103,7 +103,7 @@ export function GitHub({ contributorImages }: { contributorImages: string[] }) {
               </motion.div>
             ))}
           </AnimatePresence>
-          <div className="flex justify-center items-center gap-2">
+          <div className="flex items-center justify-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width={26}

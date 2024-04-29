@@ -39,6 +39,6 @@ export function Text({
       className: `${textStyles[textStyle]} ${className}`,
       ...props,
     },
-    children
+    children,
   );
 }

@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-[#021531] overflow-x-hidden text-text-white">
+      <body className="overflow-x-hidden bg-[#021531] text-text-white">
         <Navigation />
         {children}
       </body>

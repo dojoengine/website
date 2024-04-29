@@ -12,11 +12,11 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`flex justify-center fixed top-0 left-0 right-0 z-10 transition-padding ${
+      className={`transition-padding fixed left-0 right-0 top-0 z-10 flex justify-center ${
         decreasedPadding ? "p-4" : "p-12"
       }`}
     >
-      <div className="max-w-[1400px] flex w-full py-4 px-8 items-center justify-between bg-[rgba(2,21,49,0.3)] rounded-full backdrop-blur-[10px]">
+      <div className="flex w-full max-w-[1400px] items-center justify-between rounded-full bg-[rgba(2,21,49,0.3)] px-8 py-4 backdrop-blur-[10px]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width={81}

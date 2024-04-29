@@ -7,7 +7,7 @@ export function Contributors({
   contributorImages: string[];
 }) {
   return (
-    <div className="py-10 bg-gradient-to-b from-[#1A1479] to-[#021531] to-55%">
+    <div className="bg-gradient-to-b from-[#1A1479] to-[#021531] to-55% py-10">
       <div className="mb-[200px]">
         <Partners />
       </div>

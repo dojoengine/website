@@ -6,7 +6,7 @@ export function Wave() {
       viewBox="0 0 1506 1247"
       fill="none"
       id="wave"
-      className="w-full absolute top-[-25vh] left-0 right-0 z-[-1]"
+      className="absolute left-0 right-0 top-[-25vh] z-[-1] w-full"
     >
       <path
         fill="url(#wave-gradient)"

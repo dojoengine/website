@@ -4,12 +4,12 @@ export function Globe() {
       <img
         src="/images/globe.png"
         alt="globe"
-        className="rounded-full h-[420px]"
+        className="h-[420px] rounded-full"
       />
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
-        className="absolute top-0 left-[-3px] w-full h-full"
+        className="absolute left-[-3px] top-0 h-full w-full"
       >
         <path
           stroke="#22255F"
@@ -92,7 +92,7 @@ export function Globe() {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
-        className="absolute left-[50%] top-[4px] w-[43px] h-[43px] translate-x-[-50%] translate-y-[-100%]"
+        className="absolute left-[50%] top-[4px] h-[43px] w-[43px] translate-x-[-50%] translate-y-[-100%]"
       >
         <path
           fill="#fff"
@@ -106,7 +106,7 @@ export function Globe() {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
-        className="absolute top-[50%] right-[-4px] w-[34px] h-[22px] translate-x-[100%] translate-y-[-50%]"
+        className="absolute right-[-4px] top-[50%] h-[22px] w-[34px] translate-x-[100%] translate-y-[-50%]"
       >
         <path
           fill="#fff"
@@ -116,7 +116,7 @@ export function Globe() {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
-        className="absolute left-[50%] bottom-[-4px] w-[32px] h-[24px] translate-x-[-50%] translate-y-[100%]"
+        className="absolute bottom-[-4px] left-[50%] h-[24px] w-[32px] translate-x-[-50%] translate-y-[100%]"
       >
         <path
           fill="#fff"
@@ -126,7 +126,7 @@ export function Globe() {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
-        className="absolute top-[50%] left-[-4px] w-[27px] h-[26px] translate-x-[-100%] translate-y-[-50%]"
+        className="absolute left-[-4px] top-[50%] h-[26px] w-[27px] translate-x-[-100%] translate-y-[-50%]"
       >
         <path
           fill="#fff"

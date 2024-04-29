@@ -14,7 +14,7 @@ async function getContributors(repoName: string, page = 1) {
       headers: {
         "Content-Type": "application/json",
       },
-    }
+    },
   );
 
   let contributorsList = await request.json();
@@ -41,7 +41,7 @@ export default async function Home() {
   const contributors = await getAllContributors("dojoengine/dojo");
 
   const profileImages = contributors.map(
-    (contributor) => contributor.avatar_url
+    (contributor) => contributor.avatar_url,
   );
 
   return (

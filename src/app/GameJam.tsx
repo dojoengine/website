@@ -20,14 +20,14 @@ export function GameJam() {
   return (
     <Container>
       <div ref={wrapper} className="flex items-center">
-        <div className="w-1/2 aspect-square shrink-0 relative">
+        <div className="relative aspect-square w-1/2 shrink-0">
           <motion.img
             src="/images/chibi-left.png"
             alt="Left Chibi"
             style={{
               y: leftChibiY,
             }}
-            className="w-4/5 absolute top-0 left-0"
+            className="absolute left-0 top-0 w-4/5"
           />
           <motion.img
             src="/images/chibi-right.png"
@@ -35,11 +35,11 @@ export function GameJam() {
             style={{
               y: rightChibiY,
             }}
-            className="w-4/5 absolute bottom-0 right-0"
+            className="absolute bottom-0 right-0 w-4/5"
           />
         </div>
         <div>
-          <div className="flex gap-2 mb-4">
+          <div className="mb-4 flex gap-2">
             <Badge
               icon={
                 <svg

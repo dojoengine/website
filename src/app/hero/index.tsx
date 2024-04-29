@@ -29,12 +29,12 @@ export default function Hero() {
 
   return (
     <div
-      className="flex items-start justify-center relative h-[200vh]"
+      className="relative flex h-[200vh] items-start justify-center"
       ref={wrapper}
     >
-      <div className="flex max-w-[1400px] w-full justify-between items-center gap-20 h-screen sticky top-0">
+      <div className="sticky top-0 flex h-screen w-full max-w-[1400px] items-center justify-between gap-20">
         <LineParticles />
-        <div className="flex gap-10 items-start flex-col">
+        <div className="flex flex-col items-start gap-10">
           <Text textStyle="headline1" className="text-text-white">
             Let&#8217;s build provable games.
           </Text>

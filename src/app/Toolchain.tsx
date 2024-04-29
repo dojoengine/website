@@ -123,13 +123,13 @@ export function Toolchain() {
   const selectedTool = tools[selectedIndex];
 
   return (
-    <div className="flex items-center justify-center relative overflow-hidden pb-40">
+    <div className="relative flex items-center justify-center overflow-hidden pb-40">
       <div
         style={{
           borderImageSource:
             "linear-gradient(180deg, rgba(100, 82, 222, 0.28) 0%, #151768 100%)",
         }}
-        className="max-w-[1044px] w-full p-14 pl-24 shadow-[0_0_114px_0_#03122ACC] bg-gradient-to-b from-[rgba(50,28,193,0.03)] to-[rgba(43,24,164,0.31)] border-[1px] border-gradient relative rounded-[40px]"
+        className="border-gradient relative w-full max-w-[1044px] rounded-[40px] border-[1px] bg-gradient-to-b from-[rgba(50,28,193,0.03)] to-[rgba(43,24,164,0.31)] p-14 pl-24 shadow-[0_0_114px_0_#03122ACC]"
       >
         <div className="flex items-center gap-32">
           <AnimatePresence mode="popLayout" custom={direction}>
@@ -144,7 +144,7 @@ export function Toolchain() {
                 opacity: { duration: 0.2 },
               }}
               custom={direction}
-              className="flex flex-col items-start z-[5]"
+              className="z-[5] flex flex-col items-start"
             >
               <div className="mb-10">
                 <Badge
@@ -174,7 +174,7 @@ export function Toolchain() {
               <Button variant="showArrow">Documentation</Button>
             </motion.div>
           </AnimatePresence>
-          <div className="flex flex-col relative gap-2 shrink-0">
+          <div className="relative flex shrink-0 flex-col gap-2">
             {tools.map((tool, i) => (
               <div
                 key={tool.name}
@@ -190,21 +190,21 @@ export function Toolchain() {
                     setDirection("up");
                   }
                 }}
-                className="z-[1] cursor-pointer w-[115px] h-[115px]"
+                className="z-[1] h-[115px] w-[115px] cursor-pointer"
               >
                 {tool.icon}
               </div>
             ))}
             <motion.div
-              className="absolute z-0 left-0 right-0 top-0 aspect-square bg-[#321CC4] rounded-[22px]"
+              className="absolute left-0 right-0 top-0 z-0 aspect-square rounded-[22px] bg-[#321CC4]"
               animate={{ y: selectionTop }}
               transition={{ type: "spring" }}
             ></motion.div>
           </div>
         </div>
-        <div className="absolute inset-0 rounded-[40px] z-[-1] backdrop-blur-[50px]" />
+        <div className="absolute inset-0 z-[-1] rounded-[40px] backdrop-blur-[50px]" />
       </div>
-      <div className="absolute w-200vw h-200vw bg-[#1A1479] top-[25%] rounded-full shadow-[0_0_64px_40px_#1A1479] z-[-2]" />
+      <div className="w-200vw h-200vw absolute top-[25%] z-[-2] rounded-full bg-[#1A1479] shadow-[0_0_64px_40px_#1A1479]" />
     </div>
   );
 }

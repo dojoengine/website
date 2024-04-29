@@ -121,8 +121,8 @@ export default function Games() {
   return (
     <Container>
       <Wave />
-      <div className="h-screen relative pt-[25vh] pb-32" ref={wrapper}>
-        <div className="sticky gap-[28] flex items-center top-[50%] translate-y-[-50%]">
+      <div className="relative h-screen pb-32 pt-[25vh]" ref={wrapper}>
+        <div className="sticky top-[50%] flex translate-y-[-50%] items-center gap-[28]">
           <motion.div style={{ opacity: textOpacity }} className="basis-[30%]">
             <div className="mb-7">
               <Badge
@@ -154,7 +154,7 @@ export default function Games() {
               x: "-50%",
               left: gamesTranslate,
             }}
-            className="grid grid-cols-[repeat(3,20vw)] grid-rows-[repeat(2,20vw)] gap-5 absolute"
+            className="absolute grid grid-cols-[repeat(3,20vw)] grid-rows-[repeat(2,20vw)] gap-5"
           >
             {allGames.map((game, i) => (
               <SingleGame key={i} game={game} />

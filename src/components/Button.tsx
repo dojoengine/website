@@ -10,10 +10,10 @@ export const Button = forwardRef<
       ref={ref}
       className={`${
         props.variant ? "pl-6 pr-4" : "px-8"
-      } py-3 rounded-full relative overflow-hidden group text-text-white hover:text-text-black transition-all duration-[400ms]`}
+      } group relative overflow-hidden rounded-full py-3 text-text-white transition-all duration-[400ms] hover:text-text-black`}
     >
-      <div className="absolute inset-0 bg-button-purple z-[-2]" />
-      <div className="absolute left-0 top-0 bottom-0 w-0 group-hover:w-full bg-badge-yellow z-[-1] transition-all duration-[400ms]" />
+      <div className="absolute inset-0 z-[-2] bg-button-purple" />
+      <div className="absolute bottom-0 left-0 top-0 z-[-1] w-0 bg-badge-yellow transition-all duration-[400ms] group-hover:w-full" />
       {props.variant === "showArrow" ? (
         <Text textStyle="buttonText" className="flex items-center gap-16">
           {props.children}
@@ -30,7 +30,7 @@ export const Button = forwardRef<
                 fillRule="evenodd"
                 d="M7.514 6.573 3.038 11.05l1.124 1.124 5.6-5.6-5.6-5.6-1.124 1.124 4.476 4.476Z"
                 clipRule="evenodd"
-                className="transition-all duration-[400ms] fill-text-white group-hover:fill-text-black"
+                className="fill-text-white transition-all duration-[400ms] group-hover:fill-text-black"
               />
             </g>
             <defs>

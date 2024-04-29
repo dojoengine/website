@@ -78,16 +78,16 @@ export function LineParticles() {
       },
       detectRetina: true,
     }),
-    []
+    [],
   );
 
   if (init) {
     return (
-      <div className="absolute inset-0 opacity-20 pointer-events-none">
+      <div className="pointer-events-none absolute inset-0 opacity-20">
         <Particles
           id="tsparticles"
           options={options}
-          className="w-full h-full"
+          className="h-full w-full"
         />
       </div>
     );

@@ -39,7 +39,7 @@ export function Lines({
           viewBox="0 0 1512 313"
           fill="none"
           key={i}
-          className="absolute z-[-1] left-0 right-0 bottom-[20%]"
+          className="absolute bottom-[20%] left-0 right-0 z-[-1]"
           style={{
             transform: `translateY(${line.translateY})`,
           }}

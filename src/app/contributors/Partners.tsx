@@ -3,12 +3,12 @@ import { Text } from "@/components/Text";
 export function Partners() {
   return (
     <div className="flex items-center justify-center">
-      <div className="flex flex-col w-full max-w-[660px] items-center">
+      <div className="flex w-full max-w-[660px] flex-col items-center">
         <Text textStyle="overline" className="mb-8">
           OUR PARTNERS
         </Text>
-        <div className="bg-text-white h-[1px] w-3/5 opacity-10 mb-12" />
-        <div className="flex justify-center gap-8 flex-wrap">
+        <div className="mb-12 h-[1px] w-3/5 bg-text-white opacity-10" />
+        <div className="flex flex-wrap justify-center gap-8">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width={274}
