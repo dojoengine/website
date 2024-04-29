@@ -11,7 +11,7 @@ export function GetStarted() {
   );
 
   return (
-    <div className="from-36% flex items-center justify-center gap-12 bg-gradient-to-b from-[rgba(5,22,49,0)] to-[#0D1444] p-40 shadow-[0_0_124px_30px_rgba(3,18,42,0.8)]">
+    <div className="from-36% flex items-center justify-center gap-12 bg-gradient-to-t from-[#05163100] to-[#061732] p-40">
       <Text textStyle="title1"> Get started with our CLI:</Text>
       <Tooltip.Provider delayDuration={0}>
         <Tooltip.Root>
