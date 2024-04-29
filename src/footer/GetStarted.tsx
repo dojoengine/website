@@ -16,12 +16,12 @@ export function GetStarted() {
       <Tooltip.Provider delayDuration={0}>
         <Tooltip.Root>
           <Tooltip.Trigger>
-            <button onClick={setCopied} className="p-[2px] relative group">
+            <div onClick={setCopied} className="p-[2px] relative group">
               <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#6366f1] to-[#a855f7]"></div>
               <div className="px-8 py-2 bg-badge-red rounded-full transition-all duration-200 hover:bg-[transparent] hover:text-text-white relative text-text-black font-['IBM_Plex_Mono_SemiBold']">
                 curl -L https://dojoengine.org | bash
               </div>
-            </button>
+            </div>
           </Tooltip.Trigger>
           <Tooltip.Content>
             <Text textStyle="overline">

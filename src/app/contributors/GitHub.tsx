@@ -98,6 +98,7 @@ export function GitHub({ contributorImages }: { contributorImages: string[] }) {
                   style={{
                     backgroundImage: `url('${contributorImages[index]}')`,
                   }}
+                  suppressHydrationWarning
                 />
               </motion.div>
             ))}
