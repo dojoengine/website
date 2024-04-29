@@ -3,7 +3,7 @@
 import { Badge } from "@/components/Badge";
 import { Button } from "@/components/Button";
 import { Container } from "@/components/Container";
-import { Box, Center, Flex, Grid, Text } from "@chakra-ui/react";
+import { Text } from "@/components/Text";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -52,9 +52,9 @@ export function GitHub({ contributorImages }: { contributorImages: string[] }) {
 
   return (
     <Container>
-      <Flex gap={20} alignItems="center">
-        <Flex flexDir="column" alignItems="flex-start">
-          <Box mb={5}>
+      <div className="flex items-center gap-20">
+        <div className="flex flex-col items-start">
+          <div className="mb-5">
             <Badge
               icon={
                 <svg
@@ -70,47 +70,39 @@ export function GitHub({ contributorImages }: { contributorImages: string[] }) {
                 </svg>
               }
               text="Global"
-              color="badge.teal"
+              color="badge-teal"
             />
-          </Box>
-          <Text textStyle="headline2" mb={5}>
+          </div>
+          <Text textStyle="headline2" className="mb-5">
             Contributors
           </Text>
-          <Text textStyle="bodyText" mb={10}>
+          <Text textStyle="bodyText" className="mb-10">
             We have a worldwide team of contributors that help us with
             everything from backend, frontend, design, and ops.
           </Text>
           <Button variant="showArrow">Contribute</Button>
-        </Flex>
-        <Grid gridTemplateColumns="repeat(3, 200px)" gap={5}>
+        </div>
+        <div className="grid grid-cols-[repeat(3,200px)] gap-5">
           <AnimatePresence mode="popLayout">
             {shownContributorIndices.map((index) => (
               <motion.div
                 key={contributorImages[index]}
-                style={{
-                  aspectRatio: "1 / 1",
-                  background:
-                    "linear-gradient(180deg, #321CC1 52.27%, #7519A1 130.69%)",
-                  position: "relative",
-                  borderRadius: 40,
-                  padding: "12px",
-                }}
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.8, opacity: 0 }}
                 transition={{ duration: 0.5 }}
+                className="aspect-square rounded-[40px] p-4 relative bg-gradient-to-b from-[#321CC1] from-52% to-[#7519A1] to-130%"
               >
-                <Box
-                  bg={`url('${contributorImages[index]}')`}
-                  boxSize="100%"
-                  bgSize="contain"
-                  bgPos="center center"
-                  borderRadius={28}
+                <div
+                  className={`bg-cover bg-center rounded-[28px] w-full h-full`}
+                  style={{
+                    backgroundImage: `url('${contributorImages[index]}')`,
+                  }}
                 />
               </motion.div>
             ))}
           </AnimatePresence>
-          <Center gap={2}>
+          <div className="flex justify-center items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width={26}
@@ -136,16 +128,12 @@ export function GitHub({ contributorImages }: { contributorImages: string[] }) {
                 </linearGradient>
               </defs>
             </svg>
-            <Text
-              fontFamily="Agrandir Variable"
-              fontWeight={469}
-              fontSize="32px"
-            >
+            <p className="font-['Agrandir_Variable'] text-[32px] font-[469]">
               +{theRest.length}
-            </Text>
-          </Center>
-        </Grid>
-      </Flex>
+            </p>
+          </div>
+        </div>
+      </div>
     </Container>
   );
 }
