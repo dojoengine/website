@@ -1,5 +1,4 @@
 import Hero from "@/app/hero";
-import { Box } from "@chakra-ui/react";
 import Games from "./games";
 import { GameJam } from "./GameJam";
 import { Properties } from "./properties";
@@ -46,22 +45,22 @@ export default async function Home() {
   );
 
   return (
-    <Box position="relative">
+    <div className="relative">
       <Hero />
-      <Box mb={20}>
+      <div className="mb-20">
         <Games />
-      </Box>
-      <Box mb={40}>
+      </div>
+      <div className="mb-40">
         <GameJam />
-      </Box>
-      <Box mb="200px">
+      </div>
+      <div className="mb-[200px]">
         <Properties />
-      </Box>
+      </div>
       <Toolchain />
-      <Box mb={40}>
+      <div className="mb-40">
         <Contributors contributorImages={profileImages} />
-      </Box>
+      </div>
       <Footer />
-    </Box>
+    </div>
   );
 }

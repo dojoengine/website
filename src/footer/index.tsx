@@ -1,5 +1,4 @@
 import { GetStarted } from "@/footer/GetStarted";
-import { Box } from "@chakra-ui/react";
 import { Links } from "./Links";
 
 export function Footer() {

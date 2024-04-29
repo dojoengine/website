@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Providers } from "./providers";
 import Navigation from "./Navigation";
 import "../global.css";
 
@@ -16,11 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body style={{ backgroundColor: "#021531", overflowX: "hidden" }}>
-        <Providers>
-          <Navigation />
-          {children}
-        </Providers>
+      <body className="bg-[#021531] overflow-x-hidden text-text-white">
+        <Navigation />
+        {children}
       </body>
     </html>
   );

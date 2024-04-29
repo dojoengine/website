@@ -1,4 +1,3 @@
-import { Box } from "@chakra-ui/react";
 import { MotionValue, useTransform, motion } from "framer-motion";
 
 const lineProps = [
@@ -35,18 +34,15 @@ export function Lines({
   return (
     <>
       {lineProps.map((line, i) => (
-        <Box
-          as="svg"
+        <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1512 313"
           fill="none"
-          position="absolute"
-          zIndex={-1}
-          left={0}
-          right={0}
-          bottom="20%"
-          transform={`translateY(${line.translateY})`}
           key={i}
+          className="absolute z-[-1] left-0 right-0 bottom-[20%]"
+          style={{
+            transform: `translateY(${line.translateY})`,
+          }}
         >
           <motion.path
             stroke="url(#lineGradient)"
@@ -77,7 +73,7 @@ export function Lines({
               </linearGradient>
             </defs>
           )}
-        </Box>
+        </svg>
       ))}
     </>
   );

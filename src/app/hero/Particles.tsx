@@ -1,4 +1,3 @@
-import { Box } from "@chakra-ui/react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import { type ISourceOptions } from "@tsparticles/engine";
@@ -84,23 +83,13 @@ export function LineParticles() {
 
   if (init) {
     return (
-      <Box
-        position="absolute"
-        left={0}
-        right={0}
-        top={0}
-        bottom={0}
-        opacity={0.2}
-        pointerEvents="none"
-        sx={{
-          "#tsparticles": {
-            width: "100%",
-            height: "100%",
-          },
-        }}
-      >
-        <Particles id="tsparticles" options={options} />
-      </Box>
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
+        <Particles
+          id="tsparticles"
+          options={options}
+          className="w-full h-full"
+        />
+      </div>
     );
   }
 

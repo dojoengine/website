@@ -9,10 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@chakra-ui/next-js": "^2.2.0",
-    "@chakra-ui/react": "^2.8.2",
-    "@emotion/react": "^11.11.4",
-    "@emotion/styled": "^11.11.5",
     "@jdion/tilt-react": "^1.0.0",
     "@radix-ui/react-tooltip": "^1.0.7",
     "@tsparticles/engine": "^3.3.0",

@@ -1,18 +1,15 @@
-import { Box, Image } from "@chakra-ui/react";
-
 export function Globe() {
   return (
-    <Box position="relative">
-      <Image src="/images/globe.png" borderRadius="50%" height="420px" />
-      <Box
-        as="svg"
+    <div className="relative">
+      <img
+        src="/images/globe.png"
+        alt="globe"
+        className="rounded-full h-[420px]"
+      />
+      <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="100%"
-        height="100%"
-        position="absolute"
-        top={0}
-        left={"-3px"}
         fill="none"
+        className="absolute top-0 left-[-3px] w-full h-full"
       >
         <path
           stroke="#22255F"
@@ -91,17 +88,11 @@ export function Globe() {
           d="M210.719 419.391c224.396-46.898 211.251-350.895 0-417.891"
           opacity={0.19}
         />
-      </Box>
-      <Box
-        as="svg"
+      </svg>
+      <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="43px"
-        height="43px"
         fill="none"
-        position="absolute"
-        left="50%"
-        top={-4}
-        transform="translate(-50%, -100%)"
+        className="absolute left-[50%] top-[4px] w-[43px] h-[43px] translate-x-[-50%] translate-y-[-100%]"
       >
         <path
           fill="#fff"
@@ -111,49 +102,31 @@ export function Globe() {
           fill="#fff"
           d="M21.205 24.296a2.902 2.902 0 1 0 0-5.804 2.902 2.902 0 0 0 0 5.804Z"
         />
-      </Box>
-      <Box
-        as="svg"
+      </svg>
+      <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="34px"
-        height="22px"
         fill="none"
-        position="absolute"
-        right={-4}
-        top="50%"
-        transform="translate(100%, -50%)"
+        className="absolute top-[50%] right-[-4px] w-[34px] h-[22px] translate-x-[100%] translate-y-[-50%]"
       >
         <path
           fill="#fff"
           d="M16.719 14.26.285.316h9.79c1.642 0 3.231.533 4.483 1.503l10.92 8.466-4.273 3.9c-1.23 1.123-3.212 1.156-4.486.075ZM25.764 10.024 21.978 7.03c-1.267-1.002-1.277-2.792-.022-3.806L25.764.15v9.876ZM16.145 14.354l-3.68-3.176v10.544l3.644-3.05c1.383-1.157 1.4-3.142.036-4.319ZM26.133.065v3.154c0 1.848 1.64 3.346 3.665 3.346h3.456l-7.12-6.5Z"
         />
-      </Box>
-      <Box
-        as="svg"
+      </svg>
+      <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="32px"
-        height="24px"
         fill="none"
-        position="absolute"
-        left="50%"
-        bottom={-4}
-        transform="translate(-50%, 100%)"
+        className="absolute left-[50%] bottom-[-4px] w-[32px] h-[24px] translate-x-[-50%] translate-y-[100%]"
       >
         <path
           fill="#fff"
           d="M6.324 5.242 10.092.1c.32.44.73.846 1.22 1.205 1.3.95 3.063 1.484 4.9 1.484 1.84 0 3.602-.534 4.902-1.484A7.094 7.094 0 0 0 22.34.099l3.612 5.246c-2.622 1.79-6.076 2.796-9.675 2.808h11.094c.398 0 .77.182.992.484l3.593 4.903H.42l3.42-4.884c.219-.313.598-.503 1.006-.503h11.302c-3.667-.012-7.184-1.056-9.824-2.91ZM6.812 17.134v6.373h5.972V14.17c-4.75.002-5.784 1.632-5.972 2.964ZM25.925 17.14c-.185-1.332-1.214-2.968-5.972-2.97v9.336h5.972v-6.365Z"
         />
-      </Box>
-      <Box
-        as="svg"
+      </svg>
+      <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="27px"
-        height="26px"
         fill="none"
-        position="absolute"
-        left={-4}
-        top="50%"
-        transform="translate(-100%, -50%)"
+        className="absolute top-[50%] left-[-4px] w-[27px] h-[26px] translate-x-[-100%] translate-y-[-50%]"
       >
         <path
           fill="#fff"
@@ -165,7 +138,7 @@ export function Globe() {
           fill="#fff"
           d="M13.588 16.293c-1.94 0-3.513-1.436-3.513-3.208 0-1.771 1.573-3.207 3.513-3.207s3.513 1.436 3.513 3.207c0 1.772-1.573 3.208-3.513 3.208Z"
         />
-      </Box>
-    </Box>
+      </svg>
+    </div>
   );
 }
