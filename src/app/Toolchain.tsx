@@ -204,7 +204,7 @@ export function Toolchain() {
         </div>
         <div className="absolute inset-0 z-[-1] rounded-[40px] backdrop-blur-[50px]" />
       </div>
-      <div className="w-200vw h-200vw absolute top-[25%] z-[-2] rounded-full bg-[#1A1479] shadow-[0_0_64px_40px_#1A1479]" />
+      <div className="absolute top-[25%] z-[-2] h-[200vw] w-[200vw] rounded-full bg-[#1A1479] shadow-[0_0_64px_40px_#1A1479]" />
     </div>
   );
 }
