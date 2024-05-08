@@ -2,33 +2,41 @@ import { Container } from "@/components/Container";
 
 const linkGroups = [
   {
-    header: "DOJO",
+    header: "Dojo",
     links: [
-      { text: "Careers", href: "/careers" },
-      { text: "Documentation", href: "/documentation" },
-      { text: "Sitemap", href: "/sitemap" },
-      { text: "Legal", href: "/legal" },
+      { text: "Documentation", href: "https://github.com/dojoengine/book" },
     ],
   },
   {
-    header: "TECH",
+    header: "Ecosystem",
     links: [
-      { text: "Sozo", href: "/sozo" },
-      { text: "Torii", href: "/torii" },
-      { text: "World Explorer", href: "/world-explorer" },
-      { text: "Cartridge", href: "/cartridge" },
+      { text: "Core", href: "https://github.com/dojoengine" },
+      { text: "Origami", href: "https://github.com/dojoengine/origami" },
+      {
+        text: "Awesome Dojo",
+        href: "https://github.com/dojoengine/awesome-dojo",
+      },
+      { text: "Dojo.js", href: "https://github.com/dojoengine/dojo.js" },
     ],
   },
   {
-    header: "DOJO2",
+    header: "Partners",
     links: [
-      { text: "Careers", href: "/careers" },
-      { text: "Documentation", href: "/documentation" },
-      { text: "Sitemap", href: "/sitemap" },
-      { text: "Legal", href: "/legal" },
+      { text: "Cartridge", href: "https://cartridge.gg/" },
+      { text: "Starknet", href: "https://www.starknet.io/en" },
+      {
+        text: "Starkware",
+        href: "https://starkware.co/",
+      },
     ],
   },
 ];
+
+export enum Socials {
+  Telegram = "https://t.me/dojoengine",
+  GitHub = "https://github.com/dojoengine",
+  Discord = "https://discord.gg/dojoengine",
+}
 
 export function Links() {
   return (
@@ -56,7 +64,7 @@ export function Links() {
           ))}
         </div>
         <div className="flex gap-2">
-          <a href="https://telegram.com" target="_blank">
+          <a href={Socials.Telegram} target="_blank">
             <div className="rounded-full bg-[#24356C] p-[6px]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +79,7 @@ export function Links() {
               </svg>
             </div>
           </a>
-          <a href="https://github.com" target="_blank">
+          <a href={Socials.GitHub} target="_blank">
             <div className="rounded-full bg-[#24356C] p-[6px]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +94,7 @@ export function Links() {
               </svg>
             </div>
           </a>
-          <a href="https://discord.com" target="_blank">
+          <a href={Socials.Discord} target="_blank">
             <div className="rounded-full bg-[#24356C] p-[6px]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
