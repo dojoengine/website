@@ -52,7 +52,7 @@ export default function Games() {
   });
 
   const textOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
-  const gamesTranslate = useTransform(scrollYProgress, [0, 1], ["50%", "-25%"]);
+  const gamesTranslate = useTransform(scrollYProgress, [0, 1], ["50%", "0%"]);
 
   return (
     <Container>

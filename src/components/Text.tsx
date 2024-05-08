@@ -2,7 +2,7 @@ import React, { ReactHTML } from "react";
 
 const textStyles = {
   headline1:
-    "font-['Agrandir_Variable'] font-[469] text-[50px] md:text-[80px] leading-[80px] md:leading-[80px]",
+    "font-['Agrandir_Variable'] font-[469] text-[50px] md:text-[80px] leading-[60px] md:leading-[80px]",
   headline2:
     "font-['Agrandir_Variable'] font-[469] text-[42px] md:text-[58px] leading-[80px] md:leading-[80px]",
   headline3:

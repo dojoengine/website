@@ -3,7 +3,7 @@ import { Text } from "./Text";
 
 export const Button = forwardRef<
   HTMLButtonElement,
-  { variant?: "showArrow"; children: React.ReactNode }
+  { variant?: "showArrow"; children: React.ReactNode; onClick?: () => void }
 >(function Button(props, ref) {
   return (
     <button

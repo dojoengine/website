@@ -33,7 +33,7 @@ export default function Hero() {
   return (
     <div className="relative ">
       <div
-        className="relative z-10 flex h-[200vh] items-start justify-center px-8 sm:px-0"
+        className="relative flex h-[200vh] items-start justify-center px-8 sm:px-0"
         ref={wrapper}
       >
         <div className="sticky top-48 flex h-screen w-full max-w-[1400px] flex-col items-center justify-between gap-20 sm:top-0 sm:flex-row">

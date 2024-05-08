@@ -123,7 +123,7 @@ export function Toolchain() {
   const selectedTool = tools[selectedIndex];
 
   return (
-    <div className="relative flex items-center justify-center overflow-hidden pb-40">
+    <div className="relative flex items-center justify-center overflow-hidden px-6 pb-40">
       <div
         style={{
           borderImageSource:
@@ -146,7 +146,7 @@ export function Toolchain() {
               custom={direction}
               className="z-[5] order-2 flex flex-col items-start sm:order-1"
             >
-              <div className="mb-10">
+              <div className="mb-4 sm:mb-10">
                 <Badge
                   text={selectedTool.badgeTitle}
                   color="badge-red"
@@ -165,7 +165,7 @@ export function Toolchain() {
                   }
                 />
               </div>
-              <Text textStyle="headline3" className="sm:mb-10">
+              <Text textStyle="headline3" className="mb-4 sm:mb-10">
                 {selectedTool.name}
               </Text>
               <Text textStyle="bodyText" className="mb-10">
@@ -190,7 +190,7 @@ export function Toolchain() {
                     setDirection("up");
                   }
                 }}
-                className={`z-[1] h-14 w-14 cursor-pointer sm:h-[115px] sm:w-[115px] ${tool.name === selectedTool.name ? "sm:bg-transparent bg-[#321CC4]" : ""} flex items-center justify-center rounded-[22px]`}
+                className={`z-[1] h-14 w-14 cursor-pointer sm:h-[115px] sm:w-[115px] ${tool.name === selectedTool.name ? "sm:bg-transparent bg-[#321CC4]" : ""} flex items-center justify-center rounded-xl`}
               >
                 {tool.icon}
               </div>
