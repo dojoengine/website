@@ -80,7 +80,7 @@ export default async function Home({
               {t("home_code_desc")}
             </p>
             <Link
-              href="https://book.dojoengine.org/cairo/overview"
+              href="https://book.dojoengine.org/"
               target="_blank"
               className="inline-block bg-dojo-blue-400 hover:bg-dojo-blue-300 fill-dojo-blue-800 text-dojo-blue-800 font-bold rounded p-2 px-6"
             >
