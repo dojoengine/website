@@ -31,3 +31,8 @@
   src: url("/fonts/CircularLL-Book.ttf");
   font-weight: 450;
 }
+
+html,
+body {
+  overflow-x: hidden;
+}

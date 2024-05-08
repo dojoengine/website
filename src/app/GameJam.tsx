@@ -19,8 +19,11 @@ export function GameJam() {
 
   return (
     <Container>
-      <div ref={wrapper} className="flex items-center">
-        <div className="relative aspect-square w-1/2 shrink-0">
+      <div
+        ref={wrapper}
+        className="sm-px-0 flex flex-col items-center px-8 sm:flex-row"
+      >
+        <div className="relative aspect-square w-1/2 shrink-0 overflow-hidden">
           <motion.img
             src="/images/chibi-left.png"
             alt="Left Chibi"

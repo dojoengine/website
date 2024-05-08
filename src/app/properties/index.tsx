@@ -132,7 +132,10 @@ export function Properties() {
 
   return (
     <Container>
-      <div ref={container} className="relative grid grid-cols-3 gap-5">
+      <div
+        ref={container}
+        className="relative grid grid-cols-1 gap-5 sm:grid-cols-3"
+      >
         {allProperties.map((property, index) => {
           return (
             <SingleProperty

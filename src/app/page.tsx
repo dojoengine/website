@@ -47,7 +47,7 @@ export default async function Home() {
   return (
     <div className="relative">
       <Hero />
-      <div className="mb-20">
+      <div className="sm:mb-20">
         <Games />
       </div>
       <div className="mb-40">

@@ -51,15 +51,21 @@ export default function Games() {
     offset: ["start center", "end end"],
   });
 
-  const textOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-  const gamesTranslate = useTransform(scrollYProgress, [0, 1], ["100%", "50%"]);
+  const textOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+  const gamesTranslate = useTransform(scrollYProgress, [0, 1], ["50%", "-25%"]);
 
   return (
     <Container>
       <Wave />
-      <div className="relative h-screen pb-32 pt-[25vh]" ref={wrapper}>
-        <div className="sticky top-[50%] flex translate-y-[-50%] items-center gap-[28]">
-          <motion.div style={{ opacity: textOpacity }} className="basis-[30%]">
+      <div
+        className="relative h-screen px-8 pb-32 pt-[25vh] sm:px-0"
+        ref={wrapper}
+      >
+        <div className="sticky top-[50%] flex translate-y-[-50%] flex-col items-center gap-[28] sm:flex-row">
+          <motion.div
+            style={{ opacity: textOpacity }}
+            className="mb-10 basis-[30%] sm:mb-0"
+          >
             <div className="mb-7">
               <Badge
                 icon={
@@ -87,10 +93,10 @@ export default function Games() {
           </motion.div>
           <motion.div
             style={{
-              x: "-50%",
+              x: gamesTranslate,
               left: gamesTranslate,
             }}
-            className="absolute grid grid-cols-[repeat(4,294px)] gap-5"
+            className="grid grid-cols-2 gap-6 sm:grid-cols-4"
           >
             {allGames.map((game, i) => (
               <SingleGame key={i} game={game} />

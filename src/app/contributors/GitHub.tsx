@@ -52,7 +52,7 @@ export function GitHub({ contributorImages }: { contributorImages: string[] }) {
 
   return (
     <Container>
-      <div className="flex items-center gap-20">
+      <div className="flex flex-col items-center gap-20 sm:flex-row">
         <div className="flex flex-col items-start">
           <div className="mb-5">
             <Badge
@@ -82,7 +82,7 @@ export function GitHub({ contributorImages }: { contributorImages: string[] }) {
           </Text>
           <Button variant="showArrow">Contribute</Button>
         </div>
-        <div className="grid grid-cols-[repeat(3,200px)] gap-5">
+        <div className="grid grid-cols-[repeat(2,150px)] gap-5 sm:grid-cols-[repeat(3,200px)]">
           <AnimatePresence mode="popLayout">
             {shownContributorIndices.map((index) => (
               <motion.div
@@ -91,7 +91,7 @@ export function GitHub({ contributorImages }: { contributorImages: string[] }) {
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.8, opacity: 0 }}
                 transition={{ duration: 0.25 }}
-                className="from-52% to-130% relative aspect-square rounded-[40px] bg-gradient-to-b from-[#321CC1] to-[#7519A1] p-4"
+                className="from-52% to-130% relative aspect-square rounded-[40px] bg-gradient-to-b from-[#321CC1] to-[#7519A1] p-2 sm:p-4"
               >
                 <div
                   className={`h-full w-full rounded-[28px] bg-cover bg-center`}

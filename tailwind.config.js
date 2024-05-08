@@ -13,7 +13,7 @@ module.exports = {
       },
       badge: {
         yellow: "#FBCB4A",
-        fuchsia: "#F568D6",
+        fuchsiaa: "#F568D6",
         red: "#FD4544",
         teal: "#6FCCBB",
       },

@@ -129,9 +129,9 @@ export function Toolchain() {
           borderImageSource:
             "linear-gradient(180deg, rgba(100, 82, 222, 0.28) 0%, #151768 100%)",
         }}
-        className="border-gradient relative w-full max-w-[1044px] rounded-[40px] border-[1px] bg-gradient-to-b from-[rgba(50,28,193,0.03)] to-[rgba(43,24,164,0.31)] p-14 pl-24 shadow-[0_0_114px_0_#03122ACC]"
+        className="border-gradient relative w-full max-w-[1044px] rounded-[40px] border-[1px] bg-gradient-to-b from-[rgba(50,28,193,0.03)] to-[rgba(43,24,164,0.31)] p-6 shadow-[0_0_114px_0_#03122ACC] sm:p-14 sm:pl-24"
       >
-        <div className="flex items-center gap-32">
+        <div className="flex flex-col items-center gap-12 sm:flex-row sm:gap-32">
           <AnimatePresence mode="popLayout" custom={direction}>
             <motion.div
               key={selectedTool.name}
@@ -144,7 +144,7 @@ export function Toolchain() {
                 opacity: { duration: 0.2 },
               }}
               custom={direction}
-              className="z-[5] flex flex-col items-start"
+              className="z-[5] order-2 flex flex-col items-start sm:order-1"
             >
               <div className="mb-10">
                 <Badge
@@ -165,7 +165,7 @@ export function Toolchain() {
                   }
                 />
               </div>
-              <Text textStyle="headline3" className="mb-10">
+              <Text textStyle="headline3" className="sm:mb-10">
                 {selectedTool.name}
               </Text>
               <Text textStyle="bodyText" className="mb-10">
@@ -174,7 +174,7 @@ export function Toolchain() {
               <Button variant="showArrow">Documentation</Button>
             </motion.div>
           </AnimatePresence>
-          <div className="relative flex shrink-0 flex-col gap-2">
+          <div className="relative order-1 grid shrink-0 grid-cols-3 flex-col gap-2 sm:grid-cols-1">
             {tools.map((tool, i) => (
               <div
                 key={tool.name}
@@ -190,13 +190,13 @@ export function Toolchain() {
                     setDirection("up");
                   }
                 }}
-                className="z-[1] h-[115px] w-[115px] cursor-pointer"
+                className={`z-[1] h-14 w-14 cursor-pointer sm:h-[115px] sm:w-[115px] ${tool.name === selectedTool.name ? "sm:bg-transparent bg-[#321CC4]" : ""} flex items-center justify-center rounded-[22px]`}
               >
                 {tool.icon}
               </div>
             ))}
             <motion.div
-              className="absolute left-0 right-0 top-0 z-0 aspect-square rounded-[22px] bg-[#321CC4]"
+              className="absolute left-0 right-0 top-0 z-0 hidden  aspect-square rounded-[22px] bg-[#321CC4] sm:block"
               animate={{ y: selectionTop }}
               transition={{ type: "spring" }}
             ></motion.div>
