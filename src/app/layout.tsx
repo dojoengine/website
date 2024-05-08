@@ -5,16 +5,20 @@ import localFont from "next/font/local";
 
 const agrandirVariable = localFont({
   src: "./fonts/Agrandir-Heavy.ttf",
+  variable: "--font-agrandir",
   display: "swap",
+  weight: "400",
 });
 
 const IBMPlexSans = localFont({
   src: "./fonts/IBMPlexSans-Bold.otf",
+  variable: "--font-IBMPlexSans",
   display: "swap",
 });
 
 const circular = localFont({
   src: "./fonts/CircularLL-Book.ttf",
+  variable: "--font-circular",
   display: "swap",
 });
 
@@ -30,7 +34,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${agrandirVariable.className} `}>
+    <html
+      lang="en"
+      className={`${IBMPlexSans.variable} ${agrandirVariable.variable} ${circular.variable} `}
+    >
       <body className="overflow-x-hidden  bg-[#021531] text-text-white">
         <Navigation />
         {children}

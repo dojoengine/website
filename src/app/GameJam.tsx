@@ -14,8 +14,8 @@ export function GameJam() {
     offset: ["start end", "center center"],
   });
 
-  const leftChibiY = useTransform(scrollYProgress, [0, 1], [-300, 0]);
-  const rightChibiY = useTransform(scrollYProgress, [0, 1], [200, 0]);
+  const leftChibiY = useTransform(scrollYProgress, [0, 0.5], [-300, 0]);
+  const rightChibiY = useTransform(scrollYProgress, [0, 0.5], [200, 0]);
 
   return (
     <Container>
@@ -23,7 +23,7 @@ export function GameJam() {
         ref={wrapper}
         className="sm-px-0 flex flex-col items-center px-8 sm:flex-row"
       >
-        <div className="relative aspect-square w-1/2 shrink-0 overflow-hidden">
+        <div className="relative aspect-square w-full shrink-0 overflow-hidden sm:w-1/2">
           <motion.img
             src="/images/chibi-left.png"
             alt="Left Chibi"
@@ -84,8 +84,8 @@ export function GameJam() {
             Game Jam
           </Text>
           <Text textStyle="bodyText" className="mb-10">
-            Here is a short paragraph about the details of this current event.
-            Should mention location, date and time of event as well as theme.
+            Join the game jam and build your own game using Dojo. Build the best
+            game and bootstrap your company.
           </Text>
           <Button variant="showArrow">Sign up</Button>
         </div>

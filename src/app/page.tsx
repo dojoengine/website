@@ -4,7 +4,7 @@ import { GameJam } from "./GameJam";
 import { Properties } from "./properties";
 import { Toolchain } from "./Toolchain";
 import { Contributors } from "./contributors";
-import { Footer } from "@/footer";
+import { Footer } from "@/components/footer";
 
 async function getContributors(repoName: string, page = 1) {
   let request = await fetch(
@@ -47,10 +47,10 @@ export default async function Home() {
   return (
     <div className="relative">
       <Hero />
-      <div className="sm:mb-20">
+      <div className="sm:my-20">
         <Games />
       </div>
-      <div className="mb-40">
+      <div className="my-40">
         <GameJam />
       </div>
       <div className="mb-[200px]">

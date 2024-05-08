@@ -52,13 +52,17 @@ export default function Games() {
   });
 
   const textOpacity = useTransform(scrollYProgress, [0.4, 1], [1, 1]);
-  const gamesTranslate = useTransform(scrollYProgress, [0.4, 1], ["50%", "0%"]);
+  const gamesTranslate = useTransform(
+    scrollYProgress,
+    [0.4, 0.8],
+    ["25%", "0%"],
+  );
 
   return (
     <Container>
       <Wave />
       <div
-        className="relative h-screen px-8 pb-32 pt-[25vh] sm:px-0"
+        className="relative h-screen px-8 pb-32 pt-[50vh] sm:px-0 "
         ref={wrapper}
       >
         <div className="sticky top-[50%] flex translate-y-[-50%] flex-col items-center gap-[28] sm:flex-row">

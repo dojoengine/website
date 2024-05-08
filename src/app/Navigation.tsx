@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { create } from "zustand";
 import { motion } from "framer-motion";
-import { Socials } from "@/footer/Links";
+import { Socials } from "@/components/footer/Links";
 export const useMenuStore = create<{
   decreasedPadding: boolean;
   toggleMenu: () => void;

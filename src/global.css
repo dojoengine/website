@@ -5,7 +5,7 @@
 @font-face {
   font-family: "Agrandir Variable";
   font-style: normal;
-  font-weight: 600;
+  font-weight: 300;
   src: url("/fonts/Agrandir-Heavy.ttf");
 }
 @font-face {
@@ -45,13 +45,13 @@ body {
 }
 
 .font-title {
-  font-family: var(--font-agrandirVariable);
+  font-family: var(--font-agrandir);
 }
 
 .font-mono {
   font-family: var(--font-IBMPlexSans);
 }
 
-.font-body{
+.font-body {
   font-family: var(--font-circular);
 }
