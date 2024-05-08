@@ -1,14 +1,14 @@
 "use client";
 
 import { Lines } from "./Lines";
-import { useRef } from "react";
+import { useMemo, useRef } from "react";
 import { useMotionValueEvent, useScroll } from "framer-motion";
 import { useMenuStore } from "../Navigation";
 import { Text } from "../../components/Text";
 import { Button } from "@/components/Button";
 import { Canvas, useFrame, extend } from "@react-three/fiber";
 import { Bloom, EffectComposer, Pixelation } from "@react-three/postprocessing";
-import { Html } from "@react-three/drei";
+import { Html, Cylinder } from "@react-three/drei";
 import * as THREE from "three";
 export default function Hero() {
   const wrapper = useRef<HTMLDivElement>(null);
@@ -179,8 +179,9 @@ function SpinningMesh() {
         <sphereGeometry args={[1.5, 32, 32]} />
         <shaderMaterial args={[gradientShader]} />
       </mesh>
+      {/* <GlobeLines /> */}
       <lineSegments ref={wireframeRef}>
-        <wireframeGeometry args={[new THREE.SphereGeometry(1.5, 32, 32)]} />
+        <wireframeGeometry args={[new THREE.SphereGeometry(1.51, 32, 32)]} />
         <lineBasicMaterial color="pink" />
       </lineSegments>
       <EffectComposer>
@@ -191,6 +192,67 @@ function SpinningMesh() {
           intensity={0.5}
         />
       </EffectComposer>
+    </>
+  );
+}
+
+export function GlobeLines() {
+  const GLOBE_RADIUS = 1.501; // Define the radius of the globe
+  const GRID_COLOR = "pink"; // Define the grid color
+  const LINE_THICKNESS = 0.01;
+  const HAG = 0.01; // Slight distance above globe that longitude/latitude lines are drawn.
+  const PI = Math.PI;
+  const cos = Math.cos;
+  const sin = Math.sin;
+
+  const longitudeLines = useMemo(() => {
+    const lines = [];
+    for (let n = 0; n < 24; ++n) {
+      const rotationY = (n * PI) / 12;
+      lines.push(
+        <Cylinder
+          key={`longitude-${n}`}
+          args={[
+            GLOBE_RADIUS + HAG,
+            GLOBE_RADIUS + HAG,
+            LINE_THICKNESS,
+            50,
+            1,
+            true,
+          ]}
+          position={[0, -LINE_THICKNESS / 2, 0]}
+          rotation={[PI / 2, rotationY, 0]}
+          material={new THREE.MeshBasicMaterial({ color: GRID_COLOR })}
+        />,
+      );
+    }
+    return lines;
+  }, []);
+
+  const latitudeLines = useMemo(() => {
+    const lines = [];
+    for (let n = 1; n < 12; ++n) {
+      const lat = ((n - 6) * PI) / 12;
+      const r = GLOBE_RADIUS * cos(lat);
+      const y = GLOBE_RADIUS * sin(lat);
+      const r1 = r - (LINE_THICKNESS * sin(lat)) / 2;
+      const r2 = r + (LINE_THICKNESS * sin(lat)) / 2;
+      lines.push(
+        <Cylinder
+          key={`latitude-${n}`}
+          args={[r1 + HAG, r2 + HAG, cos(lat) * LINE_THICKNESS, 50, 8, true]}
+          position={[0, (-cos(lat) * LINE_THICKNESS) / 2 + y, 0]}
+          material={new THREE.MeshBasicMaterial({ color: GRID_COLOR })}
+        />,
+      );
+    }
+    return lines;
+  }, []);
+
+  return (
+    <>
+      {longitudeLines}
+      {latitudeLines}
     </>
   );
 }
