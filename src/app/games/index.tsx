@@ -51,8 +51,8 @@ export default function Games() {
     offset: ["start center", "end end"],
   });
 
-  const textOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
-  const gamesTranslate = useTransform(scrollYProgress, [0, 1], ["50%", "0%"]);
+  const textOpacity = useTransform(scrollYProgress, [0.4, 1], [1, 1]);
+  const gamesTranslate = useTransform(scrollYProgress, [0.4, 1], ["50%", "0%"]);
 
   return (
     <Container>
@@ -64,7 +64,7 @@ export default function Games() {
         <div className="sticky top-[50%] flex translate-y-[-50%] flex-col items-center gap-[28] sm:flex-row">
           <motion.div
             style={{ opacity: textOpacity }}
-            className="mb-10 basis-[30%] sm:mb-0"
+            className="mb-10 basis-[30%] px-8 sm:mb-0"
           >
             <div className="mb-7">
               <Badge
@@ -85,10 +85,9 @@ export default function Games() {
                 color="badge-yellow"
               />
             </div>
-            <Text textStyle="headline2">Press start</Text>
+            <Text textStyle="headline2">$ build</Text>
             <Text textStyle="bodyText">
-              Here is a medium length paragraph about our games. We can discuss
-              how they’re created or other relevant details in this section.
+              Build provable worlds with dojo using zk STARKs.
             </Text>
           </motion.div>
           <motion.div
