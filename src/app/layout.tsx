@@ -4,8 +4,15 @@ import "../global.css";
 import localFont from "next/font/local";
 
 const agrandirVariable = localFont({
-  src: "./fonts/Agrandir-Heavy.ttf",
+  src: "./fonts/Agrandir Narrow Bold.otf",
   variable: "--font-agrandir",
+  display: "swap",
+  weight: "400",
+});
+
+const agrandirBody = localFont({
+  src: "./fonts/Agrandir-C3-Regular.otf",
+  variable: "--font-agrandirBody",
   display: "swap",
   weight: "400",
 });
@@ -36,7 +43,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${IBMPlexSans.variable} ${agrandirVariable.variable} ${circular.variable} `}
+      className={`${IBMPlexSans.variable} ${agrandirVariable.variable} ${circular.variable} ${agrandirBody.variable} `}
     >
       <body className="overflow-x-hidden  bg-[#021531] text-text-white">
         <Navigation />

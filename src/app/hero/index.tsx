@@ -8,7 +8,7 @@ import { Text } from "../../components/Text";
 import { Button } from "@/components/Button";
 import { Canvas, useFrame, extend } from "@react-three/fiber";
 import { Bloom, EffectComposer, Pixelation } from "@react-three/postprocessing";
-import { Html, Cylinder } from "@react-three/drei";
+import { Html, Cylinder, Stars } from "@react-three/drei";
 import * as THREE from "three";
 export default function Hero() {
   const wrapper = useRef<HTMLDivElement>(null);
@@ -37,17 +37,18 @@ export default function Hero() {
         <div className=" sticky top-48 flex h-screen w-full max-w-[1400px] flex-col items-center justify-between gap-20 sm:top-0 sm:flex-row">
           <div className="flex flex-col items-start gap-10">
             <Text textStyle="headline1" className="text-text-white">
-              Let&#8217;s build <br /> provable games.
+              Let&#8217;s build <br /> provable worlds.
             </Text>
-            <Button>Learn more</Button>
+            <p>Build worlds and games.</p>
+            <Button>Ohayo</Button>
           </div>
 
           <Lines scrollProgress={scrollYProgress} />
         </div>
       </div>
-      <div className="z-1 pointer-events-none absolute -right-32 top-72 flex  h-[90vh] w-screen justify-end sm:right-0 sm:top-0 sm:h-[120vh]">
+      <div className="z-1 pointer-events-none absolute -right-32 top-72 flex  h-[150vh] w-screen justify-end sm:right-0 sm:top-0 sm:h-[200vh]">
         <div className="w-full ">
-          <Canvas className="sm:ml-96">
+          <Canvas className="">
             <ambientLight intensity={0.1} />
             <directionalLight color="red" position={[0, 0, 5]} />
             <SpinningMesh />
@@ -70,8 +71,8 @@ function SpinningMesh() {
       // Gradually adjust currentScale towards targetScale
       currentScale.current +=
         (targetScale.current - currentScale.current) * 0.1;
-      ref.current.rotation.x += 0.0001;
-      ref.current.rotation.y += 0.001;
+      ref.current.rotation.x += 0.01;
+      ref.current.rotation.y += 0.01;
       ref.current.scale.set(
         currentScale.current,
         currentScale.current,
@@ -79,8 +80,8 @@ function SpinningMesh() {
       );
     }
     if (wireframeRef.current) {
-      wireframeRef.current.rotation.x += 0.0001;
-      wireframeRef.current.rotation.y += 0.001;
+      wireframeRef.current.rotation.x += 0.001;
+      wireframeRef.current.rotation.y += 0.0045;
       wireframeRef.current.scale.set(
         currentScale.current,
         currentScale.current,
@@ -103,8 +104,8 @@ function SpinningMesh() {
     fragmentShader: `
       varying vec2 vUv;
       void main() {
-        vec3 lightPurple = vec3(0.135, 0.28, 0.89); // RGB for light purple
-        vec3 softPink = vec3(1.0, 0.31, 0.26); // RGB for soft pink
+        vec3 lightPurple = vec3(0.135, 0.18, 0.89); // RGB for light purple
+        vec3 softPink = vec3(0.5, 0.10, 0.16); // RGB for soft pink
         gl_FragColor = vec4(mix(lightPurple, softPink, vUv.y), 1.0);
       }
     `,
@@ -112,8 +113,8 @@ function SpinningMesh() {
   };
 
   return (
-    <>
-      <Html
+    <mesh position={[1, 0, 0]}>
+      {/* <Html
         as="div" // Wrapping element (default: 'div')
         position={[-0.1, 1.8, 0.2]} // Position in 3D space
       >
@@ -170,7 +171,7 @@ function SpinningMesh() {
             d="M13.588 16.293c-1.94 0-3.513-1.436-3.513-3.208 0-1.771 1.573-3.207 3.513-3.207s3.513 1.436 3.513 3.207c0 1.772-1.573 3.208-3.513 3.208Z"
           />
         </svg>
-      </Html>
+      </Html> */}
       <mesh
         ref={ref}
         onPointerOver={(e) => onHover(e, true)}
@@ -181,9 +182,18 @@ function SpinningMesh() {
       </mesh>
       {/* <GlobeLines /> */}
       <lineSegments ref={wireframeRef}>
-        <wireframeGeometry args={[new THREE.SphereGeometry(1.51, 32, 32)]} />
-        <lineBasicMaterial color="pink" />
+        <wireframeGeometry args={[new THREE.SphereGeometry(1.53, 20, 20)]} />
+        <lineBasicMaterial color="#FBCB4A" />
       </lineSegments>
+      <Stars
+        radius={100}
+        depth={50}
+        count={5000}
+        factor={4}
+        saturation={0}
+        fade
+        speed={1}
+      />
       <EffectComposer>
         <Bloom
           luminanceThreshold={0.4}
@@ -192,13 +202,13 @@ function SpinningMesh() {
           intensity={0.5}
         />
       </EffectComposer>
-    </>
+    </mesh>
   );
 }
 
 export function GlobeLines() {
   const GLOBE_RADIUS = 1.501; // Define the radius of the globe
-  const GRID_COLOR = "pink"; // Define the grid color
+  const GRID_COLOR = "purple"; // Define the grid color
   const LINE_THICKNESS = 0.01;
   const HAG = 0.01; // Slight distance above globe that longitude/latitude lines are drawn.
   const PI = Math.PI;
