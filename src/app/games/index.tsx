@@ -12,35 +12,43 @@ const allGames = [
   {
     name: "Eykar",
     image: "/images/games/game1.png",
+    description:
+      "A game about building worlds.A game about building worlds.A game about building worlds.A game about building worlds",
   },
   {
     name: "Eykar",
     image: "/images/games/game2.png",
+    description:
+      "A game about building worlds.A game about building worlds.A game about building worlds.A game about building worlds",
   },
   {
     name: "Eykar",
     image: "/images/games/game3.png",
+    description:
+      "A game about building worlds.A game about building worlds.A game about building worlds.A game about building worlds",
   },
   {
     name: "Eykar",
     image: "/images/games/game4.png",
+    description:
+      "A game about building worlds.A game about building worlds.A game about building worlds.A game about building worlds",
   },
-  {
-    name: "Eykar",
-    image: "/images/games/game5.png",
-  },
-  {
-    name: "Eykar",
-    image: "/images/games/game6.png",
-  },
-  {
-    name: "Eykar",
-    image: "/images/games/game7.png",
-  },
-  {
-    name: "Eykar",
-    image: "/images/games/game8.png",
-  },
+  // {
+  //   name: "Eykar",
+  //   image: "/images/games/game5.png",
+  // },
+  // {
+  //   name: "Eykar",
+  //   image: "/images/games/game6.png",
+  // },
+  // {
+  //   name: "Eykar",
+  //   image: "/images/games/game7.png",
+  // },
+  // {
+  //   name: "Eykar",
+  //   image: "/images/games/game8.png",
+  // },
 ];
 
 export default function Games() {
@@ -54,8 +62,8 @@ export default function Games() {
   const textOpacity = useTransform(scrollYProgress, [0.4, 1], [1, 1]);
   const gamesTranslate = useTransform(
     scrollYProgress,
-    [0.4, 0.8],
-    ["25%", "0%"],
+    [0.4, 1],
+    ["100%", "0%"],
   );
 
   return (
@@ -99,7 +107,7 @@ export default function Games() {
               x: gamesTranslate,
               left: gamesTranslate,
             }}
-            className="grid grid-cols-2 gap-6 sm:grid-cols-4"
+            className="grid w-[1200px] grid-cols-2 gap-6 sm:grid-cols-2"
           >
             {allGames.map((game, i) => (
               <SingleGame key={i} game={game} />

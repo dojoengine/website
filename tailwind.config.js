@@ -18,6 +18,9 @@ module.exports = {
           },
         },
       },
+      borderWidth: {
+        8: "8px",
+      },
       colors: {
         text: {
           white: "#FFFFFF",
