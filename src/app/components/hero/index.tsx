@@ -17,11 +17,9 @@ import {
   Clouds,
   Cloud,
 } from "@react-three/drei";
-
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
-
 import * as THREE from "three";
-import { GetStarted } from "../footer/GetStarted";
+
 export default function Hero() {
   const wrapper = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -42,11 +40,11 @@ export default function Hero() {
 
   return (
     <>
-      <div
-        className="relative flex h-[200vh] items-start justify-center px-8 sm:h-[130vh] sm:px-0"
+      {/* <div
+        className="relative flex h-[50vh] items-start justify-center px-8 sm:h-[130vh] sm:px-0"
         ref={wrapper}
       >
-        {/* <div className=" sticky top-48 flex h-screen w-full max-w-[1400px] flex-col items-center justify-between gap-20 sm:top-0 sm:flex-row">
+        <div className=" sticky top-48 flex h-screen w-full max-w-[1400px] flex-col items-center justify-between gap-20 sm:top-0 sm:flex-row">
           <div className="flex flex-col items-start gap-10">
             <Text textStyle="headline1" className="text-text-white">
               Let&#8217;s build <br /> provable worlds.
@@ -56,9 +54,9 @@ export default function Hero() {
           </div>
 
           <Lines scrollProgress={scrollYProgress} />
-        </div> */}
-      </div>
-      <div className="z-1  absolute -right-32 flex  h-[100vh] w-screen justify-end sm:right-0 sm:top-0 sm:h-[130vh]">
+        </div>
+      </div> */}
+      <div className="z-1   flex  h-[100vh] w-screen justify-end sm:right-0 sm:top-0 sm:h-[130vh]">
         <div className="w-full ">
           <Canvas className="">
             <ambientLight intensity={0.1} />
@@ -124,19 +122,11 @@ function SpinningMesh() {
     targetScale.current = hovered ? 1.05 : 1.0; // Set target scale
   };
 
-  return (
-    <mesh position={[0, 0, 0]}>
-      <mesh
-        ref={ref}
-        onPointerOver={(e) => onHover(e, true)}
-        onPointerOut={(e) => onHover(e, false)}
-      >
-        <sphereGeometry args={[2, 32, 32]} />
-        <shaderMaterial args={[gradientShader]} depthWrite={true} />
-      </mesh>
+  const cloud = useMemo(() => {
+    return (
       <Clouds material={THREE.MeshBasicMaterial}>
         <Cloud
-          segments={20}
+          segments={15}
           bounds={[10, 2, 2]}
           volume={2}
           color="orange"
@@ -144,7 +134,7 @@ function SpinningMesh() {
           concentrate="inside"
           fade={100}
           scale={1}
-          speed={0.2}
+          speed={0.1}
           position={[0, 1, 0]}
         />
         <Cloud
@@ -153,7 +143,7 @@ function SpinningMesh() {
           volume={5}
           color="hotpink"
           concentrate="inside"
-          fade={100}
+          fade={50}
           speed={1}
           opacity={0.5}
           position={[0, 1, 0]}
@@ -170,6 +160,20 @@ function SpinningMesh() {
           position={[0, 1, 0]}
         />
       </Clouds>
+    );
+  }, []);
+
+  return (
+    <mesh position={[0, 0, 0]}>
+      <mesh
+        ref={ref}
+        onPointerOver={(e) => onHover(e, true)}
+        onPointerOut={(e) => onHover(e, false)}
+      >
+        <sphereGeometry args={[2, 32, 32]} />
+        <shaderMaterial args={[gradientShader]} depthWrite={true} />
+      </mesh>
+      {cloud}
       <lineSegments ref={wireframeRef}>
         <wireframeGeometry args={[new THREE.SphereGeometry(2.03, 100, 50)]} />
         <shaderMaterial args={[gradientShader]} depthWrite={true} />

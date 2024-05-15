@@ -41,7 +41,7 @@ export function GetStarted() {
                 onClick={setCopied}
                 className="border-badge-blue/80 group relative z-0 overflow-hidden rounded-full border px-10  py-3 font-mono text-white"
               >
-                <div className="to-badge-blue from-badge-blue/40 absolute inset-0 z-[-2] bg-gradient-to-t" />
+                <div className="bg-badge-blue absolute inset-0 z-[-2]" />
                 <div className="absolute bottom-0 left-0 top-0 z-[-1] w-0 bg-badge-red transition-all duration-[400ms] group-hover:w-full" />
                 curl -L https://dojoengine.org | bash
               </div>

@@ -21,7 +21,7 @@ export function SingleGame({
   }, [controls]);
   return (
     <div
-      className="shadow-3xl group relative aspect-square h-32 w-32 cursor-pointer flex-col items-end justify-between rounded-3xl border-8 border-[#4E38E1] bg-cover bg-center sm:h-56 sm:w-[500px]"
+      className="shadow-3xl group relative aspect-square h-32 w-48 cursor-pointer flex-col items-end justify-between rounded-3xl border-8 border-[#4E38E1] bg-cover bg-center sm:h-56 sm:w-[500px]"
       style={{ backgroundImage: `url('${game.image}')` }}
     >
       <div className="absolute inset-0 top-full flex items-end rounded-2xl bg-black/60 transition-all group-hover:top-0" />

@@ -4,7 +4,7 @@ const textStyles = {
   headline1:
     "font-title text-[50px] md:text-[80px] leading-[60px] md:leading-[80px]",
   headline2:
-    "font-title text-[42px] md:text-[58px] leading-[80px] md:leading-[80px]",
+    "font-title text-[32px] md:text-[58px] leading-[40px] md:leading-[80px]",
   headline3: "font-title text-[24px] md:text-[32px]",
   bodyText: "text-[16px] md:text-[21px] leading-[24px] md:leading-[34px]",
   buttonText:
