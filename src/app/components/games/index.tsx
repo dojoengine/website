@@ -7,6 +7,7 @@ import { SingleGame } from "./SingleGame";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Text } from "@/app/components/Text";
+import { GetStarted } from "../footer/GetStarted";
 
 const allGames = [
   {
@@ -65,6 +66,7 @@ export default function Games() {
   return (
     <Container>
       <Wave />
+      <GetStarted />
       <div
         className="relative h-screen px-8 pb-32 pt-[50vh] sm:px-0 "
         ref={wrapper}

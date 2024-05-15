@@ -21,6 +21,7 @@ import {
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
 
 import * as THREE from "three";
+import { GetStarted } from "../footer/GetStarted";
 export default function Hero() {
   const wrapper = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -42,7 +43,7 @@ export default function Hero() {
   return (
     <>
       <div
-        className="relative flex h-[200vh] items-start justify-center px-8 sm:h-[120vh] sm:px-0"
+        className="relative flex h-[200vh] items-start justify-center px-8 sm:h-[130vh] sm:px-0"
         ref={wrapper}
       >
         {/* <div className=" sticky top-48 flex h-screen w-full max-w-[1400px] flex-col items-center justify-between gap-20 sm:top-0 sm:flex-row">
@@ -57,7 +58,7 @@ export default function Hero() {
           <Lines scrollProgress={scrollYProgress} />
         </div> */}
       </div>
-      <div className="z-1 pointer-events-none absolute -right-32 flex  h-[100vh] w-screen justify-end sm:right-0 sm:top-0 sm:h-[100vh]">
+      <div className="z-1  absolute -right-32 flex  h-[100vh] w-screen justify-end sm:right-0 sm:top-0 sm:h-[130vh]">
         <div className="w-full ">
           <Canvas className="">
             <ambientLight intensity={0.1} />
@@ -137,12 +138,14 @@ function SpinningMesh() {
         <Cloud
           segments={20}
           bounds={[10, 2, 2]}
-          volume={10}
+          volume={2}
           color="orange"
           opacity={0.4}
           concentrate="inside"
           fade={100}
+          scale={1}
           speed={0.2}
+          position={[0, 1, 0]}
         />
         <Cloud
           seed={1}
@@ -153,6 +156,7 @@ function SpinningMesh() {
           fade={100}
           speed={1}
           opacity={0.5}
+          position={[0, 1, 0]}
         />
         <Cloud
           seed={1}
@@ -163,6 +167,7 @@ function SpinningMesh() {
           fade={100}
           speed={0.5}
           opacity={0.2}
+          position={[0, 1, 0]}
         />
       </Clouds>
       <lineSegments ref={wireframeRef}>
@@ -198,7 +203,7 @@ function SpinningMesh() {
           luminanceThreshold={0.4}
           luminanceSmoothing={0.2}
           height={1}
-          intensity={0.9}
+          intensity={0.01}
         />
       </EffectComposer>
     </mesh>

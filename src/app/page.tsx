@@ -6,6 +6,7 @@ import { Toolchain } from "./components/Toolchain";
 import { Contributors } from "./components/contributors";
 import { Footer } from "@/app/components/footer";
 import { EventRow } from "./components/events/EventRow";
+import { GetStarted } from "./components/footer/GetStarted";
 
 async function getContributors(repoName: string, page = 1) {
   let request = await fetch(
@@ -48,6 +49,7 @@ export default async function Home() {
   return (
     <div className="relative">
       <Hero />
+
       <div className=" sm:my-20">
         <Games />
       </div>

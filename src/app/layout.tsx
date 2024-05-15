@@ -30,7 +30,7 @@ const circular = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Provable game engine for onchain games and autonomous worlds",
+  title: "dojo | Provable game engine for onchain games and autonomous worlds",
   description:
     "Dojo is a provable game engine and toolchain for building onchain games and autonomous worlds.",
 };
