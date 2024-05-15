@@ -5,7 +5,10 @@ export function Footer() {
   return (
     <div className="bg-background-purple">
       <GetStarted />
-      <Links />
+
+      <div className="bg-background-dark">
+        <Links />
+      </div>
     </div>
   );
 }

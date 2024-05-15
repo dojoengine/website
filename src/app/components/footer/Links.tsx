@@ -41,11 +41,11 @@ export enum Socials {
 export function Links() {
   return (
     <Container>
-      <div className="gap-8 py-[100px] ">
+      <div className="bg-blue gap-8 py-[100px]">
         <div className="grid grid-cols-2 gap-8 font-mono sm:grid-cols-4">
           {linkGroups.map((group) => (
             <div key={group.header} className="flex flex-col items-start gap-8">
-              <p className="font-mono  font-[600] text-text-purple">
+              <p className="text-badge-blue  font-mono font-[600]">
                 {group.header}
               </p>
               <div className="flex flex-col items-start gap-1">
