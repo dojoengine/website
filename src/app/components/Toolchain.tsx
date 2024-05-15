@@ -1,10 +1,10 @@
 "use client";
 
-import { Badge } from "@/components/Badge";
-import { Button } from "@/components/Button";
+import { Badge } from "@/app/components/Badge";
+import { Button } from "@/app/components/Button";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Text } from "@/components/Text";
+import { Text } from "@/app/components/Text";
 
 const tools = [
   {
@@ -165,8 +165,8 @@ export function Toolchain() {
               animate="animate"
               exit="exit"
               transition={{
-                y: { type: "spring", stiffness: 300, damping: 50 },
-                opacity: { duration: 0.3 },
+                y: { type: "spring", stiffness: 200, damping: 20 },
+                opacity: { duration: 0.1 },
               }}
               custom={direction}
               className="z-[5] order-2 flex flex-col items-start sm:order-1"
@@ -174,7 +174,7 @@ export function Toolchain() {
               <div className="mb-4 sm:mb-10">
                 <Badge
                   text={selectedTool.badgeTitle}
-                  color="badge-red"
+                  color="red"
                   icon={
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -190,13 +190,17 @@ export function Toolchain() {
                   }
                 />
               </div>
-              <Text textStyle="headline3" className="mb-4 sm:mb-10">
+              <Text textStyle="headline1" className="mb-4 sm:mb-10">
                 {selectedTool.name}
               </Text>
               <Text textStyle="bodyText" className="mb-10">
                 {selectedTool.description}
               </Text>
-              <Button variant="showArrow">Documentation</Button>
+              <Button withArrow variant="default">
+                <a target="_blank" href="https://book.dojoengine.org/">
+                  Documentation
+                </a>
+              </Button>
             </motion.div>
           </AnimatePresence>
           <div className="relative order-1 grid shrink-0 grid-cols-3 flex-col gap-2 sm:grid-cols-1">
@@ -215,7 +219,7 @@ export function Toolchain() {
                     setDirection("up");
                   }
                 }}
-                className={`z-[1] h-14 w-14 cursor-pointer sm:h-[115px] sm:w-[115px] ${tool.name === selectedTool.name ? "sm:bg-transparent bg-[#321CC4]" : ""} flex items-center justify-center rounded-xl`}
+                className={`z-[1] h-14 w-14 cursor-pointer sm:h-[115px] sm:w-[115px] ${tool.name === selectedTool.name ? "bg-[#321CC4] sm:bg-transparent" : ""} flex items-center justify-center rounded-xl`}
               >
                 {tool.icon}
               </div>

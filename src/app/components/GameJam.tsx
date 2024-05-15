@@ -1,11 +1,11 @@
 "use client";
 
-import { Badge } from "@/components/Badge";
-import { Button } from "@/components/Button";
-import { Container } from "@/components/Container";
+import { Badge } from "@/app/components/Badge";
+import { Button } from "@/app/components/Button";
+import { Container } from "@/app/components/Container";
 import { useRef } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
-import { Text } from "@/components/Text";
+import { Text } from "@/app/components/Text";
 
 export function GameJam() {
   const wrapper = useRef(null);
@@ -59,7 +59,7 @@ export function GameJam() {
                 </svg>
               }
               text="10k STRK"
-              color="badge-fuchsia"
+              color="red"
             />
             <Badge
               icon={
@@ -77,7 +77,7 @@ export function GameJam() {
                 </svg>
               }
               text="$10k USD"
-              color="badge-fuchsia"
+              color="red"
             />
           </div>
           <Text textStyle="headline2" className="mb-5">
@@ -87,7 +87,7 @@ export function GameJam() {
             Join the game jam and build your own game using Dojo. Build the best
             game and bootstrap your company.
           </Text>
-          <Button variant="showArrow">Sign up</Button>
+          <Button variant="default">Sign up</Button>
         </div>
       </div>
     </Container>

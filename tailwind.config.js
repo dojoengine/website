@@ -21,9 +21,15 @@ module.exports = {
       borderWidth: {
         8: "8px",
       },
+      borderRadius: {
+        "4xl": "2rem",
+      },
       colors: {
+        primary: "#321CC4",
+        secondary: "#151768",
+        tertiary: "#6452DE",
+        black: "#03152E",
         text: {
-          white: "#FFFFFF",
           black: "#03152E",
           purple: "#614BF8",
         },
@@ -32,9 +38,10 @@ module.exports = {
         },
         badge: {
           yellow: "#FBCB4A",
-          fuchsiaa: "#F568D6",
+          fuchsia: "#F568D6",
           red: "#FD4544",
           teal: "#6FCCBB",
+          blue: "#1936A1",
         },
         background: {
           dark: "#021531",

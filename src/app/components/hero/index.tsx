@@ -4,8 +4,8 @@ import { Lines } from "./Lines";
 import { useMemo, useRef, useState } from "react";
 import { useMotionValueEvent, useScroll } from "framer-motion";
 import { useMenuStore } from "../Navigation";
-import { Text } from "../../components/Text";
-import { Button } from "@/components/Button";
+import { Text } from "../Text";
+import { Button } from "@/app/components/Button";
 import { Canvas, useFrame, extend, useThree } from "@react-three/fiber";
 import { Bloom, EffectComposer, Pixelation } from "@react-three/postprocessing";
 import {

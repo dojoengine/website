@@ -56,3 +56,7 @@ body {
 .font-body {
   font-family: var(--font-circular);
 }
+
+button {
+  font-family: var(--font-IBMPlexSans);
+}

@@ -1,8 +1,8 @@
 "use client";
 
-import { Text } from "@/components/Text";
+import { Text } from "@/app/components/Text";
 import useClipboard from "react-use-clipboard";
-import { Container } from "@/components/Container";
+import { Container } from "@/app/components/Container";
 import * as Tooltip from "@radix-ui/react-tooltip";
 
 export function GetStarted() {

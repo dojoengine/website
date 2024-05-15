@@ -1,6 +1,6 @@
 "use client";
 
-import { Container } from "@/components/Container";
+import { Container } from "@/app/components/Container";
 import React, { useLayoutEffect, useRef, useState } from "react";
 import { SingleProperty } from "./SingleProperty";
 

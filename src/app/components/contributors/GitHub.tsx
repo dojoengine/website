@@ -1,9 +1,9 @@
 "use client";
 
-import { Badge } from "@/components/Badge";
-import { Button } from "@/components/Button";
-import { Container } from "@/components/Container";
-import { Text } from "@/components/Text";
+import { Badge } from "@/app/components/Badge";
+import { Button } from "@/app/components/Button";
+import { Container } from "@/app/components/Container";
+import { Text } from "@/app/components/Text";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -70,7 +70,7 @@ export function GitHub({ contributorImages }: { contributorImages: string[] }) {
                 </svg>
               }
               text="Global"
-              color="badge-teal"
+              color="red"
             />
           </div>
           <Text textStyle="headline2" className="mb-5">
@@ -80,7 +80,11 @@ export function GitHub({ contributorImages }: { contributorImages: string[] }) {
             We have a worldwide team of contributors that help us with
             everything from backend, frontend, design, and ops.
           </Text>
-          <Button variant="showArrow">Contribute</Button>
+          <Button withArrow variant="default">
+            <a target="_blank" href="https://github.com/dojoengine">
+              Contribute to dojo
+            </a>
+          </Button>
         </div>
         <div className="grid grid-cols-[repeat(2,150px)] gap-5 sm:grid-cols-[repeat(3,200px)]">
           <AnimatePresence mode="popLayout">

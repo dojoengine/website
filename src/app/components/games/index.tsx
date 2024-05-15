@@ -1,12 +1,12 @@
 "use client";
 
 import { Wave } from "./Wave";
-import { Badge } from "@/components/Badge";
-import { Container } from "@/components/Container";
+import { Badge } from "@/app/components/Badge";
+import { Container } from "@/app/components/Container";
 import { SingleGame } from "./SingleGame";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { Text } from "@/components/Text";
+import { Text } from "@/app/components/Text";
 
 const allGames = [
   {
@@ -59,12 +59,8 @@ export default function Games() {
     offset: ["start center", "end end"],
   });
 
-  const textOpacity = useTransform(scrollYProgress, [0.4, 1], [1, 1]);
-  const gamesTranslate = useTransform(
-    scrollYProgress,
-    [0.4, 1],
-    ["100%", "0%"],
-  );
+  const textOpacity = useTransform(scrollYProgress, [0, 1], [1, 1]);
+  const gamesTranslate = useTransform(scrollYProgress, [0, 1], ["100%", "0%"]);
 
   return (
     <Container>
@@ -94,7 +90,7 @@ export default function Games() {
                   </svg>
                 }
                 text="On Dojo"
-                color="badge-yellow"
+                color="red"
               />
             </div>
             <Text textStyle="headline2">$ build</Text>

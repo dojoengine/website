@@ -1,10 +1,11 @@
-import Hero from "@/app/hero";
-import Games from "./games";
-import { GameJam } from "./GameJam";
-import { Properties } from "./properties";
-import { Toolchain } from "./Toolchain";
-import { Contributors } from "./contributors";
-import { Footer } from "@/components/footer";
+import Hero from "@/app/components/hero";
+import Games from "./components/games";
+import { GameJam } from "./components/GameJam";
+import { Properties } from "./components/properties";
+import { Toolchain } from "./components/Toolchain";
+import { Contributors } from "./components/contributors";
+import { Footer } from "@/app/components/footer";
+import { EventRow } from "./components/events/EventRow";
 
 async function getContributors(repoName: string, page = 1) {
   let request = await fetch(
@@ -50,13 +51,15 @@ export default async function Home() {
       <div className=" sm:my-20">
         <Games />
       </div>
-      <div className="my-40">
-        <GameJam />
+      <Toolchain />
+      <div className="mx-auto my-40 sm:max-w-[1200px]">
+        <EventRow />
       </div>
+
       <div className="mb-[200px]">
         <Properties />
       </div>
-      <Toolchain />
+
       <div className="mb-40">
         <Contributors contributorImages={profileImages} />
       </div>

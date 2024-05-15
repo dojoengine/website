@@ -1,4 +1,4 @@
-import { GetStarted } from "@/components/footer/GetStarted";
+import { GetStarted } from "@/app/components/footer/GetStarted";
 import { Links } from "./Links";
 
 export function Footer() {

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Navigation from "./Navigation";
+import Navigation from "./components/Navigation";
 import "../global.css";
 import localFont from "next/font/local";
 
@@ -45,7 +45,7 @@ export default function RootLayout({
       lang="en"
       className={`${IBMPlexSans.variable} ${agrandirVariable.variable} ${circular.variable} ${agrandirBody.variable} `}
     >
-      <body className="overflow-x-hidden  bg-[#021531] text-text-white">
+      <body className="overflow-x-hidden  bg-[#021531] text-white">
         <Navigation />
         {children}
       </body>

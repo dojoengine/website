@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Tilt } from "@jdion/tilt-react";
-import { Text } from "@/components/Text";
+import { Text } from "@/app/components/Text";
 
 export function SingleProperty({
   property,

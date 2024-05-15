@@ -1,4 +1,4 @@
-import { Text } from "@/components/Text";
+import { Text } from "@/app/components/Text";
 
 export function Partners() {
   return (

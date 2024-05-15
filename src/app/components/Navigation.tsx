@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/Button";
+import { Button } from "@/app/components/Button";
 import {
   Cross,
   CrossIcon,
@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { create } from "zustand";
 import { motion } from "framer-motion";
-import { Socials } from "@/components/footer/Links";
+import { Socials } from "@/app/components/footer/Links";
 export const useMenuStore = create<{
   decreasedPadding: boolean;
   toggleMenu: () => void;
@@ -116,7 +116,9 @@ export default function Navigation() {
             </svg>
           </a>
         </div>
-        <Button>DOCS</Button>
+        <div>
+          <Button>DOCS</Button>
+        </div>
 
         <Menu className="sm:hidden" onClick={() => toggleMenu()} size={24} />
       </div>
