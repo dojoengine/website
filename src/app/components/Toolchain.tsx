@@ -10,7 +10,7 @@ import { useInView } from "react-intersection-observer";
 const tools = [
   {
     name: "Saya",
-    badgeTitle: "Sequencer",
+    badgeTitle: "Prover",
     description:
       "Here is a short paragraph about the details of this product or tool. It should be relatively short and concise, maybe 2 sentences and three lines long maximum.",
     documentation: "https://book.dojoengine.org/",
@@ -36,7 +36,7 @@ const tools = [
   },
   {
     name: "Torii",
-    badgeTitle: "Sequencer",
+    badgeTitle: "Indexer",
     description:
       "Here is a short paragraph about the details of this product or tool. It should be relatively short and concise, maybe 2 sentences and three lines long maximum.",
     documentation: "https://book.dojoengine.org/",
@@ -56,7 +56,7 @@ const tools = [
   },
   {
     name: "Katana",
-    badgeTitle: "Sequencer",
+    badgeTitle: "Gaming Sequencer",
     description:
       "Here is a short paragraph about the details of this product or tool. It should be relatively short and concise, maybe 2 sentences and three lines long maximum.",
     documentation: "https://book.dojoengine.org/",
@@ -80,7 +80,7 @@ const tools = [
   },
   {
     name: "Origami",
-    badgeTitle: "Sequencer",
+    badgeTitle: "Cairo Libraries",
     description:
       "Here is a short paragraph about the details of this product or tool. It should be relatively short and concise, maybe 2 sentences and three lines long maximum.",
     documentation: "https://book.dojoengine.org/",
@@ -100,7 +100,7 @@ const tools = [
   },
   {
     name: "Sozo",
-    badgeTitle: "Sequencer",
+    badgeTitle: "CLI Tool",
     description:
       "Here is a short paragraph about the details of this product or tool. It should be relatively short and concise, maybe 2 sentences and three lines long maximum.",
     documentation: "https://book.dojoengine.org/",
@@ -125,8 +125,8 @@ type Direction = "up" | "down";
 const variants = {
   initial: (direction: Direction) => {
     return {
-      y: direction === "up" ? 300 : -300,
-      opacity: 0,
+      y: direction === "up" ? 150 : -150,
+      opacity: 0.2,
     };
   },
   animate: {
@@ -135,7 +135,7 @@ const variants = {
   },
   exit: (direction: Direction) => {
     return {
-      y: direction === "up" ? -300 : 300,
+      y: direction === "up" ? -150 : 150,
       opacity: 0,
     };
   },
@@ -214,11 +214,18 @@ export function Toolchain() {
               <Text textStyle="bodyText" className="mb-10">
                 {selectedTool.description}
               </Text>
-              <Button withArrow variant="default">
-                <a target="_blank" href="https://book.dojoengine.org/">
-                  Documentation
-                </a>
-              </Button>
+              <div className="space-x-1">
+                <Button withArrow variant="default">
+                  <a target="_blank" href="https://book.dojoengine.org/">
+                    Documentation
+                  </a>
+                </Button>
+                <Button withArrow variant="outline">
+                  <a target="_blank" href="https://book.dojoengine.org/">
+                    Open Source
+                  </a>
+                </Button>
+              </div>
             </motion.div>
           </AnimatePresence>
           <div className="relative order-1 grid shrink-0 grid-cols-3 flex-col gap-2 sm:grid-cols-1">
