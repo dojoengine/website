@@ -14,6 +14,8 @@ import {
   Stars,
   useDepthBuffer,
   Text3D,
+  Clouds,
+  Cloud,
 } from "@react-three/drei";
 
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
@@ -69,14 +71,30 @@ export default function Hero() {
 }
 
 extend({ EffectComposer, Bloom });
-
+const gradientShader = {
+  vertexShader: `
+    varying vec2 vUv;
+    void main() {
+      vUv = uv;
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+  `,
+  fragmentShader: `
+    varying vec2 vUv;
+    void main() {
+      vec3 lightPurple = vec3(0.135, 0.18, 0.89); // RGB for light purple
+      vec3 softPink = vec3(0.5, 0.10, 0.16); // RGB for soft pink
+      gl_FragColor = vec4(mix(lightPurple, softPink, vUv.y), 1.0);
+    }
+  `,
+  uniforms: {},
+};
 function SpinningMesh() {
   const ref = useRef<THREE.Mesh>(null);
   const wireframeRef = useRef<THREE.LineSegments>(null);
   const targetScale = useRef(1.0); // Target scale
   const currentScale = useRef(1.0); // Current scale
 
-  const { camera, gl } = useThree();
   const depthBuffer = useDepthBuffer({ frames: 2 });
   useFrame(() => {
     if (ref.current) {
@@ -105,25 +123,6 @@ function SpinningMesh() {
     targetScale.current = hovered ? 1.05 : 1.0; // Set target scale
   };
 
-  const gradientShader = {
-    vertexShader: `
-      varying vec2 vUv;
-      void main() {
-        vUv = uv;
-        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-      }
-    `,
-    fragmentShader: `
-      varying vec2 vUv;
-      void main() {
-        vec3 lightPurple = vec3(0.135, 0.18, 0.89); // RGB for light purple
-        vec3 softPink = vec3(0.5, 0.10, 0.16); // RGB for soft pink
-        gl_FragColor = vec4(mix(lightPurple, softPink, vUv.y), 1.0);
-      }
-    `,
-    uniforms: {},
-  };
-
   return (
     <mesh position={[0, 0, 0]}>
       <mesh
@@ -131,23 +130,60 @@ function SpinningMesh() {
         onPointerOver={(e) => onHover(e, true)}
         onPointerOut={(e) => onHover(e, false)}
       >
-        <sphereGeometry args={[1.5, 32, 32]} />
+        <sphereGeometry args={[2, 32, 32]} />
         <shaderMaterial args={[gradientShader]} depthWrite={true} />
       </mesh>
+      <Clouds material={THREE.MeshBasicMaterial}>
+        <Cloud
+          segments={20}
+          bounds={[10, 2, 2]}
+          volume={10}
+          color="orange"
+          opacity={0.4}
+          concentrate="inside"
+          fade={100}
+          speed={0.2}
+        />
+        <Cloud
+          seed={1}
+          scale={1}
+          volume={5}
+          color="hotpink"
+          concentrate="inside"
+          fade={100}
+          speed={1}
+          opacity={0.5}
+        />
+        <Cloud
+          seed={1}
+          scale={1}
+          volume={3}
+          concentrate="inside"
+          color="yellowgreen"
+          fade={100}
+          speed={0.5}
+          opacity={0.2}
+        />
+      </Clouds>
       <lineSegments ref={wireframeRef}>
-        <wireframeGeometry args={[new THREE.SphereGeometry(1.53, 50, 100)]} />
-        <lineBasicMaterial color="#FBCB4A" />
+        <wireframeGeometry args={[new THREE.SphereGeometry(2.03, 100, 50)]} />
+        <shaderMaterial args={[gradientShader]} depthWrite={true} />
       </lineSegments>
       <TextWithShader
-        text="Let's build "
+        text="Develop "
         position={[-1.5, 0, 0]}
         depthBuffer={depthBuffer}
       />{" "}
       <TextWithShader
-        text="provable worlds"
-        position={[-1.5, -0.6, 0]}
+        text="Onchain "
+        position={[-1.5, -0.5, 0]}
         depthBuffer={depthBuffer}
-      />
+      />{" "}
+      <TextWithShader
+        text="Worlds "
+        position={[-1.5, -1, 0]}
+        depthBuffer={depthBuffer}
+      />{" "}
       <Stars
         radius={100}
         depth={50}
@@ -161,8 +197,8 @@ function SpinningMesh() {
         <Bloom
           luminanceThreshold={0.4}
           luminanceSmoothing={0.2}
-          height={100}
-          intensity={0.5}
+          height={1}
+          intensity={0.9}
         />
       </EffectComposer>
     </mesh>
@@ -214,7 +250,7 @@ function TextWithShader({ text, position, depthBuffer }: any) {
       uniforms: {
         globeDepthTexture: { value: depthBuffer },
         cameraNear: { value: 10 }, // Adjust based on your camera settings
-        cameraFar: { value: 1000 }, // Adjust based on your camera settings
+        cameraFar: { value: 10 }, // Adjust based on your camera settings
       },
     }),
     [depthBuffer],
@@ -223,6 +259,8 @@ function TextWithShader({ text, position, depthBuffer }: any) {
   return (
     <Text3D
       position={position}
+      lineHeight={0.5}
+      // letterSpacing={0.025}
       font={"./Agrandir-Heavy_Regular.json"}
       {...textOptions}
       renderOrder={1} // Ensure text is rendered after the globe
