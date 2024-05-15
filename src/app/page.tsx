@@ -49,20 +49,21 @@ export default async function Home() {
   return (
     <div className="relative">
       <Hero />
-
-      <div className=" sm:my-20">
+      {/* <GetStarted /> */}
+      <Toolchain />
+      <div className=" bg-gradient-to-b from-[#1A1479] to-[#021531] ">
         <Games />
       </div>
-      <Toolchain />
-      <div className="mx-auto my-40 sm:max-w-[1200px]">
+
+      <div className="mx-auto my-40 sm:max-w-[1200px] ">
         <EventRow />
       </div>
-
+      {/* 
       <div className="mb-[200px]">
         <Properties />
-      </div>
+      </div> */}
 
-      <div className="mb-40">
+      <div className="">
         <Contributors contributorImages={profileImages} />
       </div>
       <Footer />

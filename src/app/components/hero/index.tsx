@@ -175,12 +175,12 @@ function SpinningMesh() {
         <shaderMaterial args={[gradientShader]} depthWrite={true} />
       </lineSegments>
       <TextWithShader
-        text="Develop "
+        text="Architect"
         position={[-1.5, 0, 0]}
         depthBuffer={depthBuffer}
       />{" "}
       <TextWithShader
-        text="Onchain "
+        text="Verifiable "
         position={[-1.5, -0.5, 0]}
         depthBuffer={depthBuffer}
       />{" "}

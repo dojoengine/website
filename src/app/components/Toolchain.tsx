@@ -5,6 +5,7 @@ import { Button } from "@/app/components/Button";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Text } from "@/app/components/Text";
+import { useInView } from "react-intersection-observer";
 
 const tools = [
   {
@@ -147,8 +148,25 @@ export function Toolchain() {
 
   const selectedTool = tools[selectedIndex];
 
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
-    <div className="relative flex items-center justify-center overflow-hidden px-6 pb-40">
+    <div className="relative flex flex-wrap items-center justify-center overflow-hidden px-6 pb-24">
+      <motion.div
+        ref={ref}
+        initial={{ y: 100, opacity: 0 }}
+        animate={inView ? { y: 0, opacity: 1 } : {}}
+        transition={{ type: "spring", stiffness: 100, damping: 20 }}
+        className="w-full text-center"
+      >
+        <Text textStyle="headline2">
+          A complete e2e toolkit <br /> for onchain games.
+        </Text>
+      </motion.div>
+
       <div
         style={{
           borderImageSource:

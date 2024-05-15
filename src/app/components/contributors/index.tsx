@@ -8,7 +8,7 @@ export function Contributors({
   contributorImages: string[];
 }) {
   return (
-    <div className="relative flex flex-col bg-gradient-to-b from-[#1A1479] to-[#021531] to-55% py-10">
+    <div className="relative flex flex-col bg-gradient-to-b from-[#021531] to-[#1A1479] to-55% py-10">
       <div className="my-48">
         <Partners />
       </div>

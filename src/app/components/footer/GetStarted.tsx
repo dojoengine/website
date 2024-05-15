@@ -6,6 +6,21 @@ import { Container } from "@/app/components/Container";
 import * as Tooltip from "@radix-ui/react-tooltip";
 import { Button } from "../Button";
 
+export const ToolKit = () => {
+  return (
+    <div className="w-full text-center">
+      <div className="text-3xl">
+        an opensource toolkit for building <br /> onchain and provable games.
+      </div>
+      <div className="mt-8">
+        <Button variant={"outline"} withArrow>
+          <a href="https://book.dojoengine.org/">documentation</a>
+        </Button>
+      </div>
+    </div>
+  );
+};
+
 export function GetStarted() {
   const [isCopied, setCopied] = useClipboard(
     "curl -L https://dojoengine.org | bash",
@@ -15,18 +30,6 @@ export function GetStarted() {
   return (
     <div>
       <div className="from-36%  flex flex-col flex-wrap   items-center justify-center px-8 sm:flex-row sm:gap-12 sm:p-40">
-        <div className="w-full text-center">
-          <div className="text-3xl">
-            an opensource toolkit for building <br /> onchain and provable
-            games.
-          </div>
-          <div className="mt-8">
-            <Button variant={"outline"} withArrow>
-              <a href="https://book.dojoengine.org/">documentation</a>
-            </Button>
-          </div>
-        </div>
-
         <Text className="my-8 self-center text-center" textStyle="title1">
           {" "}
           dojoup
