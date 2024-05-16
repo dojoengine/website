@@ -2,7 +2,7 @@
 
 import { Badge } from "@/app/components/Badge";
 import { Button } from "@/app/components/Button";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Text } from "@/app/components/Text";
 import { useInView } from "react-intersection-observer";
@@ -125,7 +125,7 @@ type Direction = "up" | "down";
 const variants = {
   initial: (direction: Direction) => {
     return {
-      y: direction === "up" ? 150 : -150,
+      y: direction === "up" ? 100 : -100,
       opacity: 0.2,
     };
   },
@@ -135,7 +135,7 @@ const variants = {
   },
   exit: (direction: Direction) => {
     return {
-      y: direction === "up" ? -150 : 150,
+      y: direction === "up" ? -100 : 100,
       opacity: 0,
     };
   },
@@ -145,6 +145,7 @@ export function Toolchain() {
   const [selectionTop, setSelectionTop] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [direction, setDirection] = useState<Direction>("down");
+  const hoverRef = useRef(false);
 
   const selectedTool = tools[selectedIndex];
 
@@ -153,8 +154,26 @@ export function Toolchain() {
     threshold: 0.1,
   });
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!hoverRef.current) {
+        setSelectedIndex((prevIndex) => {
+          const newIndex = (prevIndex + 1) % tools.length;
+          setDirection(newIndex > prevIndex ? "down" : "up");
+          return newIndex;
+        });
+      }
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="relative flex flex-wrap items-center justify-center overflow-hidden px-6 pb-24">
+    <div
+      className="relative flex flex-wrap items-center justify-center overflow-hidden px-6 pb-24"
+      onMouseEnter={() => (hoverRef.current = true)}
+      onMouseLeave={() => (hoverRef.current = false)}
+    >
       <motion.div
         ref={ref}
         initial={{ y: 100, opacity: 0 }}
@@ -162,9 +181,7 @@ export function Toolchain() {
         transition={{ type: "spring", stiffness: 100, damping: 20 }}
         className="w-full text-center"
       >
-        <Text textStyle="headline2">
-          A complete e2e toolkit <br /> for onchain games.
-        </Text>
+        <Text textStyle="headline2">for 1337 developers</Text>
       </motion.div>
 
       <div
@@ -172,7 +189,7 @@ export function Toolchain() {
           borderImageSource:
             "linear-gradient(180deg, rgba(100, 82, 222, 0.28) 0%, #151768 100%)",
         }}
-        className="border-gradient relative w-full max-w-[1044px] rounded-[40px] border-[1px] bg-gradient-to-b from-[rgba(50,28,193,0.03)] to-[rgba(43,24,164,0.31)] p-6 shadow-[0_0_114px_0_#03122ACC] sm:p-14 sm:pl-24"
+        className="border-gradient relative w-full  max-w-[1400px] rounded-[40px] border-[1px] bg-gradient-to-b from-[rgba(50,28,193,0.03)] to-[rgba(43,24,164,0.31)] p-6 shadow-[0_0_114px_0_#03122ACC] sm:p-14 sm:pl-24"
       >
         <div className="flex flex-col items-center gap-12 sm:flex-row sm:gap-32">
           <AnimatePresence mode="popLayout" custom={direction}>
@@ -183,7 +200,7 @@ export function Toolchain() {
               animate="animate"
               exit="exit"
               transition={{
-                y: { type: "spring", stiffness: 200, damping: 20 },
+                y: { type: "spring", stiffness: 300, damping: 50 },
                 opacity: { duration: 0.1 },
               }}
               custom={direction}
@@ -192,7 +209,7 @@ export function Toolchain() {
               <div className="mb-4 sm:mb-10">
                 <Badge
                   text={selectedTool.badgeTitle}
-                  color="red"
+                  color="yellow"
                   icon={
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -214,7 +231,7 @@ export function Toolchain() {
               <Text textStyle="bodyText" className="mb-10">
                 {selectedTool.description}
               </Text>
-              <div className="space-x-1">
+              <div className="space-x-4">
                 <Button withArrow variant="default">
                   <a target="_blank" href="https://book.dojoengine.org/">
                     Documentation
@@ -252,7 +269,7 @@ export function Toolchain() {
             <motion.div
               className="absolute left-0 right-0 top-0 z-0 hidden  aspect-square rounded-[22px] bg-[#321CC4] sm:block"
               animate={{ y: selectionTop }}
-              transition={{ type: "spring" }}
+              transition={{ type: "spring", stiffness: 300, damping: 50 }}
             ></motion.div>
           </div>
         </div>

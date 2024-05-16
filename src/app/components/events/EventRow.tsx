@@ -25,17 +25,17 @@ const events: Event[] = [
     image: "string",
     link: "string",
   },
-  {
-    id: "string",
-    name: "Summer Game Jam 2024",
-    description:
-      "Here is a medium length paragraph about this feature and maybe an extra line.",
-    startDate: "2023-10-01",
-    endDate: "2023-10-01",
-    location: "string",
-    image: "string",
-    link: "string",
-  },
+  // {
+  //   id: "string",
+  //   name: "Summer Game Jam 2024",
+  //   description:
+  //     "Here is a medium length paragraph about this feature and maybe an extra line.",
+  //   startDate: "2023-10-01",
+  //   endDate: "2023-10-01",
+  //   location: "string",
+  //   image: "string",
+  //   link: "string",
+  // },
 ];
 
 export const EventRow = () => {
@@ -43,10 +43,10 @@ export const EventRow = () => {
     <Container>
       <div>
         <Text className="mb-8" textStyle="headline2">
-          Events
+          upcoming events
         </Text>
       </div>
-      <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
+      <div className="grid grid-cols-1 gap-16 sm:grid-cols-2">
         {events.map((event, index) => (
           <EventCard key={index} {...event} />
         ))}

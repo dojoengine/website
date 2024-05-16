@@ -6,7 +6,8 @@ import { Toolchain } from "./components/Toolchain";
 import { Contributors } from "./components/contributors";
 import { Footer } from "@/app/components/footer";
 import { EventRow } from "./components/events/EventRow";
-import { GetStarted } from "./components/footer/GetStarted";
+import { GetStarted, ToolKit } from "./components/footer/GetStarted";
+import { Partners } from "./components/contributors/Partners";
 
 async function getContributors(repoName: string, page = 1) {
   let request = await fetch(
@@ -51,13 +52,15 @@ export default async function Home() {
       <Hero />
       {/* <GetStarted /> */}
       <Toolchain />
+
       <div className=" bg-gradient-to-b from-[#1A1479] to-[#021531] ">
+        {/* <ToolKit /> */}
+        <GetStarted />
         <Games />
       </div>
 
-      <div className="mx-auto my-40 sm:max-w-[1200px] ">
-        <EventRow />
-      </div>
+      <EventRow />
+
       {/* 
       <div className="mb-[200px]">
         <Properties />
@@ -66,6 +69,9 @@ export default async function Home() {
       <div className="">
         <Contributors contributorImages={profileImages} />
       </div>
+      {/* <GetStarted /> */}
+      <Partners />
+
       <Footer />
     </div>
   );

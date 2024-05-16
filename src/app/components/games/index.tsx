@@ -7,6 +7,7 @@ import { SingleGame } from "./SingleGame";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Text } from "@/app/components/Text";
+import { Button } from "../Button";
 
 const allGames = [
   {
@@ -65,9 +66,9 @@ export default function Games() {
   return (
     <Container>
       {/* <Wave /> */}
-      <div className="relative h-[70vh] px-8 sm:px-0 " ref={wrapper}>
-        <div className="sticky top-[50%] flex flex-col items-center gap-[28] sm:translate-y-[-50%] sm:flex-row">
-          <motion.div
+      <div className="relative px-8 sm:px-0 " ref={wrapper}>
+        {/* <div className="sticky  flex flex-col items-center  sm:flex-row"> */}
+        {/* <motion.div
             style={{ opacity: textOpacity }}
             className="mb-10 basis-[30%] sm:mb-0 sm:px-8"
           >
@@ -90,24 +91,31 @@ export default function Games() {
                 color="red"
               />
             </div>
-            <Text textStyle="headline2">$ build</Text>
+            <Text textStyle="headline2">build</Text>
             <Text textStyle="bodyText">
               Build provable worlds with dojo using zk STARKs.
             </Text>
-          </motion.div>
-          <motion.div
-            style={{
-              x: gamesTranslate,
-              left: gamesTranslate,
-            }}
-            className="grid w-[1200px] grid-cols-1 gap-6 sm:grid-cols-2"
-          >
-            {allGames.map((game, i) => (
-              <SingleGame key={i} game={game} />
-            ))}
-          </motion.div>
-        </div>
+          </motion.div> */}
+        <motion.div
+          // style={{
+          //   x: gamesTranslate,
+          //   left: gamesTranslate,
+          // }}
+          className="grid grid-cols-1 gap-16  rounded-2xl border border-white/10 bg-gradient-to-b from-[#1A1479] to-[#021531]   p-8 shadow-2xl sm:grid-cols-2"
+        >
+          <div className="col-span-2 flex justify-between">
+            <Text textStyle="headline2">see live worlds</Text>
+            <Button withArrow variant={"outline"}>
+              view more
+            </Button>
+          </div>
+
+          {allGames.map((game, i) => (
+            <SingleGame key={i} game={game} />
+          ))}
+        </motion.div>
       </div>
+      {/* </div> */}
     </Container>
   );
 }

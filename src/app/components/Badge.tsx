@@ -17,7 +17,7 @@ export function Badge({
   const sizeClasses = {
     small: "py-0.5 pl-2 pr-3 text-sm rounded",
     medium: "py-1 pl-3 pr-5 text-base",
-    large: "py-1 pl-4 pr-6 text-lg rounded-full",
+    large: "py-1 pl-4 pr-6 text-lg rounded-xl",
   };
 
   const colors = {

@@ -28,32 +28,30 @@ export function GetStarted() {
   );
 
   return (
-    <div>
-      <div className="from-36%  flex flex-col flex-wrap   items-center justify-center px-8 sm:flex-row sm:gap-12 sm:p-40">
-        <Text className="my-8 self-center text-center" textStyle="title1">
-          {" "}
-          dojoup
-        </Text>
-        <Tooltip.Provider delayDuration={0}>
-          <Tooltip.Root open={isCopied || undefined}>
-            <Tooltip.Trigger>
-              <div
-                onClick={setCopied}
-                className="border-badge-blue/80 group relative z-0 overflow-hidden rounded-full border px-10  py-3 font-mono text-white"
-              >
-                <div className="bg-badge-blue absolute inset-0 z-[-2]" />
-                <div className="absolute bottom-0 left-0 top-0 z-[-1] w-0 bg-badge-red transition-all duration-[400ms] group-hover:w-full" />
-                curl -L https://dojoengine.org | bash
-              </div>
-            </Tooltip.Trigger>
-            <Tooltip.Content>
-              <Text textStyle="overline">
-                {isCopied ? "Copied!" : "Click to copy"}
-              </Text>
-            </Tooltip.Content>
-          </Tooltip.Root>
-        </Tooltip.Provider>
-      </div>
+    <div className=" sm:gap-6sm:p-40 flex  flex-col items-center justify-center">
+      <Text className="my-8  self-center text-center" textStyle="title1">
+        {" "}
+        Install the cli
+      </Text>
+      <Tooltip.Provider delayDuration={0}>
+        <Tooltip.Root open={isCopied || undefined}>
+          <Tooltip.Trigger>
+            <div
+              onClick={setCopied}
+              className="border-badge-blue/80 group relative z-0 overflow-hidden rounded-full border px-10  py-3 font-mono text-white"
+            >
+              <div className="bg-badge-blue absolute inset-0 z-[-2]" />
+              <div className="absolute bottom-0 left-0 top-0 z-[-1] w-0 bg-badge-red transition-all duration-[400ms] group-hover:w-full" />
+              curl -L https://dojoengine.org | bash
+            </div>
+          </Tooltip.Trigger>
+          <Tooltip.Content>
+            <Text textStyle="overline">
+              {isCopied ? "Copied!" : "Click to copy"}
+            </Text>
+          </Tooltip.Content>
+        </Tooltip.Root>
+      </Tooltip.Provider>
     </div>
   );
 }

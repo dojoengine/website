@@ -16,56 +16,22 @@ import {
   Text3D,
   Clouds,
   Cloud,
+  Center,
 } from "@react-three/drei";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
 import * as THREE from "three";
 
 export default function Hero() {
-  const wrapper = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: wrapper,
-    offset: ["start start", "end end"],
-  });
-  const { decreasedPadding } = useMenuStore();
-
-  useMotionValueEvent(scrollYProgress, "change", (latest: number) => {
-    if (latest >= 1 && !decreasedPadding) {
-      return useMenuStore.setState({ decreasedPadding: true });
-    }
-
-    if (latest < 1 && decreasedPadding) {
-      return useMenuStore.setState({ decreasedPadding: false });
-    }
-  });
-
   return (
-    <>
-      {/* <div
-        className="relative flex h-[50vh] items-start justify-center px-8 sm:h-[130vh] sm:px-0"
-        ref={wrapper}
-      >
-        <div className=" sticky top-48 flex h-screen w-full max-w-[1400px] flex-col items-center justify-between gap-20 sm:top-0 sm:flex-row">
-          <div className="flex flex-col items-start gap-10">
-            <Text textStyle="headline1" className="text-text-white">
-              Let&#8217;s build <br /> provable worlds.
-            </Text>
-            <p>Build worlds and games.</p>
-            <Button>Ohayo</Button>
-          </div>
-
-          <Lines scrollProgress={scrollYProgress} />
-        </div>
-      </div> */}
-      <div className="z-1   flex  h-[100vh] w-screen justify-end sm:right-0 sm:top-0 sm:h-[130vh]">
-        <div className="w-full ">
-          <Canvas className="">
-            <ambientLight intensity={0.1} />
-            <directionalLight color="red" position={[0, 0, 5]} />
-            <SpinningMesh />
-          </Canvas>
-        </div>
+    <div className="z-1 flex  h-[100vh] w-screen justify-end sm:right-0 sm:top-0 sm:h-[130vh]">
+      <div className="w-full ">
+        <Canvas color="#1936A1" className="">
+          <ambientLight intensity={0.1} />
+          <directionalLight color="red" position={[0, 0, 5]} />
+          <SpinningMesh />
+        </Canvas>
       </div>
-    </>
+    </div>
   );
 }
 
@@ -125,27 +91,27 @@ function SpinningMesh() {
   const cloud = useMemo(() => {
     return (
       <Clouds material={THREE.MeshBasicMaterial}>
-        <Cloud
-          segments={15}
+        {/* <Cloud
+          // segments={15}
           bounds={[10, 2, 2]}
           volume={2}
-          color="orange"
-          opacity={0.4}
+          color="#FD4544"
+          opacity={1}
           concentrate="inside"
           fade={100}
           scale={1}
-          speed={0.1}
+          speed={0.5}
           position={[0, 1, 0]}
-        />
+        /> */}
         <Cloud
           seed={1}
           scale={1}
           volume={5}
-          color="hotpink"
+          color="#1936A1"
           concentrate="inside"
           fade={50}
           speed={1}
-          opacity={0.5}
+          opacity={0.8}
           position={[0, 1, 0]}
         />
         <Cloud
@@ -153,10 +119,10 @@ function SpinningMesh() {
           scale={1}
           volume={3}
           concentrate="inside"
-          color="yellowgreen"
+          color="#FD4544"
           fade={100}
           speed={0.5}
-          opacity={0.2}
+          opacity={0.8}
           position={[0, 1, 0]}
         />
       </Clouds>
@@ -174,16 +140,36 @@ function SpinningMesh() {
         <shaderMaterial args={[gradientShader]} depthWrite={true} />
       </mesh>
       {cloud}
-      <lineSegments ref={wireframeRef}>
+      {/* <lineSegments ref={wireframeRef}>
         <wireframeGeometry args={[new THREE.SphereGeometry(2.03, 100, 50)]} />
         <shaderMaterial args={[gradientShader]} depthWrite={true} />
-      </lineSegments>
+      </lineSegments> */}
+      {/* <Html position={[0, 1, 0]}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          width="200"
+          height="200"
+        >
+          <g fill="#fff" clipPath="url(#a)">
+            <path d="M9.01 8.443a1.674 1.674 0 1 0 0-3.348 1.674 1.674 0 0 0 0 3.348Z" />
+            <path d="M.132.997h17.76v.752a.475.475 0 0 1-.154.35l-1.59 1.43a1.064 1.064 0 0 1-.79.364h-1.261s-.003 1.045-.003 1.656c0 .61-.25 1.27-.25 1.27l.17.17c.183-.25.99-1.244 1.525-1.244l2.024-.011v2.583l-3.469.04v5.058c-.893-.889-1.788-1.775-2.679-2.666v-4.84c0-.72.16-1.307.307-1.95v-.002l.001-.004.001-.004a.045.045 0 0 0 .002-.014.027.027 0 0 0-.004-.013c-.018-.027-.093-.055-.165-.068-.055-.011-.108-.013-.131-.002-.385.188-.794.258-1.217.265-.798.013-1.597.013-2.395 0-.423-.007-.831-.077-1.216-.265-.054-.027-.264.022-.296.07-.008.014-.003.022 0 .035v.002c.147.643.307 1.236.307 1.95v4.84c-.891.89-1.786 1.777-2.68 2.666V8.357l-3.468-.04V5.734l2.024.01c.535 0 1.342.994 1.524 1.245l.17-.17s-.25-.66-.25-1.27l-.002-1.656H2.666c-.297 0-.583-.132-.79-.364l-1.59-1.43a.475.475 0 0 1-.154-.35V.997Z" />
+            <path
+              fillRule="evenodd"
+              d="M44.962.639c-4 0-7.264 2.529-7.264 6.238 0 3.71 3.218 6.223 7.264 6.223s7.264-2.543 7.264-6.223c0-3.68-3.264-6.238-7.264-6.238Zm.016 2.56c2.483 0 4.275 1.64 4.275 3.678 0 2.1-1.884 3.664-4.275 3.664-2.39 0-4.32-1.534-4.32-3.664S42.495 3.2 44.977 3.2ZM23.814.884v11.957h5.73c4.17 0 6.636-2.5 6.636-6.055 0-3.236-2.021-5.902-6.803-5.902h-5.563Zm5.393 9.442c-.795 0-1.671 0-2.62.428v.003l-.32-.307c.611-2.362.595-4.8-.017-7.312l.337-.154c.795.413 1.426.413 2.084.413 1.808 0 4.552 0 4.552 3.51 0 2.928-2.024 3.419-4.016 3.419ZM65.987 6.877c0-3.71 3.264-6.238 7.264-6.238s7.264 2.558 7.264 6.238c0 3.68-3.218 6.223-7.264 6.223s-7.264-2.513-7.264-6.223Zm11.555 0c0-2.038-1.792-3.677-4.275-3.677-2.482 0-4.32 1.547-4.32 3.677s1.93 3.664 4.32 3.664c2.391 0 4.275-1.563 4.275-3.664Z"
+              clipRule="evenodd"
+            />
+            <path d="m53.978.884 9.944.014V8.1c0 1.335 0 5.012-4.703 5.012-2.941 0-5.24-1.531-5.24-4.214V6.907l2.79-.04V8.5c0 1.135.873 2.055 2.312 2.055 1.884 0 2.038-1.243 2.038-2.07V5.383c0-.798.142-1.432.393-2.187.003-.008 0-.013-.008-.016-.062-.027-.304-.186-.364-.156-.678.35-1.407.436-2.159.436h-5.003V.884Z" />
+          </g>
+        </svg>
+      </Html> */}
       <TextWithShader
-        text="Architect"
-        position={[-1.5, 0, 0]}
+        text="e2e toolkit
+        for onchain games"
+        position={[-2, 0, 0]}
         depthBuffer={depthBuffer}
       />{" "}
-      <TextWithShader
+      {/* <TextWithShader
         text="Verifiable "
         position={[-1.5, -0.5, 0]}
         depthBuffer={depthBuffer}
@@ -192,7 +178,7 @@ function SpinningMesh() {
         text="Worlds "
         position={[-1.5, -1, 0]}
         depthBuffer={depthBuffer}
-      />{" "}
+      />{" "} */}
       <Stars
         radius={100}
         depth={50}
@@ -202,14 +188,14 @@ function SpinningMesh() {
         fade
         speed={1}
       />
-      <EffectComposer>
+      {/* <EffectComposer>
         <Bloom
           luminanceThreshold={0.4}
           luminanceSmoothing={0.2}
           height={1}
           intensity={0.01}
         />
-      </EffectComposer>
+      </EffectComposer> */}
     </mesh>
   );
 }
@@ -219,7 +205,7 @@ extend({ TextGeometry });
 function TextWithShader({ text, position, depthBuffer }: any) {
   const textOptions = useMemo(
     () => ({
-      size: 0.4,
+      size: 0.2,
       height: 0.05,
     }),
     [],
@@ -266,20 +252,22 @@ function TextWithShader({ text, position, depthBuffer }: any) {
   );
 
   return (
-    <Text3D
-      position={position}
-      lineHeight={0.5}
-      // letterSpacing={0.025}
-      font={"./Agrandir-Heavy_Regular.json"}
-      {...textOptions}
-      renderOrder={1} // Ensure text is rendered after the globe
-    >
-      {text}
-      <shaderMaterial
-        args={[textShader]}
-        depthTest={false} // Disable depth testing for the text material
-      />
-    </Text3D>
+    <Center>
+      <Text3D
+        position={position}
+        lineHeight={0.5}
+        letterSpacing={0.01}
+        font={"./Agrandir-Heavy_Regular.json"}
+        {...textOptions}
+        renderOrder={1} // Ensure text is rendered after the globe
+      >
+        {text}
+        <shaderMaterial
+          args={[textShader]}
+          depthTest={false} // Disable depth testing for the text material
+        />
+      </Text3D>
+    </Center>
   );
 }
 
