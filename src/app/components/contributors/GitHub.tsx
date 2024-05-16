@@ -29,6 +29,21 @@ export function GitHub({ contributorImages }: { contributorImages: string[] }) {
   const theRest = contributorImages.slice(8);
 
   useEffect(() => {
+    const updateShownContributors = () => {
+      const isMobile = window.innerWidth < 640; // Adjust the breakpoint as needed
+      const numContributors = isMobile ? 7 : 8;
+      setShownContributorIndices(
+        getRandomIndices(contributorImages, numContributors),
+      );
+    };
+
+    updateShownContributors();
+    window.addEventListener("resize", updateShownContributors);
+
+    return () => window.removeEventListener("resize", updateShownContributors);
+  }, [contributorImages]);
+
+  useEffect(() => {
     const interval = setInterval(() => {
       const randomIndex = Math.floor(Math.random() * 8);
 

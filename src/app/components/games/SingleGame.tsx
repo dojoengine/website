@@ -20,7 +20,7 @@ export function SingleGame({
     controls.start({ opacity: 1, y: 0 });
   }, [controls]);
   return (
-    <div className="from-bg-white/5 rounded-3xl border border-white/5 bg-white/5 p-3 backdrop-blur-3xl">
+    <div className="from-bg-white/5 col-span-2 rounded-3xl border border-white/5 bg-white/5 p-3 backdrop-blur-3xl sm:col-span-1">
       <div
         className="shadow-3xl group relative aspect-square h-96 w-full cursor-pointer flex-col items-end justify-between rounded-2xl  bg-cover bg-center p-3 sm:h-96"
         style={{ backgroundImage: `url('${game.image}')` }}

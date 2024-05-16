@@ -54,7 +54,7 @@ export const EventCard = ({
   link,
 }: Event) => {
   return (
-    <div className="rounded-4xl hover:from-secondary/80 hover:to-tertiary/15  from-secondary/50 to-tertiary/10 duration-250 border-primary/40 border bg-gradient-to-b p-6 transition-all">
+    <div className="rounded-4xl hover:from-secondary/80 hover:to-tertiary/15  duration-250 shadow-3xl border-white/10 bg-gradient-to-b from-[#1A1479] to-[#021531]   p-6 transition-all">
       <img
         src="/images/games/game1.png"
         className="mb-4 h-48 w-full rounded-3xl object-cover"

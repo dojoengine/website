@@ -170,26 +170,17 @@ export function Toolchain() {
 
   return (
     <div
-      className="relative flex flex-wrap items-center justify-center overflow-hidden px-6 pb-24"
+      id="features"
+      className="relative z-10 -mt-40 flex flex-wrap items-center justify-center overflow-hidden px-6 pb-24"
       onMouseEnter={() => (hoverRef.current = true)}
       onMouseLeave={() => (hoverRef.current = false)}
     >
-      <motion.div
-        ref={ref}
-        initial={{ y: 100, opacity: 0 }}
-        animate={inView ? { y: 0, opacity: 1 } : {}}
-        transition={{ type: "spring", stiffness: 100, damping: 20 }}
-        className="w-full text-center"
-      >
-        <Text textStyle="headline2">for 1337 developers</Text>
-      </motion.div>
-
       <div
         style={{
           borderImageSource:
             "linear-gradient(180deg, rgba(100, 82, 222, 0.28) 0%, #151768 100%)",
         }}
-        className="border-gradient relative w-full  max-w-[1400px] rounded-[40px] border-[1px] bg-gradient-to-b from-[rgba(50,28,193,0.03)] to-[rgba(43,24,164,0.31)] p-6 shadow-[0_0_114px_0_#03122ACC] sm:p-14 sm:pl-24"
+        className=" relative w-full  max-w-[1400px] rounded-3xl border border-white/10 bg-gradient-to-b from-[rgba(50,28,193,0.03)] to-[rgba(43,24,164,0.31)] p-6 shadow-[0_0_114px_0_#03122ACC] sm:p-14 sm:pl-24"
       >
         <div className="flex flex-col items-center gap-12 sm:flex-row sm:gap-32">
           <AnimatePresence mode="popLayout" custom={direction}>
@@ -231,7 +222,7 @@ export function Toolchain() {
               <Text textStyle="bodyText" className="mb-10">
                 {selectedTool.description}
               </Text>
-              <div className="space-x-4">
+              <div className="space-y-2 sm:space-x-4">
                 <Button withArrow variant="default">
                   <a target="_blank" href="https://book.dojoengine.org/">
                     Documentation
@@ -245,7 +236,7 @@ export function Toolchain() {
               </div>
             </motion.div>
           </AnimatePresence>
-          <div className="relative order-1 grid shrink-0 grid-cols-3 flex-col gap-2 sm:grid-cols-1">
+          <div className="relative order-1 grid shrink-0 grid-cols-5 flex-col gap-2 sm:grid-cols-1">
             {tools.map((tool, i) => (
               <div
                 key={tool.name}
@@ -275,7 +266,7 @@ export function Toolchain() {
         </div>
         <div className="absolute inset-0 z-[-1] rounded-[40px] backdrop-blur-[50px]" />
       </div>
-      <div className="absolute top-[25%] z-[-2] h-[200vw] w-[200vw] rounded-full bg-[#1A1479] shadow-[0_0_64px_40px_#1A1479]" />
+      <div className="absolute top-[50%] z-[-2] h-[200vw] w-[200vw] rounded-full bg-[#1A1479] shadow-[0_0_64px_40px_#1A1479]" />
     </div>
   );
 }
