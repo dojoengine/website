@@ -6,6 +6,7 @@ import { Container } from "@/app/components/Container";
 import { Text } from "@/app/components/Text";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { Socials } from "../footer/Links";
 
 function getRandomIndices<T>(array: T[], numIndices: number): number[] {
   if (numIndices > array.length) {
@@ -84,7 +85,7 @@ export function GitHub({ contributorImages }: { contributorImages: string[] }) {
                   />
                 </svg>
               }
-              text="Global"
+              text="open-source"
               color="red"
             />
           </div>
@@ -92,14 +93,23 @@ export function GitHub({ contributorImages }: { contributorImages: string[] }) {
             Contributors
           </Text>
           <Text textStyle="bodyText" className="mb-10">
-            We have a worldwide team of contributors that help us with
-            everything from backend, frontend, design, and ops.
+            Dojo is built by a community of developers, designers, and artists.
+            Join us in building the future of gaming.
           </Text>
-          <Button withArrow variant="default">
-            <a target="_blank" href="https://github.com/dojoengine">
-              Contribute to dojo
-            </a>
-          </Button>
+
+          <div className="flex space-x-4">
+            <Button withArrow variant="default">
+              <a target="_blank" href="https://github.com/dojoengine">
+                Contribute to dojo
+              </a>
+            </Button>
+
+            <Button withArrow variant="outline">
+              <a target="_blank" href={Socials.Discord}>
+                join discord
+              </a>
+            </Button>
+          </div>
         </div>
         <div className="grid grid-cols-[repeat(2,150px)] gap-5 sm:grid-cols-[repeat(3,200px)]">
           <AnimatePresence mode="popLayout">

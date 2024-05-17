@@ -12,6 +12,7 @@ export function SingleGame({
     name: string;
     description: string;
     image: string;
+    link: string;
   };
 }) {
   const controls = useAnimation();
@@ -38,8 +39,10 @@ export function SingleGame({
               <Text className="mr-4 self-center " textStyle="title3">
                 {game.name}
               </Text>
-              <Button variant="outline" size="sm">
-                play game
+              <Button withArrow variant="outline" size="sm">
+                <a target="_blank" href={game.link}>
+                  play game
+                </a>
               </Button>
             </motion.div>
 

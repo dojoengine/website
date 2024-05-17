@@ -11,45 +11,33 @@ import { Button } from "../Button";
 
 const allGames = [
   {
-    name: "Eykar",
+    name: "Primeforce Heros",
     image: "/images/games/game1.png",
     description:
-      "A game about building worlds.A game about building worlds.A game about building worlds.A game about building worlds",
+      "A rogue like onchain game inspired by the heros of might and magic series.",
+    link: "https://forceprime.io/",
   },
   {
-    name: "Eykar",
-    image: "/images/games/game2.png",
+    name: "Eternum",
+    image: "/images/games/eternum.jpeg",
     description:
-      "A game about building worlds.A game about building worlds.A game about building worlds.A game about building worlds",
+      "A grand high stakes onchain MMO. Build resources, fight over Realms and rule the world.",
+    link: "https://eternum.realms.world/",
   },
   {
-    name: "Eykar",
-    image: "/images/games/game3.png",
+    name: "Roll Your Own",
+    image: "/images/games/ryo.png",
     description:
-      "A game about building worlds.A game about building worlds.A game about building worlds.A game about building worlds",
+      "Buy low and sell high. A game based on the classic TI-83 calculator game.",
+    link: "https://ryo.game/",
   },
   {
-    name: "Eykar",
-    image: "/images/games/game4.png",
+    name: "Paved",
+    image: "/images/games/paved.png",
     description:
-      "A game about building worlds.A game about building worlds.A game about building worlds.A game about building worlds",
+      "Paved tiles in a complex and challenging onchain puzzle game. Compete daily for the top score.",
+    link: "https://sepolia.paved.gg/",
   },
-  // {
-  //   name: "Eykar",
-  //   image: "/images/games/game5.png",
-  // },
-  // {
-  //   name: "Eykar",
-  //   image: "/images/games/game6.png",
-  // },
-  // {
-  //   name: "Eykar",
-  //   image: "/images/games/game7.png",
-  // },
-  // {
-  //   name: "Eykar",
-  //   image: "/images/games/game8.png",
-  // },
 ];
 
 export default function Games() {
@@ -59,9 +47,9 @@ export default function Games() {
       <div className="relative sm:px-0 ">
         <motion.div className="grid grid-cols-1 gap-8 rounded-3xl  border border-white/10 bg-gradient-to-b from-[#1A1479] to-[#021531] p-8   shadow-2xl sm:grid-cols-2 sm:gap-16">
           <div className="col-span-2 flex justify-between">
-            <Text textStyle="headline2">see live worlds</Text>
+            <Text textStyle="headline2">onchain worlds</Text>
             <Button withArrow variant={"outline"}>
-              view more
+              <a href="https://github.com/dojoengine/awesome-dojo">view more</a>
             </Button>
           </div>
 

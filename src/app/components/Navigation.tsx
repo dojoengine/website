@@ -14,6 +14,7 @@ import { motion } from "framer-motion";
 import { Socials } from "@/app/components/footer/Links";
 
 import DojoLogo from "@/app/components/icons/dojo-logo.svg";
+import { useEffect, useState } from "react";
 export const useMenuStore = create<{
   decreasedPadding: boolean;
   toggleMenu: () => void;
@@ -54,10 +55,27 @@ export const MenuLinks = [
 
 export default function Navigation() {
   const { decreasedPadding, toggleMenu, menuOpen } = useMenuStore();
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsVisible(true);
+      window.removeEventListener("scroll", handleScroll);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <nav
-      className={`transition-padding fixed left-0 right-0 top-0 z-[100] flex justify-center ${
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: isVisible ? 0 : -100 }}
+      transition={{ duration: 0.5 }}
+      className={`transition-padding fixed left-0 right-0 top-0 z-[100] flex justify-center ${isVisible ? "visible" : "invisible"} ${
         decreasedPadding ? "sm:p-4" : "px-2 py-4 sm:p-12"
       }`}
     >
@@ -119,7 +137,7 @@ export default function Navigation() {
         <Menu className="sm:hidden" onClick={() => toggleMenu()} size={24} />
       </div>
       {menuOpen && <MobileNavigation />}
-    </nav>
+    </motion.nav>
   );
 }
 

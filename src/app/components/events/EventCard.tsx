@@ -56,16 +56,15 @@ export const EventCard = ({
   return (
     <div className="rounded-4xl hover:from-secondary/80 hover:to-tertiary/15  duration-250 shadow-3xl border-white/10 bg-gradient-to-b from-[#1A1479] to-[#021531]   p-6 transition-all">
       <img
-        src="/images/games/game1.png"
-        className="mb-4 h-48 w-full rounded-3xl object-cover"
+        src={`/images/${image}`}
+        className="mb-8 h-64 w-full rounded-3xl object-cover"
         alt=""
       />
 
       <Badge
-        textColor="white"
         size="small"
         text={formatDateRange(startDate, endDate)}
-        color="blue"
+        color="yellow"
       />
 
       <Text className="mb-4 mt-4" textStyle="headline3">
@@ -73,8 +72,8 @@ export const EventCard = ({
       </Text>
       <p className="text-white/90">{description}</p>
 
-      <Button className="mt-6 w-full" variant="default">
-        Sign up
+      <Button className="mt-6 " variant="default">
+        <a href={link}> Sign up</a>
       </Button>
     </div>
   );

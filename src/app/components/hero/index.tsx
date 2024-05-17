@@ -47,8 +47,11 @@ export default function Hero() {
         </p>
 
         <div className="mt-8 space-x-2 text-center">
-          <Button onClick={handleScroll} variant={"outline"}>
+          <Button onClick={handleScroll} variant={"default"}>
             features
+          </Button>
+          <Button withArrow variant={"outline"}>
+            <a href="https://book.dojoengine.org/">docs</a>
           </Button>
         </div>
       </div>

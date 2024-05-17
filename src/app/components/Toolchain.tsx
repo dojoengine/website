@@ -8,38 +8,38 @@ import { Text } from "@/app/components/Text";
 import { useInView } from "react-intersection-observer";
 
 const tools = [
-  {
-    name: "Saya",
-    badgeTitle: "Prover",
-    description:
-      "Here is a short paragraph about the details of this product or tool. It should be relatively short and concise, maybe 2 sentences and three lines long maximum.",
-    documentation: "https://book.dojoengine.org/",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 300 300"
-        fill="none"
-        className="w-8 sm:w-24"
-      >
-        <path
-          fill="#fff"
-          fillRule="evenodd"
-          d="M190.572 205.374a55.684 55.684 0 0 1-49.811 15.593l-51.88-9.675-10.768-51.719a55.686 55.686 0 0 1 14.802-50.052l16.653-16.983a55.686 55.686 0 0 1 49.811-15.593l51.88 9.676 10.768 51.718a55.689 55.689 0 0 1-14.802 50.052l-16.653 16.983Zm-88.91-103.953 79.781 15.634 17.035 79.436-79.781-15.634-17.035-79.436Z"
-          clipRule="evenodd"
-        />
-        <path
-          fill="#fff"
-          d="M150.179 168.366c-10.592 0-19.179-8.589-19.179-19.183 0-10.595 8.587-19.183 19.179-19.183 10.592 0 19.178 8.588 19.178 19.183 0 10.594-8.586 19.183-19.178 19.183Z"
-        />
-      </svg>
-    ),
-  },
+  // {
+  //   name: "Saya",
+  //   badgeTitle: "Prover",
+  //   description:
+  //     "Here is a short paragraph about the details of this product or tool. It should be relatively short and concise, maybe 2 sentences and three lines long maximum.",
+  //   documentation: "https://book.dojoengine.org/",
+  //   icon: (
+  //     <svg
+  //       xmlns="http://www.w3.org/2000/svg"
+  //       viewBox="0 0 300 300"
+  //       fill="none"
+  //       className="w-8 sm:w-24"
+  //     >
+  //       <path
+  //         fill="#fff"
+  //         fillRule="evenodd"
+  //         d="M190.572 205.374a55.684 55.684 0 0 1-49.811 15.593l-51.88-9.675-10.768-51.719a55.686 55.686 0 0 1 14.802-50.052l16.653-16.983a55.686 55.686 0 0 1 49.811-15.593l51.88 9.676 10.768 51.718a55.689 55.689 0 0 1-14.802 50.052l-16.653 16.983Zm-88.91-103.953 79.781 15.634 17.035 79.436-79.781-15.634-17.035-79.436Z"
+  //         clipRule="evenodd"
+  //       />
+  //       <path
+  //         fill="#fff"
+  //         d="M150.179 168.366c-10.592 0-19.179-8.589-19.179-19.183 0-10.595 8.587-19.183 19.179-19.183 10.592 0 19.178 8.588 19.178 19.183 0 10.594-8.586 19.183-19.178 19.183Z"
+  //       />
+  //     </svg>
+  //   ),
+  // },
   {
     name: "Torii",
-    badgeTitle: "Indexer",
+    badgeTitle: "Automatic Indexer",
     description:
-      "Here is a short paragraph about the details of this product or tool. It should be relatively short and concise, maybe 2 sentences and three lines long maximum.",
-    documentation: "https://book.dojoengine.org/",
+      "Torii automatically indexes your game state and exposes graphql and grpc APIs for your world to consume. Not longer do you need to write boilerplate code to manage your game state.",
+    documentation: "https://book.dojoengine.org/toolchain/torii",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -56,10 +56,10 @@ const tools = [
   },
   {
     name: "Katana",
-    badgeTitle: "Gaming Sequencer",
+    badgeTitle: "High-Performance Gaming Sequencer",
     description:
-      "Here is a short paragraph about the details of this product or tool. It should be relatively short and concise, maybe 2 sentences and three lines long maximum.",
-    documentation: "https://book.dojoengine.org/",
+      "Katana is a high-performance sequencer to develop your games on. Spin up a local sequencer in one command and deploy your world in another.",
+    documentation: "https://book.dojoengine.org/toolchain/katana",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -82,8 +82,8 @@ const tools = [
     name: "Origami",
     badgeTitle: "Cairo Libraries",
     description:
-      "Here is a short paragraph about the details of this product or tool. It should be relatively short and concise, maybe 2 sentences and three lines long maximum.",
-    documentation: "https://book.dojoengine.org/",
+      "Origami exposes a range of pre-built components and libraries to help you build your game faster. Origami is built on top of dojo core.",
+    documentation: "https://book.dojoengine.org/toolchain/origami",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -102,8 +102,8 @@ const tools = [
     name: "Sozo",
     badgeTitle: "CLI Tool",
     description:
-      "Here is a short paragraph about the details of this product or tool. It should be relatively short and concise, maybe 2 sentences and three lines long maximum.",
-    documentation: "https://book.dojoengine.org/",
+      "A command line interface tool to help you manage your dojo games. Sozo helps you create new games, manage your game state, and deploy your games to networks",
+    documentation: "https://book.dojoengine.org/toolchain/sozo",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -149,25 +149,6 @@ export function Toolchain() {
 
   const selectedTool = tools[selectedIndex];
 
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (!hoverRef.current) {
-        setSelectedIndex((prevIndex) => {
-          const newIndex = (prevIndex + 1) % tools.length;
-          setDirection(newIndex > prevIndex ? "down" : "up");
-          return newIndex;
-        });
-      }
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div
       id="features"
@@ -180,9 +161,9 @@ export function Toolchain() {
           borderImageSource:
             "linear-gradient(180deg, rgba(100, 82, 222, 0.28) 0%, #151768 100%)",
         }}
-        className=" relative w-full  max-w-[1400px] rounded-3xl border border-white/10 bg-gradient-to-b from-[rgba(50,28,193,0.03)] to-[rgba(43,24,164,0.31)] p-6 shadow-[0_0_114px_0_#03122ACC] sm:p-14 sm:pl-24"
+        className=" relative w-full  max-w-[1400px] rounded-3xl border border-white/10  from-[rgba(50,28,193,0.03)] to-[rgba(43,24,164,0.31)] p-6 shadow-[0_0_114px_0_#03122ACC] backdrop-blur-2xl sm:p-14 sm:pl-24"
       >
-        <div className="flex flex-col items-center gap-12 sm:flex-row sm:gap-32">
+        <div className="flex flex-col items-center justify-between gap-12 sm:flex-row sm:gap-32">
           <AnimatePresence mode="popLayout" custom={direction}>
             <motion.div
               key={selectedTool.name}
@@ -195,7 +176,7 @@ export function Toolchain() {
                 opacity: { duration: 0.1 },
               }}
               custom={direction}
-              className="z-[5] order-2 flex flex-col items-start sm:order-1"
+              className="z-[5] order-2 flex  flex-col items-start sm:order-1"
             >
               <div className="mb-4 sm:mb-10">
                 <Badge
@@ -224,12 +205,12 @@ export function Toolchain() {
               </Text>
               <div className="space-y-2 sm:space-x-4">
                 <Button withArrow variant="default">
-                  <a target="_blank" href="https://book.dojoengine.org/">
+                  <a target="_blank" href={selectedTool.documentation}>
                     Documentation
                   </a>
                 </Button>
                 <Button withArrow variant="outline">
-                  <a target="_blank" href="https://book.dojoengine.org/">
+                  <a target="_blank" href="https://github.com/dojoengine/dojo">
                     Open Source
                   </a>
                 </Button>

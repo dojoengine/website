@@ -69,7 +69,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/app/components/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 items-center justify-center group",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 items-center justify-center group capitalize",
   {
     variants: {
       variant: {
@@ -124,22 +124,21 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             width={12}
             height={13}
             fill="none"
-            className="ml-4 transition-transform duration-200 group-hover:translate-x-2"
+            className="ml-4 fill-current transition-transform duration-200 group-hover:translate-x-2"
           >
             <g clipPath="url(#a)">
               <path
-                fill="#fff"
                 fillRule="evenodd"
                 d="M7.514 6.573 3.038 11.05l1.124 1.124 5.6-5.6-5.6-5.6-1.124 1.124 4.476 4.476Z"
                 clipRule="evenodd"
-                className="fill-text-white transition-all duration-[400ms] "
+                className=""
               />
             </g>
-            <defs>
+            {/* <defs>
               <clipPath id="a">
                 <path fill="#fff" d="M12 12.173H.8V.973H12z" />
               </clipPath>
-            </defs>
+            </defs> */}
           </svg>
         )}
       </Comp>
