@@ -120,10 +120,10 @@ export function GitHub({ contributorImages }: { contributorImages: string[] }) {
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.8, opacity: 0 }}
                 transition={{ duration: 0.25 }}
-                className=" aspect-square rounded-3xl border border-badge-blue p-3 shadow-2xl"
+                className=" shadow-3xl aspect-square rounded-3xl border border-badge-blue p-3"
               >
                 <div
-                  className={`h-full w-full  rounded-2xl bg-cover bg-center `}
+                  className={`h-full w-full rounded-2xl bg-cover bg-center `}
                   style={{
                     backgroundImage: `url('${contributorImages[index]}')`,
                   }}

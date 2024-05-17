@@ -30,10 +30,11 @@ export function GetStarted() {
   return (
     <Container>
       <div className=" flex flex-col items-center justify-center sm:gap-6 ">
-        <Text className="my-8  self-center text-center" textStyle="title1">
+        <Text className="my-8  self-center text-center" textStyle="headline2">
           {" "}
-          Install the cli
+          Install the CLI
         </Text>
+
         <Tooltip.Provider delayDuration={0}>
           <Tooltip.Root open={isCopied || undefined}>
             <Tooltip.Trigger>
@@ -41,8 +42,8 @@ export function GetStarted() {
                 onClick={setCopied}
                 className="shadow-3xl group relative z-0 overflow-hidden rounded-full border  border-white/10 px-10 py-3 font-mono text-white"
               >
-                <div className="bg-badge-blue absolute inset-0 z-[-2]" />
-                <div className="absolute bottom-0 left-0 top-0 z-[-1] w-0 bg-badge-red transition-all duration-[400ms] group-hover:w-full" />
+                <div className="absolute inset-0 z-[-2] bg-badge-blue" />
+                <div className="absolute bottom-0 left-0 top-0 z-[-1] w-0 bg-background-dark transition-all duration-[20ms] group-hover:w-full" />
                 curl -L https://dojoengine.org | bash
               </div>
             </Tooltip.Trigger>

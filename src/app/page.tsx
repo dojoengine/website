@@ -66,11 +66,12 @@ export default async function Home() {
         <Properties />
       </div> */}
 
-      <div className="">
+      <div className="bg-gradient-to-b from-[#021531] to-[#1A1479]">
         <Contributors contributorImages={profileImages} />
+
+        <Partners />
       </div>
       {/* <GetStarted /> */}
-      <Partners />
 
       <Footer />
     </div>
