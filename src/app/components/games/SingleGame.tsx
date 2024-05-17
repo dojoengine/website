@@ -39,11 +39,6 @@ export function SingleGame({
               <Text className="mr-4 self-center " textStyle="title3">
                 {game.name}
               </Text>
-              <Button withArrow variant="outline" size="sm">
-                <a target="_blank" href={game.link}>
-                  play game
-                </a>
-              </Button>
             </motion.div>
 
             <motion.p
@@ -54,6 +49,15 @@ export function SingleGame({
             >
               {game.description}
             </motion.p>
+
+            <div className="mt-8">
+              {" "}
+              <Button variant="default">
+                <a target="_blank" href={game.link}>
+                  play
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
       </div>

@@ -68,7 +68,7 @@ export function GitHub({ contributorImages }: { contributorImages: string[] }) {
 
   return (
     <Container>
-      <div className="flex flex-col items-center gap-20 sm:flex-row">
+      <div className="flex flex-col items-center justify-between gap-20 sm:flex-row">
         <div className="flex flex-col items-start">
           <div className="mb-5">
             <Badge
@@ -90,11 +90,11 @@ export function GitHub({ contributorImages }: { contributorImages: string[] }) {
             />
           </div>
           <Text textStyle="headline2" className="mb-5">
-            Contributors
+            Open Source
           </Text>
           <Text textStyle="bodyText" className="mb-10">
-            Dojo is built by a community of developers, designers, and artists.
-            Join us in building the future of gaming.
+            Dojo is built by a community of developers, designers, and artists.{" "}
+            <br />
           </Text>
 
           <div className="flex space-x-4">
@@ -111,7 +111,7 @@ export function GitHub({ contributorImages }: { contributorImages: string[] }) {
             </Button>
           </div>
         </div>
-        <div className="grid grid-cols-[repeat(2,150px)] gap-5 sm:grid-cols-[repeat(3,200px)]">
+        <div className="grid grid-cols-[repeat(2,150px)] gap-8 sm:grid-cols-[repeat(3,150px)]">
           <AnimatePresence mode="popLayout">
             {shownContributorIndices.map((index) => (
               <motion.div
@@ -120,10 +120,10 @@ export function GitHub({ contributorImages }: { contributorImages: string[] }) {
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.8, opacity: 0 }}
                 transition={{ duration: 0.25 }}
-                className=" border-badge-blue aspect-square rounded-3xl border shadow-2xl"
+                className=" aspect-square rounded-3xl border border-badge-blue p-3 shadow-2xl"
               >
                 <div
-                  className={`h-full w-full  rounded-3xl bg-cover bg-center `}
+                  className={`h-full w-full  rounded-2xl bg-cover bg-center `}
                   style={{
                     backgroundImage: `url('${contributorImages[index]}')`,
                   }}

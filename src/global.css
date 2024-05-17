@@ -47,6 +47,7 @@ body {
 
 .font-title {
   font-family: var(--font-agrandir);
+  letter-spacing: 0.03em;
 }
 
 .font-mono {

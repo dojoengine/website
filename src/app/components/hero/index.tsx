@@ -47,10 +47,10 @@ export default function Hero() {
         </p>
 
         <div className="mt-8 space-x-2 text-center">
-          <Button onClick={handleScroll} variant={"default"}>
-            features
+          <Button size={"lg"} onClick={handleScroll} variant={"default"}>
+            toolchain
           </Button>
-          <Button withArrow variant={"outline"}>
+          <Button size={"lg"} withArrow variant={"outline"}>
             <a href="https://book.dojoengine.org/">docs</a>
           </Button>
         </div>
@@ -88,7 +88,7 @@ function SpinningMesh() {
           fade={100}
           scale={1}
           speed={1}
-          position={[0, 1, 0]}
+          position={[0, 2, 0]}
         />
         {/* <Cloud
           seed={1}
@@ -110,7 +110,7 @@ function SpinningMesh() {
           fade={100}
           speed={0.5}
           opacity={0.8}
-          position={[0, 1, 0]}
+          position={[0, 2, 0]}
         />
       </Clouds>
     );

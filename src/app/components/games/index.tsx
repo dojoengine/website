@@ -45,10 +45,12 @@ export default function Games() {
     <Container>
       <Wave />
       <div className="relative sm:px-0 ">
-        <motion.div className="grid grid-cols-1 gap-8 rounded-3xl  border border-white/10 bg-gradient-to-b from-[#1A1479] to-[#021531] p-8   shadow-2xl sm:grid-cols-2 sm:gap-16">
-          <div className="col-span-2 flex justify-between">
-            <Text textStyle="headline2">onchain worlds</Text>
-            <Button withArrow variant={"outline"}>
+        <motion.div className="grid grid-cols-1 gap-8 rounded-3xl     sm:grid-cols-2 sm:gap-16">
+          <div className="col-span-2 flex justify-between capitalize">
+            <Text className="" textStyle="headline2">
+              onchain worlds
+            </Text>
+            <Button size={"lg"} withArrow variant={"default"}>
               <a href="https://github.com/dojoengine/awesome-dojo">view more</a>
             </Button>
           </div>
