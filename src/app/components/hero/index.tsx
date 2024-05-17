@@ -81,16 +81,16 @@ function SpinningMesh() {
         <Cloud
           // segments={15}
           bounds={[10, 2, 2]}
-          volume={2}
-          color="#FD4544"
+          volume={10}
+          color="#FBCB4A"
           opacity={1}
           concentrate="inside"
           fade={100}
           scale={1}
-          speed={0.5}
+          speed={1}
           position={[0, 1, 0]}
         />
-        <Cloud
+        {/* <Cloud
           seed={1}
           scale={1}
           volume={5}
@@ -100,7 +100,7 @@ function SpinningMesh() {
           speed={1}
           opacity={0.8}
           position={[0, 1, 0]}
-        />
+        /> */}
         <Cloud
           seed={1}
           scale={1}
