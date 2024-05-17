@@ -24,15 +24,19 @@ function getRandomIndices<T>(array: T[], numIndices: number): number[] {
 }
 
 export function GitHub({ contributorImages }: { contributorImages: string[] }) {
+  const [numContributors, setNumContributors] = useState(8);
   const [shownContributorIndices, setShownContributorIndices] = useState<
     number[]
-  >(getRandomIndices(contributorImages, 8));
-  const theRest = contributorImages.slice(8);
+  >(getRandomIndices(contributorImages, numContributors));
+
+  const theRest = contributorImages.slice(numContributors);
 
   useEffect(() => {
     const updateShownContributors = () => {
-      const isMobile = window.innerWidth < 640; // Adjust the breakpoint as needed
+      const isMobile = window.innerWidth < 1200; // Adjust the breakpoint as needed
       const numContributors = isMobile ? 7 : 8;
+
+      setNumContributors(numContributors);
       setShownContributorIndices(
         getRandomIndices(contributorImages, numContributors),
       );
@@ -46,31 +50,30 @@ export function GitHub({ contributorImages }: { contributorImages: string[] }) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const randomIndex = Math.floor(Math.random() * 8);
-
       setShownContributorIndices((prev) => {
-        const newFirstEight = [...prev];
+        const newFirst = [...prev];
+        const randomIndex = Math.floor(Math.random() * numContributors);
 
         let newIndex = Math.floor(Math.random() * contributorImages.length);
 
-        while (newFirstEight.includes(newIndex)) {
+        while (newFirst.includes(newIndex)) {
           newIndex = Math.floor(Math.random() * contributorImages.length);
         }
 
-        newFirstEight[randomIndex] = newIndex;
+        newFirst[randomIndex] = newIndex;
 
-        return newFirstEight;
+        return newFirst;
       });
     }, 2000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [numContributors, contributorImages]);
 
   return (
     <Container>
-      <div className="flex flex-col items-center justify-between gap-20 sm:flex-row">
-        <div className="flex flex-col items-start">
-          <div className="mb-5">
+      <div className="flex flex-col gap-20 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col items-start ">
+          <div className="mb-5 flex w-full justify-center sm:justify-start">
             <Badge
               icon={
                 <svg
@@ -85,19 +88,25 @@ export function GitHub({ contributorImages }: { contributorImages: string[] }) {
                   />
                 </svg>
               }
-              text="open-source"
+              text="Apache License"
               color="red"
             />
           </div>
-          <Text textStyle="headline2" className="mb-5">
+          <Text
+            textStyle="headline2"
+            className="mb-5 w-full text-center sm:w-auto sm:text-left"
+          >
             Open Source
           </Text>
-          <Text textStyle="bodyText" className="mb-10">
+          <Text
+            textStyle="bodyText"
+            className="mb-10  w-full text-center sm:w-auto sm:text-left"
+          >
             Dojo is built by a community of developers, designers, and artists.{" "}
             <br />
           </Text>
 
-          <div className="flex space-x-4">
+          <div className="flex w-full flex-col space-y-4 text-center sm:flex-row sm:space-x-4 sm:space-y-0">
             <Button withArrow variant="default">
               <a target="_blank" href="https://github.com/dojoengine">
                 Contribute to dojo
@@ -111,7 +120,7 @@ export function GitHub({ contributorImages }: { contributorImages: string[] }) {
             </Button>
           </div>
         </div>
-        <div className="grid grid-cols-[repeat(2,150px)] gap-8 sm:grid-cols-[repeat(3,150px)]">
+        <div className="grid grid-cols-[repeat(2,150px)] gap-8 sm:grid-cols-[repeat(2,150px)] lg:grid-cols-[repeat(3,150px)]">
           <AnimatePresence mode="popLayout">
             {shownContributorIndices.map((index) => (
               <motion.div

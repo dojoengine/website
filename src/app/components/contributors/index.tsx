@@ -8,7 +8,7 @@ export function Contributors({
   contributorImages: string[];
 }) {
   return (
-    <div className="relative flex flex-col  to-55% sm:py-10">
+    <div className=" relative flex  flex-col to-55% sm:py-16">
       <GitHub contributorImages={contributorImages} />
     </div>
   );

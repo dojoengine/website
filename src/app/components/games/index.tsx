@@ -46,8 +46,11 @@ export default function Games() {
       <Wave />
       <div className="relative sm:px-0 ">
         <motion.div className="grid grid-cols-1 gap-8 rounded-3xl     sm:grid-cols-2 sm:gap-16">
-          <div className="col-span-2 flex justify-between capitalize">
-            <Text className="" textStyle="headline2">
+          <div className="col-span-2 flex flex-col justify-between capitalize sm:flex-row">
+            <Text
+              className="mb-6 text-center sm:mb-0 sm:text-left"
+              textStyle="headline2"
+            >
               onchain worlds
             </Text>
             <Button size={"lg"} withArrow variant={"default"}>

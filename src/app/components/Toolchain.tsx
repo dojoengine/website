@@ -38,7 +38,7 @@ const tools = [
     name: "Torii",
     badgeTitle: "Automatic Indexer",
     description:
-      "Torii automatically indexes your game state and exposes graphql and grpc APIs for your world to consume. Not longer do you need to write boilerplate code to manage your game state.",
+      "Torii automatically indexes your game state and exposes GraphQL and gRPC APIs for your world to consume. No longer do you need to write boilerplate code to manage your game state.",
     documentation: "https://book.dojoengine.org/toolchain/torii",
     icon: (
       <svg
@@ -58,7 +58,7 @@ const tools = [
     name: "Katana",
     badgeTitle: "High-Performance Gaming Sequencer",
     description:
-      "Katana is a high-performance sequencer to develop your games on. Spin up a local sequencer in one command and deploy your world in another.",
+      "Katana is a high-performance sequencer for onchain game development. Spin up a local sequencer with one command and deploy your world with another.",
     documentation: "https://book.dojoengine.org/toolchain/katana",
     icon: (
       <svg
@@ -82,7 +82,7 @@ const tools = [
     name: "Origami",
     badgeTitle: "Cairo Libraries",
     description:
-      "Origami exposes a range of pre-built components and libraries to help you build your game faster. Origami is built on top of dojo core.",
+      "Origami exposes a range of pre-built components and libraries to help you build your game faster. Origami is built on top of Dojo core.",
     documentation: "https://book.dojoengine.org/toolchain/origami",
     icon: (
       <svg
@@ -125,7 +125,7 @@ type Direction = "up" | "down";
 const variants = {
   initial: (direction: Direction) => {
     return {
-      y: direction === "up" ? 100 : -100,
+      y: direction === "up" ? 100 : -50,
       opacity: 0.2,
     };
   },
@@ -207,11 +207,6 @@ export function Toolchain() {
                 <Button withArrow variant="default">
                   <a target="_blank" href={selectedTool.documentation}>
                     Documentation
-                  </a>
-                </Button>
-                <Button withArrow variant="outline">
-                  <a target="_blank" href="https://github.com/dojoengine/dojo">
-                    Open Source
                   </a>
                 </Button>
               </div>

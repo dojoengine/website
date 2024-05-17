@@ -41,9 +41,9 @@ export default function Hero() {
           <DojoLogo className="mb-4 w-64 sm:mb-8 sm:w-96" />
         </div>
 
-        <p className="self-center text-center text-xl sm:text-4xl">
-          an open-source toolchain for building <br /> provable games and
-          autonomous worlds
+        <p className="self-center text-center text-xl sm:w-1/2 sm:text-4xl">
+          an open-source toolchain for building provable games and autonomous
+          worlds
         </p>
 
         <div className="mt-8 space-x-2 text-center">

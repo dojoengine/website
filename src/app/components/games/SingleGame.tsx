@@ -23,12 +23,12 @@ export function SingleGame({
   return (
     <div className="from-bg-white/5 col-span-2 rounded-3xl border border-white/5 bg-white/5 p-3 backdrop-blur-3xl sm:col-span-1">
       <div
-        className="shadow-3xl group relative aspect-square h-96 w-full cursor-pointer flex-col items-end justify-between rounded-2xl  bg-cover bg-center p-3 sm:h-96"
+        className="shadow-3xl group relative aspect-square h-72 w-full cursor-pointer flex-col items-end justify-between rounded-2xl  bg-cover bg-center p-3 sm:h-96"
         style={{ backgroundImage: `url('${game.image}')` }}
       >
-        <div className="absolute inset-0 top-full flex items-end rounded-2xl bg-black/60 transition-all group-hover:top-0" />
+        <div className="absolute  inset-0 flex items-end rounded-2xl bg-black/60 transition-all  sm:top-full sm:bg-black/60 sm:group-hover:top-0" />
 
-        <div className=" absolute top-4 flex h-full  rounded-3xl px-6 opacity-0 transition-all  delay-0 group-hover:opacity-100 ">
+        <div className=" absolute top-4 flex h-full  rounded-3xl px-6 transition-all delay-0  sm:opacity-0 sm:group-hover:opacity-100 ">
           <div className="self-center">
             <motion.div
               className="mb-4 flex"

@@ -12,7 +12,9 @@ export const Container = forwardRef(function Container(
 ) {
   return (
     <div className="relative flex justify-center" ref={ref}>
-      <div className="my-32 w-full max-w-[1400px] px-6 sm:px-0">{children}</div>
+      <div className="my-16 w-full max-w-[1400px] px-6 sm:my-32 sm:px-12">
+        {children}
+      </div>
     </div>
   );
 });

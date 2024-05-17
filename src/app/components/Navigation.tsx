@@ -112,7 +112,7 @@ export default function Navigation() {
           </Button>
           <Button variant={"ghost"} size={"icon"}>
             {" "}
-            <a href={Socials.Discord} target="_blank">
+            <a href={Socials.GitHub} target="_blank">
               {" "}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -128,7 +128,11 @@ export default function Navigation() {
         </div>
         <div>
           <Button>
-            <a className="uppercase" href={Socials.GitHub} target="_blank">
+            <a
+              className="uppercase"
+              href={"https://book.dojoengine.org/"}
+              target="_blank"
+            >
               docs
             </a>
           </Button>
