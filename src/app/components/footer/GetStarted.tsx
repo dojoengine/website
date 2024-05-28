@@ -23,7 +23,7 @@ export const ToolKit = () => {
 
 export function GetStarted() {
   const [isCopied, setCopied] = useClipboard(
-    "curl -L https://dojoengine.org | bash",
+    "curl -L https://install.dojoengine.org | bash",
     { successDuration: 2000 },
   );
 
@@ -44,7 +44,7 @@ export function GetStarted() {
               >
                 <div className="absolute inset-0 z-[-2] bg-badge-blue" />
                 <div className="absolute bottom-0 left-0 top-0 z-[-1] w-0 bg-background-dark transition-all duration-[20ms] group-hover:w-full" />
-                curl -L https://dojoengine.org | bash
+                curl -L https://install.dojoengine.org | bash
               </div>
             </Tooltip.Trigger>
             <Tooltip.Content>
