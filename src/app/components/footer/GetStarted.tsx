@@ -23,7 +23,7 @@ export const ToolKit = () => {
 
 export function GetStarted() {
   const [isCopied, setCopied] = useClipboard(
-    "curl -L https://dojoengine.org | bash",
+    "curl -L https://install.dojoengine.org | bash",
     { successDuration: 2000 },
   );
 
