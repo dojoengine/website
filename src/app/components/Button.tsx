@@ -120,27 +120,24 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {props.children}
 
         {withArrow && (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width={12}
-            height={13}
-            fill="none"
-            className="ml-4 fill-current transition-transform duration-200 group-hover:translate-x-2"
-          >
-            <g clipPath="url(#a)">
-              <path
-                fillRule="evenodd"
-                d="M7.514 6.573 3.038 11.05l1.124 1.124 5.6-5.6-5.6-5.6-1.124 1.124 4.476 4.476Z"
-                clipRule="evenodd"
-                className=""
-              />
-            </g>
-            {/* <defs>
-              <clipPath id="a">
-                <path fill="#fff" d="M12 12.173H.8V.973H12z" />
-              </clipPath>
-            </defs> */}
-          </svg>
+          <div className="pointer-events-none ">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width={12}
+              height={13}
+              fill="none"
+              className="ml-4 fill-current transition-transform duration-200 group-hover:translate-x-2"
+            >
+              <g clipPath="url(#a)">
+                <path
+                  fillRule="evenodd"
+                  d="M7.514 6.573 3.038 11.05l1.124 1.124 5.6-5.6-5.6-5.6-1.124 1.124 4.476 4.476Z"
+                  clipRule="evenodd"
+                  className=""
+                />
+              </g>
+            </svg>
+          </div>
         )}
       </Comp>
     );

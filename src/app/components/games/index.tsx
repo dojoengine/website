@@ -53,9 +53,11 @@ export default function Games() {
             >
               onchain worlds
             </Text>
-            <Button size={"lg"} withArrow variant={"default"}>
-              <a href="https://github.com/dojoengine/awesome-dojo">view more</a>
-            </Button>
+            <a href="https://github.com/dojoengine/awesome-dojo">
+              <Button size={"lg"} withArrow variant={"default"}>
+                view more
+              </Button>
+            </a>
           </div>
 
           {allGames.map((game, i) => (

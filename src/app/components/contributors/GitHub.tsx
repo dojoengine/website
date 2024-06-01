@@ -107,17 +107,16 @@ export function GitHub({ contributorImages }: { contributorImages: string[] }) {
           </Text>
 
           <div className="flex w-full flex-col space-y-4 text-center sm:flex-row sm:space-x-4 sm:space-y-0">
-            <Button withArrow variant="default">
-              <a target="_blank" href="https://github.com/dojoengine">
+            <a target="_blank" href="https://github.com/dojoengine">
+              <Button withArrow variant="default">
                 Contribute to dojo
-              </a>
-            </Button>
-
-            <Button withArrow variant="outline">
-              <a target="_blank" href={Socials.Discord}>
+              </Button>{" "}
+            </a>
+            <a target="_blank" href={Socials.Discord}>
+              <Button withArrow variant="outline">
                 join discord
-              </a>
-            </Button>
+              </Button>{" "}
+            </a>
           </div>
         </div>
         <div className="grid grid-cols-[repeat(2,150px)] gap-8 sm:grid-cols-[repeat(2,150px)] lg:grid-cols-[repeat(3,150px)]">
