@@ -13,9 +13,12 @@ export const ToolKit = () => {
         an opensource toolkit for building <br /> onchain and provable games.
       </div>
       <div className="mt-8">
-        <Button variant={"outline"} withArrow>
-          <a href="https://book.dojoengine.org/">documentation</a>
-        </Button>
+        <a href="https://book.dojoengine.org/">
+          {" "}
+          <Button variant={"outline"} withArrow>
+            documentation
+          </Button>
+        </a>
       </div>
     </div>
   );

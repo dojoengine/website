@@ -52,11 +52,9 @@ export function SingleGame({
 
             <div className="mt-8">
               {" "}
-              <Button variant="default">
-                <a target="_blank" href={game.link}>
-                  play
-                </a>
-              </Button>
+              <a target="_blank" href={game.link}>
+                <Button variant="default">play</Button>{" "}
+              </a>
             </div>
           </div>
         </div>

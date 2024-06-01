@@ -50,9 +50,11 @@ export default function Hero() {
           <Button size={"lg"} onClick={handleScroll} variant={"default"}>
             toolchain
           </Button>
-          <Button size={"lg"} withArrow variant={"outline"}>
-            <a href="https://book.dojoengine.org/">docs</a>
-          </Button>
+          <a href="https://book.dojoengine.org/">
+            <Button size={"lg"} withArrow variant={"outline"}>
+              docs
+            </Button>
+          </a>
         </div>
       </div>
       <div className=" w-full">

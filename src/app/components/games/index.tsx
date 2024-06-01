@@ -28,8 +28,8 @@ const allGames = [
     name: "Roll Your Own",
     image: "/images/games/ryo.png",
     description:
-      "Buy low and sell high. A game based on the classic TI-83 calculator game.",
-    link: "https://ryo.game/",
+      "Prove you're the ultimate hustler. Move product, stack paper, and rise to the top in Dope Wars. Play now and claim your spot on the leaderboard!",
+    link: "https://dopewars.game",
   },
   {
     name: "Paved",
@@ -53,9 +53,11 @@ export default function Games() {
             >
               onchain worlds
             </Text>
-            <Button size={"lg"} withArrow variant={"default"}>
-              <a href="https://github.com/dojoengine/awesome-dojo">view more</a>
-            </Button>
+            <a href="https://github.com/dojoengine/awesome-dojo">
+              <Button size={"lg"} withArrow variant={"default"}>
+                view more
+              </Button>
+            </a>
           </div>
 
           {allGames.map((game, i) => (

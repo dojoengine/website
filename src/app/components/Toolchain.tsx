@@ -204,11 +204,11 @@ export function Toolchain() {
                 {selectedTool.description}
               </Text>
               <div className="space-y-2 sm:space-x-4">
-                <Button withArrow variant="default">
-                  <a target="_blank" href={selectedTool.documentation}>
+                <a target="_blank" href={selectedTool.documentation}>
+                  <Button withArrow variant="default">
                     Documentation
-                  </a>
-                </Button>
+                  </Button>
+                </a>
               </div>
             </motion.div>
           </AnimatePresence>
