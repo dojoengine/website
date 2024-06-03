@@ -11,7 +11,7 @@ import { Button } from "../Button";
 
 const allGames = [
   {
-    name: "Primeforce Heros",
+    name: "Force Prime Heros",
     image: "/images/games/game1.png",
     description:
       "A rogue like onchain game inspired by the heros of might and magic series.",
