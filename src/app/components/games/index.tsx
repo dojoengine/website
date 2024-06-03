@@ -25,7 +25,7 @@ const allGames = [
     link: "https://eternum.realms.world/",
   },
   {
-    name: "Roll Your Own",
+    name: "Dope Wars",
     image: "/images/games/ryo.png",
     description:
       "Prove you're the ultimate hustler. Move product, stack paper, and rise to the top in Dope Wars. Play now and claim your spot on the leaderboard!",
