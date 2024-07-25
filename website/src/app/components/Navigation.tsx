@@ -1,20 +1,14 @@
 "use client";
 
 import { Button } from "@/app/components/Button";
-import {
-  Cross,
-  CrossIcon,
-  LucideCross,
-  LucideX,
-  Menu,
-  SidebarClose,
-} from "lucide-react";
+import { LucideX, Menu } from "lucide-react";
 import { create } from "zustand";
 import { motion } from "framer-motion";
 import { Socials } from "@/app/components/footer/Links";
 
 import DojoLogo from "@/app/components/icons/dojo-logo.svg";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 export const useMenuStore = create<{
   decreasedPadding: boolean;
   toggleMenu: () => void;
@@ -80,7 +74,10 @@ export default function Navigation() {
       }`}
     >
       <div className="flex w-full max-w-[1400px] items-center justify-between rounded-full bg-[rgba(2,21,49,0.3)] px-8 py-4 backdrop-blur-[10px]">
-        <DojoLogo className="w-20 sm:w-28" />
+        <Link href="/">
+          <DojoLogo className="w-20 sm:w-28" />
+        </Link>
+
         <div className=" hidden flex-row justify-between gap-2 sm:flex">
           <a href={Socials.Discord} target="_blank">
             <Button variant={"ghost"} size={"icon"}>

@@ -8,6 +8,10 @@ import { Footer } from "@/app/components/footer";
 import { EventRow } from "./components/events/EventRow";
 import { GetStarted, ToolKit } from "./components/footer/GetStarted";
 import { Partners } from "./components/contributors/Partners";
+import { Container } from "./components/Container";
+import { Text } from "./components/Text";
+import { PostCardRow } from "./components/posts/PostCardRow";
+import { getAllPosts } from "./hooks";
 
 async function getContributors(repoName: string, page = 1) {
   let request = await fetch(
@@ -47,33 +51,34 @@ export default async function Home() {
     (contributor) => contributor.avatar_url,
   );
 
+  const posts = await getAllPosts();
+
   return (
     <div className="relative">
       <Hero />
-      {/* <GetStarted /> */}
+
       <Toolchain />
 
       <div className=" bg-gradient-to-b from-[#1A1479] to-[#021531] ">
-        {/* <ToolKit /> */}
         <GetStarted />
         <Games />
       </div>
 
       <EventRow />
 
-      {/* 
-      <div className="mb-[200px]">
-        <Properties />
-      </div> */}
+      <Container>
+        <div>
+          <Text className="mb-8 " textStyle="headline2">
+            Sensei Blog
+          </Text>
+        </div>
+        <PostCardRow posts={posts} />
+      </Container>
 
       <div className="bg-gradient-to-b from-[#021531] to-[#1A1479]">
         <Contributors contributorImages={profileImages} />
-
         <Partners />
       </div>
-      {/* <GetStarted /> */}
-
-      <Footer />
     </div>
   );
 }

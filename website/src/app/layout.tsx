@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navigation from "./components/Navigation";
 import "../global.css";
 import localFont from "next/font/local";
+import { Footer } from "./components/footer";
 
 const agrandirVariable = localFont({
   src: "./fonts/Agrandir Narrow Bold.otf",
@@ -48,6 +49,7 @@ export default function RootLayout({
       <body className="overflow-x-hidden  bg-[#021531] text-white">
         <Navigation />
         {children}
+        <Footer />
       </body>
     </html>
   );
