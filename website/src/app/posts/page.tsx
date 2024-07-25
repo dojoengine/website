@@ -27,7 +27,7 @@ export default async function PostsPage() {
     <Container>
       <div>
         <Text className="mb-8 " textStyle="headline2">
-          Sensei Blog
+          Sensei Writing
         </Text>
       </div>
       <PostCardRow posts={posts} />

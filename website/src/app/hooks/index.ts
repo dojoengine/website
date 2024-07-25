@@ -32,3 +32,34 @@ export const getPosts = async ({ slug }: { slug: string }) => {
 
   return post.docs[0] as Post;
 };
+
+export async function getContributors(repoName: string, page = 1) {
+  let request = await fetch(
+    `https://api.github.com/repos/${repoName}/contributors?per_page=100&page=${page}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    },
+  );
+
+  let contributorsList = await request.json();
+  return contributorsList;
+}
+
+export async function getAllContributors(repoName: string) {
+  let contributors: { avatar_url: string }[] = [];
+  let page = 1;
+
+  while (true) {
+    const list = await getContributors(repoName, page);
+    if (list.length === 0) {
+      break;
+    }
+    contributors = contributors.concat(list);
+    page++;
+  }
+
+  return contributors;
+}

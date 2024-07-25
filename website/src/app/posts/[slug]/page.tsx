@@ -1,10 +1,11 @@
 import React from "react";
-import qs from "qs";
+
 import { Serialize } from "@/app/components/RichText";
 import Image from "next/image";
 import { Button } from "@/app/components/Button";
 import Link from "next/link";
 import { getPosts } from "@/app/hooks";
+import { Github, Twitter, X } from "lucide-react";
 
 export async function generateStaticParams() {
   const posts = await fetch(
@@ -37,7 +38,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             width={200}
             height={200}
             alt={author.name}
-            className=" h-16 w-16 rounded-full border "
+            className=" h-16 w-16 rounded-full border-2 shadow-2xl "
           />
           <div className=" text-left">
             <p className="text-lg font-semibold">
@@ -49,8 +50,15 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 day: "numeric",
               })}
             </p>
-            <p className="text-sm text-gray-500">@{author.github}</p>
-            <p className="text-sm text-gray-500">@{author.twitter}</p>
+            <div className="my-3 flex gap-2">
+              {" "}
+              <a href={`https://github.com/${author.github}`}>
+                <Github size={16} />
+              </a>
+              <a href={`https://twitter.com/${author.twitter}`}>
+                <Twitter size={16} />
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -62,7 +70,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         alt={"alt"}
         className="max-h-96 w-full object-cover"
       />
-      <div className="prose lg:prose-xl prose-default container mx-auto my-20">
+      <div className="container prose prose-default mx-auto my-20 lg:prose-xl">
         {Serialize({ nodes: content.root.children as any })}
       </div>
 
