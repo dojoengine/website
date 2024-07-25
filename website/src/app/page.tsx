@@ -9,16 +9,10 @@ import { Container } from "./components/Container";
 import { Text } from "./components/Text";
 import { PostCardRow } from "./components/posts/PostCardRow";
 import { getAllContributors, getAllPosts } from "./hooks";
+import { Button } from "./components/Button";
+import Link from "next/link";
 
 export default async function Home() {
-  const contributors = await getAllContributors("dojoengine/dojo");
-
-  const profileImages = contributors.map(
-    (contributor) => contributor.avatar_url,
-  );
-
-  const posts = await getAllPosts();
-
   return (
     <div className="relative">
       <Hero />
@@ -33,16 +27,26 @@ export default async function Home() {
       <EventRow />
 
       <Container>
-        <div>
+        <div className="flex justify-between">
           <Text className="mb-8 " textStyle="headline2">
-            Sensei Blog
+            Hato
           </Text>
+          <Link href={"/posts"}>
+            <Button size={"lg"} withArrow variant={"outline"}>
+              all writings
+            </Button>
+          </Link>
         </div>
-        <PostCardRow posts={posts} />
+
+        <PostCardRow posts={await getAllPosts()} />
       </Container>
 
       <div className="bg-gradient-to-b from-[#021531] to-[#1A1479]">
-        <Contributors contributorImages={profileImages} />
+        <Contributors
+          contributorImages={(await getAllContributors("dojoengine/dojo")).map(
+            (contributor) => contributor.avatar_url,
+          )}
+        />
         <Partners />
       </div>
     </div>

@@ -54,27 +54,29 @@ export const EventCard = ({
   link,
 }: Event) => {
   return (
-    <div className="rounded-4xl hover:from-secondary/80 hover:to-tertiary/15  duration-250 shadow-3xl border-white/10 bg-gradient-to-b from-[#1A1479] to-[#021531]   p-6 transition-all">
+    <div className="duration-250 shadow-3xl rounded-3xl  border border-white/10 bg-gradient-to-b from-[#1A1479] to-[#021531] p-3 transition-all   hover:from-secondary/80 hover:to-tertiary/15">
       <img
         src={`/images/${image}`}
-        className="mb-8 h-64 w-full rounded-3xl object-cover"
+        className="mb-4 h-64 w-full rounded-2xl object-cover"
         alt=""
       />
 
-      <Badge
-        size="small"
-        text={formatDateRange(startDate, endDate)}
-        color="yellow"
-      />
+      <div className="p-3">
+        <Badge
+          size="small"
+          text={formatDateRange(startDate, endDate)}
+          color="yellow"
+        />
 
-      <Text className="mb-4 mt-4" textStyle="headline3">
-        {name}
-      </Text>
-      <p className="text-white/90">{description}</p>
+        <Text className="mb-4 mt-4" textStyle="headline3">
+          {name}
+        </Text>
+        <p>{description}</p>
 
-      <Button className="mt-6 " variant="default">
-        <a href={link}> Sign up</a>
-      </Button>
+        <Button className="mt-6 " variant="default">
+          <a href={link}> Sign up</a>
+        </Button>
+      </div>
     </div>
   );
 };

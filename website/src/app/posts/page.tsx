@@ -2,8 +2,16 @@ import React from "react";
 import { PostCardRow } from "../components/posts/PostCardRow";
 import { Container } from "../components/Container";
 import { Text } from "../components/Text";
-import { Post } from "../types";
 import { getAllPosts } from "../hooks";
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const posts = await getAllPosts();
+  return {
+    title: `${posts.length} Dojo Writings`,
+    description: `The latest about Dojo and the world of onchain games.`,
+  };
+}
 
 export async function generateStaticParams() {
   const posts = await fetch(
@@ -21,16 +29,13 @@ export async function generateStaticParams() {
 }
 
 export default async function PostsPage() {
-  const posts = await getAllPosts();
-
   return (
     <Container>
-      <div>
-        <Text className="mb-8 " textStyle="headline2">
-          Sensei Writing
-        </Text>
-      </div>
-      <PostCardRow posts={posts} />
+      <Text className="my-8 " textStyle="headline2">
+        Hato
+      </Text>
+
+      <PostCardRow posts={await getAllPosts()} />
     </Container>
   );
 }

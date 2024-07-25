@@ -70,7 +70,7 @@ export default function Hero() {
 
 extend({ EffectComposer, Bloom });
 
-function SpinningMesh() {
+export function SpinningMesh() {
   const targetScale = useRef(1.0); // Target scale
 
   const onHover = (event: any, hovered: any) => {

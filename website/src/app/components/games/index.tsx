@@ -54,7 +54,7 @@ export default function Games() {
               onchain worlds
             </Text>
             <a href="https://github.com/dojoengine/awesome-dojo">
-              <Button size={"lg"} withArrow variant={"default"}>
+              <Button size={"lg"} withArrow variant={"outline"}>
                 view more
               </Button>
             </a>

@@ -43,6 +43,7 @@ html,
 body {
   overflow-x: hidden;
   font-family: var(--font-agrandirBody);
+  
 }
 
 .font-title {

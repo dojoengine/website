@@ -6,7 +6,7 @@ module.exports = {
       typography: ({ theme }) => ({
         default: {
           css: {
-            "--tw-prose-body": theme("colors.white"),
+            "--tw-prose-body": theme("colors.gray.300"),
             "--tw-prose-headings": theme("colors.white"),
             "--tw-prose-lead": theme("colors.white"),
             "--tw-prose-links": theme("colors.white"),

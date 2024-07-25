@@ -46,7 +46,7 @@ export default function RootLayout({
       lang="en"
       className={`${IBMPlexSans.variable} ${agrandirVariable.variable} ${circular.variable} ${agrandirBody.variable} `}
     >
-      <body className="overflow-x-hidden  bg-[#021531] text-white">
+      <body className="overflow-x-hidden  bg-[#021531] text-gray-100">
         <Navigation />
         {children}
         <Footer />

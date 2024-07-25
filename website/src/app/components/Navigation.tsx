@@ -25,12 +25,8 @@ export const MenuLinks = [
     href: "/docs",
   },
   {
-    title: "Blog",
-    href: "/blog",
-  },
-  {
-    title: "Community",
-    href: "/community",
+    title: "Posts",
+    href: "/posts",
   },
   {
     title: "GitHub",
@@ -122,7 +118,7 @@ export default function Navigation() {
             </Button>{" "}
           </a>
         </div>
-        <div>
+        <div className="hidden sm:block">
           <a
             className="uppercase"
             href={"https://book.dojoengine.org/"}
@@ -161,7 +157,7 @@ export const MobileNavigation = () => {
 
       <div className="mt-10 flex flex-col gap-4 px-10">
         {MenuLinks.map((link) => (
-          <Button size={"sm"} key={link.title}>
+          <Button variant={"outline"} size={"sm"} key={link.title}>
             <a target="_blank" href={link.href}>
               {link.title}
             </a>

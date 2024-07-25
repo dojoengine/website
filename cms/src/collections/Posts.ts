@@ -36,6 +36,13 @@ const Posts: CollectionConfig = {
       required: true,
     },
     {
+      name: "tags",
+      type: "relationship",
+      relationTo: "tags",
+      hasMany: true,
+      required: true,
+    },
+    {
       name: "content",
       type: "richText",
       editor: lexicalEditor({

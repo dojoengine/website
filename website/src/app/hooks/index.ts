@@ -3,7 +3,7 @@ import { Post } from "../types";
 
 export const getAllPosts = async () => {
   const response = await fetch(
-    process.env.NEXT_PUBLIC_PAYLOAD_CMS + `/api/posts`,
+    process.env.NEXT_PUBLIC_PAYLOAD_CMS + `/api/posts?depth=2`,
   );
 
   const post = await response.json();

@@ -5,6 +5,7 @@ const linkGroups = [
     header: "Dojo",
     links: [
       { text: "Documentation", href: "https://github.com/dojoengine/book" },
+      { text: "Posts", href: "/posts" },
     ],
   },
   {
@@ -42,12 +43,10 @@ export function Links() {
   return (
     <Container>
       <div className="bg-blue gap-8">
-        <div className="grid grid-cols-2 gap-8 font-mono sm:grid-cols-4">
+        <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
           {linkGroups.map((group) => (
             <div key={group.header} className="flex flex-col items-start gap-8">
-              <p className="text-badge-blue  font-mono font-[600]">
-                {group.header}
-              </p>
+              <p className="">{group.header}</p>
               <div className="flex flex-col items-start gap-1">
                 {group.links.map((link) => (
                   <a
