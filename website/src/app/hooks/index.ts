@@ -1,5 +1,5 @@
 import QueryString from "qs";
-import { Post } from "../types";
+import { Event, Post } from "../types";
 
 export const getAllPosts = async () => {
   const response = await fetch(
@@ -9,6 +9,38 @@ export const getAllPosts = async () => {
   const post = await response.json();
 
   return post.docs as Post[];
+};
+
+export const getAllEvents = async () => {
+  const response = await fetch(
+    process.env.NEXT_PUBLIC_PAYLOAD_CMS + `/api/events?depth=2`,
+  );
+
+  const post = await response.json();
+
+  return post.docs as Event[];
+};
+
+export const getEvent = async ({ slug }: { slug: string }) => {
+  const stringifiedQuery = QueryString.stringify(
+    {
+      where: {
+        slug: {
+          equals: slug,
+        },
+      },
+    },
+    { addQueryPrefix: true },
+  );
+
+  const response = await fetch(
+    process.env.NEXT_PUBLIC_PAYLOAD_CMS +
+      `/api/events${stringifiedQuery}&depth=2`,
+  );
+
+  const post = await response.json();
+
+  return post.docs[0] as Event;
 };
 
 export const getPosts = async ({ slug }: { slug: string }) => {

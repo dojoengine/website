@@ -133,6 +133,8 @@ export interface Event {
   slug: string;
   title: string;
   excerpt: string;
+  dateFrom: string;
+  dateTo: string;
   content: {
     root: {
       type: string;

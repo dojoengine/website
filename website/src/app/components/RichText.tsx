@@ -229,7 +229,7 @@ export function Serialize({ nodes }: Props): JSX.Element {
               rel?: string;
               sponsored?: boolean;
               url?: string;
-            } = node.attributes;
+            } = node.fields;
 
             if (attributes.linkType === "custom") {
               const rel = `${attributes?.rel ?? ""} ${attributes?.nofollow ? " nofollow" : ""}`;
@@ -262,6 +262,7 @@ export function Serialize({ nodes }: Props): JSX.Element {
                 alt={""}
                 width={node.value.width}
                 height={node.value.height}
+                className="rounded-2xl border border-white/10"
               />
             );
           }

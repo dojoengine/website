@@ -133,6 +133,8 @@ export interface Event {
   slug: string;
   title: string;
   excerpt: string;
+  dateFrom: string;
+  dateTo: string;
   content: {
     root: {
       type: string;
@@ -149,7 +151,7 @@ export interface Event {
     [k: string]: unknown;
   };
   content_html?: string | null;
-  coverImage: string | Media;
+  coverImage: Media;
   updatedAt: string;
   createdAt: string;
 }

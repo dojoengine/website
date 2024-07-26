@@ -8,11 +8,12 @@ import { Partners } from "./components/contributors/Partners";
 import { Container } from "./components/Container";
 import { Text } from "./components/Text";
 import { PostCardRow } from "./components/posts/PostCardRow";
-import { getAllContributors, getAllPosts } from "./hooks";
+import { getAllContributors, getAllEvents, getAllPosts } from "./hooks";
 import { Button } from "./components/Button";
 import Link from "next/link";
 
 export default async function Home() {
+  console.log(await getAllEvents());
   return (
     <div className="relative">
       <Hero />
@@ -24,7 +25,7 @@ export default async function Home() {
         <Games />
       </div>
 
-      <EventRow />
+      <EventRow events={await getAllEvents()} />
 
       <Container>
         <div className="flex justify-between">

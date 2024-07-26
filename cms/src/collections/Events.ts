@@ -30,6 +30,16 @@ const Events: CollectionConfig = {
       required: true,
     },
     {
+      name: "dateFrom",
+      type: "date",
+      required: true,
+    },
+    {
+      name: "dateTo",
+      type: "date",
+      required: true,
+    },
+    {
       name: "content",
       type: "richText",
       editor: lexicalEditor({
