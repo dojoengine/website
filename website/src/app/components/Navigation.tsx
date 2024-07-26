@@ -6,7 +6,8 @@ import { create } from "zustand";
 import { motion } from "framer-motion";
 import { Socials } from "@/app/components/footer/Links";
 
-import DojoLogo from "@/app/components/icons/dojo-logo.svg";
+import DojoLogo from "@/app/components/icons/dojo-only-icon.svg";
+
 import { useEffect, useState } from "react";
 import Link from "next/link";
 export const useMenuStore = create<{
@@ -71,10 +72,10 @@ export default function Navigation() {
     >
       <div className="flex w-full max-w-[1400px] items-center justify-between rounded-full bg-[rgba(2,21,49,0.3)] px-8 py-4 backdrop-blur-[10px]">
         <Link href="/">
-          <DojoLogo className="w-20 sm:w-28" />
+          <DojoLogo className="w-6 sm:w-6" />
         </Link>
 
-        <div className=" hidden flex-row justify-between gap-2 sm:flex">
+        <div className=" hidden flex-row justify-between gap-2 self-center sm:flex">
           <a href={Socials.Discord} target="_blank">
             <Button variant={"ghost"} size={"icon"}>
               {" "}
