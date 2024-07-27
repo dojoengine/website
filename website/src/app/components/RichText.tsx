@@ -239,6 +239,7 @@ export function Serialize({ nodes }: Props): JSX.Element {
                   href={attributes.url}
                   target={attributes.newTab ? 'target="_blank"' : undefined}
                   rel={rel}
+                  className="text-badge-yellow hover:bg-badge-yellow hover:text-black"
                 >
                   {serializedChildren}
                 </a>

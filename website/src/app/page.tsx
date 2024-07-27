@@ -13,7 +13,6 @@ import { Button } from "./components/Button";
 import Link from "next/link";
 
 export default async function Home() {
-  console.log(await getAllEvents());
   return (
     <div className="relative">
       <Hero />
@@ -42,7 +41,7 @@ export default async function Home() {
         <PostCardRow posts={await getAllPosts()} />
       </Container>
 
-      <div className="bg-gradient-to-b from-[#021531] to-[#1A1479]">
+      <div className="">
         <Contributors
           contributorImages={(await getAllContributors("dojoengine/dojo")).map(
             (contributor) => contributor.avatar_url,

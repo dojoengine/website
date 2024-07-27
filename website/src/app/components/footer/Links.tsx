@@ -1,4 +1,5 @@
 import { Container } from "@/app/components/Container";
+import Link from "next/link";
 
 const linkGroups = [
   {
@@ -6,6 +7,7 @@ const linkGroups = [
     links: [
       { text: "Documentation", href: "https://github.com/dojoengine/book" },
       { text: "Posts", href: "/posts" },
+      { text: "Events", href: "/events" },
     ],
   },
   {
@@ -49,14 +51,14 @@ export function Links() {
               <p className="">{group.header}</p>
               <div className="flex flex-col items-start gap-1">
                 {group.links.map((link) => (
-                  <a
+                  <Link
                     key={link.text}
                     href={link.href}
-                    target="_blank"
+                    // target="_blank"
                     className="text-[#A7C9F8] hover:text-badge-yellow "
                   >
                     {link.text}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>

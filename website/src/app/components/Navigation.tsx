@@ -63,19 +63,17 @@ export default function Navigation() {
 
   return (
     <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: isVisible ? 0 : -100 }}
       transition={{ duration: 0.5 }}
-      className={`transition-padding fixed left-0 right-0 top-0 z-[100] flex justify-center ${isVisible ? "visible" : "invisible"} ${
+      className={`transition-padding fixed left-0 right-0 top-0 z-[100] flex justify-center ${
         decreasedPadding ? "sm:p-4" : "px-2 py-4 sm:p-12"
       }`}
     >
-      <div className="flex w-full max-w-[1400px] items-center justify-between rounded-full bg-[rgba(2,21,49,0.3)] px-8 py-4 backdrop-blur-[10px]">
+      <div className="flex w-full max-w-[1400px] items-center justify-between rounded-3xl bg-[rgba(2,21,49,0.3)] px-8 py-4 backdrop-blur-[10px]">
         <Link href="/">
           <DojoLogo className="w-6 sm:w-6" />
         </Link>
 
-        <div className=" hidden flex-row justify-between gap-2 self-center sm:flex">
+        <div className=" hidden justify-between gap-2 self-center sm:flex sm:flex-row">
           <a href={Socials.Discord} target="_blank">
             <Button variant={"ghost"} size={"icon"}>
               {" "}
