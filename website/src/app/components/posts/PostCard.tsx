@@ -20,8 +20,8 @@ export const PostCard = ({ post }: { post: Post }) => {
         />
         <div className="mt-4 p-3">
           <div className="flex justify-between text-xs uppercase">
-            {post.tags.map((a) => (
-              <Badge size="small" text={a.title} color="red" />
+            {post.tags.map((a, index) => (
+              <Badge key={index} size="small" text={a.title} color="red" />
             ))}
 
             <div className="self-center">
