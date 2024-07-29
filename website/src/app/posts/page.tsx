@@ -32,7 +32,7 @@ export default async function PostsPage() {
   return (
     <Container>
       <Text className="my-8 " textStyle="headline2">
-        Hato
+        Hato: Writings
       </Text>
 
       <PostCardRow posts={await getAllPosts()} />

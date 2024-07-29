@@ -29,7 +29,7 @@ export default async function Home() {
       <Container>
         <div className="flex justify-between">
           <Text className="mb-8 " textStyle="headline2">
-            Hato
+            Hato: Writings
           </Text>
           <Link href={"/posts"}>
             <Button size={"lg"} withArrow variant={"outline"}>
