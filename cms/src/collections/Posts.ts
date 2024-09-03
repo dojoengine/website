@@ -43,6 +43,11 @@ const Posts: CollectionConfig = {
       required: true,
     },
     {
+      name: "email",
+      type: "text",
+      required: true,
+    },
+    {
       name: "content",
       type: "richText",
       editor: lexicalEditor({
