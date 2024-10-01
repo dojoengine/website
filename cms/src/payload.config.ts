@@ -109,5 +109,5 @@ export default buildConfig({
   rateLimit: {
     trustProxy: true,
   },
-  cors: ["http://localhost:3001"],
+  cors: ["*"],
 });
